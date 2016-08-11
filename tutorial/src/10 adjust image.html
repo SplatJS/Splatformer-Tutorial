@@ -1,0 +1,34 @@
+<div class="row">
+
+<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_002.png">
+			<source src="mov/step_002.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
+	</div>
+	<div class="col-xs-12 col-md-6">
+		<p>By default images added to an entity will take on the position and size of the entity. We could fix this by changing the size of the entity to match the image size, or add properties to the image component to make it a specific size. To keep things simple let's change the size of the player entity like this:</p>
+	</div>
+</div>
+
+<div class="row">
+
+<div class="col-xs-12 col-md-6">
+<pre><code class="json">
+{
+"id": 1,
+"name": "player",
+...
+"size": {
+	 "width": 32,
+	 "height": 48
+ },
+...
+}
+</code></pre>
+
+		<p>Now save again and the player should be the correct size, and not stretched.</p>
+	</div>
+	<div class="col-xs-12 col-md-6">
+		<p><img src="img/screenshot_002.png" class="image-responsive" alt="Step 2 screenshot" title="" /></p>
+	</div>
+</div>

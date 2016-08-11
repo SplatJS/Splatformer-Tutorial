@@ -1,106 +1,52 @@
 <!DOCTYPE html>
- <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Splat</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/tutorial.css">
+  <link rel="stylesheet" title="Darcula" href="js/highlight/styles/darcula.css">
 
-        <link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" title="Tomorrow Night Eighties" href="js/highlight/styles/tomorrow-night-eighties.css">
+</head>
+<body>
+  <header class="container-fluid">
+    <a href="http://splatjs.com"><img class="image-responsive" src="img/logo.png"/></a>
+    <h2>Splatformer Tutorial</h2>
+    <em class="sub whiteText">A brief intro to the Splat ECS Game Engine</em>
+  </header>
 
-    </head>
-    <body>
-
-
-<div class="flexrow">
-	<div class="col1-4">
-		<div class="navigation module">
-			<a href="http://splatjs.com"><img class="expand" src="img/logo.png"/></a>
-
-			<ul >
-				<a href="#intro"><li>Intro</li></a>
-				<a href="#gettingStarted"><li>Splat ECS Starter Project</li></a>
-				<a href="#understandingECS"><li>Understanding ECS</li></a>
-				<a href="#images"><li>Using images</li></a>
-				<a href="#keepingOnScreen"><li>Keeping the player on the screen</li></a>
-				<a href="#addingBackground"><li>Adding a background</li></a>
-				<a href="#gravity"><li>Gravity</li></a>
-				<a href="#jumping"><li>Jumping</li></a>
-				<a href="#platforms"><li>Adding platforms</li></a>
-				<a href="#morePlatforms"><li>Adding more platforms</li></a>
-				<a href="#fixJumping"><li>Fixing jumping</li></a>
-				<a href="#animations"><li>Animations</li></a>
-				<a href="#pickups"><li>Pickups!</li></a>
-				<a href="#score"><li>Keeping score</li></a>
-				<a href="#sound"><li>Sound</li></a>
-				<a href="#aspect"><li>Adjusting the aspect ratio</li></a>
-				<a href="#debug"><li>Removing debugging systems</li></a>
-				<a href="#publishing"><li>Sharing and publishing</li></a>
-			</ul>
-
-		</div> <!-- module -->
-	</div> <!-- end col1-4 -->
-<div class="col3-4" style="height: 100vh; overflow-x: scroll; position: relative;">
-<header>
-		<h2>Splatformer Tutorial</h2>
-	<em class="sub whiteText">A brief intro to the Splat ECS Game Engine</em>
-
-</header>
-<div class="content module">
-
-<a name="intro"></a>
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<strong>This tutorial currently uses Splat version 4.1.1</strong>
-			<p>Splat ECS is a free and Open Source game engine project with the goal of making it easy to build games which are native to the web. Splat ECS is 100% JavaScript and all the code you write to create your game is 100% real JavaScript and JSON.
-			This tutorial will guide you through the basics of using Splat ECS and by the end we will have a simple game.</p>
-
-			<strong>In this tutorial you will learn:</strong>
-			<ul>
-				<li>Splat ECS recommended workflow</li>
-				<li>The ECS mindset for building data-driven games</li>
-				<li>Keyboard controls</li>
-				<li>Sprite animation</li>
-				<li>Collision detection / resolution</li>
-				<li>Drawing text to the screen</li>
-				<li>Adding sounds</li>
-			</ul>
-
-		</div>
+  <div class="container-fluid">
+<!-- Intro -->
+<div class="row">
+	<div class="col-xs-12 col-md-6">
+		<strong>This tutorial currently uses Splat version 6.0.0</strong>
+		<p>Splat ECS is a free and Open Source game engine project with the goal of making it easy to build games which are native to the web. Splat ECS is JavaScript and all the code you write to create your game is 100% real JavaScript and JSON. This tutorial will guide you through the basics of using Splat ECS and by the end we will have a simple game.</p>
+		<strong>In this tutorial you will learn:</strong>
+		<ul>
+			<li>Splat ECS recommended workflow</li>
+			<li>The ECS mindset for building data-driven games</li>
+			<li>Keyboard controls</li>
+			<li>Sprite animation</li>
+			<li>Collision detection/resolution</li>
+			<li>Drawing text to the screen</li>
+			<li>Adding sounds</li>
+		</ul>
 	</div>
-	<div class="col1-2">
-		<div class="module">
-			<img src="img/js-html5.png" class="expand"/>
-		</div>
+	<div class="col-xs-12 col-md-6">
+		<img src="img/js-html5.png" class="image-responsive"/>
 	</div>
 </div>
-
-
-
-
-
-<a name="gettingStarted"></a>
-<h2>Splat ECS Starter Project</h2>
-<em class="sub"> Getting started</em>
-
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_015.png">
-				<source src="mov/step_015.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-		</div>
+<div class="row">
+	<div class="col-xs-12 col-md-6">
+		<video class="img-responsive" controls poster="img/screenshot_015.png">
+			<source src="mov/step_015.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
 	</div>
-	<div class="col1-2">
-		<div class="module">
-		<p>Here is a preview of the game we are going to create in this tutorial. The game is a simple platformer where you use arrow keys to move the player and spacebar to jump, the goal is to collect  the green balls littered  throughout the level to increase your score.</p>
-
-		<p>To get started on building our game there is a little bit of setup we need to do first, let's begin.
-		Here is what we need for the setup phase, I will show you how to get each item if you don't already have it.</p>
-
+	<div class="col-xs-12 col-md-6">
+		<p>Here is a preview of the game we are going to create in this tutorial. The game is a simple platformer where you use arrow keys to move the player and spacebar to jump, the goal is to collect the green balls littered throughout the level to increase your score.</p>
+		<p>To get started on building our game there is a little bit of setup we need to do first, let's begin. Here is what we need for the setup phase, I will show you how to get each item if you don't already have it.</p>
 		<ul>
 			<li> Browser</li>
 			<li> Text editor</li>
@@ -108,174 +54,145 @@
 			<li> Node.js</li>
 			<li> Splat ECS Engine</li>
 		</ul>
-		</div>
 	</div>
 </div>
+<!-- Tools / prerequisites -->
+<div class="row">
+	<div class="col-xs-12">
+		<h4>Browser</h4>
+		<p>Since Splat-ECS is for making games that run primarily in the browser, you will need  to have a browser open to preview your game while you are working on it. We recomend <a href="http://google.com/chrome" target="_blank"> Google Chrome</a> or <a href="http://firefox.com" target="_blank">Mozilla Firefox</a>.</p>
+		<h4> Text editor</h4>
+		<p> To write the JavaScript code and JSON data that makes up your game you will need a text editor, if you don't already have a preference, here are some open source recommendations:</p>
+		<ul>
+			<li><a href="https://atom.io/" target="_blank"> Atom</a></li>
+			<li><a href="http://brackets.io/" target="_blank">Brackets</a></li>
+		</ul>
+
+		<h4>Terminal (Command Line)</h4>
+		<p>Splat-ECS uses the Node Package Manager (NPM) to install and update itself, and webpack to let you build and test the game live in your broswer as you code. To use NPM and also the build tool, you will need to use the terminal, sometimes referred to as the Command Line Interface or CLI. If you are unfamiliar with the terminal in your operating system please check out these handy resources:</p>
+		<ul>
+			<li><a href="http://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything" target="_blank"> LifeHacker's - A Command Line Primer for Beginners</a></li>
+			<li>For Windows users you will need to install <a href="http://www.cygwin.com/" target="_blank">Cygwin</a>, which is a free terminal emulator</li>
+		</ul>
+
+		<div class="alert alert-info">
+			<p>Check for the ' <i class="glyphicon glyphicon-console"></i> ' symbol in this tutorial, that means you need to type or copy a command into the terminal.</p>
+		</div>
 
 
-<h4> Browser</h4>
+		<h4>Node.js</h4>
+		<p>It is also required to have Node installed. To check if you have Node installed you can type this command in your terminal <i class="glyphicon glyphicon-console"></i> <code>node -v</code> and hit enter, this should return a version number such as <strong>v6.3.1</strong> or let you know that you don't have Node installed.</p>
 
-<p> Since Splat ECS is for making games that run primarily in the browser, you will need  to have a browser open to preview your game while you are working on it. We recomend <a href="http://google.com/chrome" target="_blank"> Google Chrome</a> or <a href="http://firefox.com" target="_blank">Mozilla Firefox</a>.
+		<p>To install node please refer to the instructions for your operating system here: <a href="https://nodejs.org" target="_blank">nodejs.org</a>.</p>
 
-<h4> Text editor</h4>
+		<h4> Splat ECS Engine</h4>
 
-<p> To write the JavaScript code and JSON data that makes up your game you will need a text editor, if you don't already have a preference, here are some open source recommendations:
-	<ul>
-		<li><a href="https://atom.io/" target="_blank"> Atom</a></li>
-		<li><a href="http://brackets.io/" target="_blank">Brackets</a></li>
-	</ul>
-</p>
+		<p> The engine itself will come with the starter project in the next step below</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-6">
 
-<h4> Terminal (Command Line)</h4>
+		<h2>Splat ECS Starter Project</h2>
+		<h4>Getting started</h4>
 
-<p>Splat ECS uses the Node Package Manager (NPM) to handle all of it's internal modules, and webpack to build and test the game. To use NPM and also the build tool, you will need to use the terminal, sometimes referred to as the Command Line Interface or CLI. If you are unfammiliar with the terminal in your operating system please check out these handy resources:
-	<ul>
-		<li><a href="http://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything" target="_blank"> LifeHacker's - A Command Line Primer for Beginners</a></li>
-		<li>For Windows users you will need to install <a href="http://www.cygwin.com/" target="_blank">Cygwin</a>, which is a free terminal emulator</li>
-	</ul>
-</p>
+		<p><a class="btn btn-default" href="https://github.com/SplatJS/splat-ecs-starter-project/archive/master.zip"><i class="glyphicon glyphicon-file"></i> Download the Splat ECS Starter Project</a></p>
 
-<h4> Node.js</h4>
-<p>It is also required to have Node installed. To check if you have Node installed you can type this command in your terminal <code>node -v</code> and hit enter, this should return a version number such as <strong>v5.3.0</strong> or let you know that you don't have Node installed.
-	<br/>
-	To install node please refer to the instructions for your Operating system here: <a href="https://nodejs.org" target="_blank">nodejs.org</a>.</p>
-<h4> Splat ECS Engine</h4>
-<p> The engine itself will come with the starter project in the next step below</p>
+		<p> The zip file should be called <strong>splat-ecs-starter-project-master.zip</strong>. Unzip this file and you will be left with a folder named <strong>splat-ecs-starter-project-master</strong>, this is where we will start the tutorial project.</p>
 
-<div class="flexrow">
-<div class="col1-2">
-<div class="module">
+		<p>In your terminal navigate into the <strong>splat-ecs-starter-project-master</strong> folder.</p>
 
-<h3>Download the Splat ECS starter project</h3>
+		<i class="glyphicon glyphicon-console"></i> <code>cd /Path/To/splat-ecs-starter-project-master</code>
+
+		<p>Next we will run npm install to install Splat ECS and all of it's modules:</p>
+
+		<i class="glyphicon glyphicon-console"></i> <code>npm install</code>
 
 
-<a class="btn" href="https://github.com/SplatJS/splat-ecs-starter-project/archive/master.zip"><i class="fa fa-file-archive-o"></i>Splat ECS Starter Project</a>
+		<p>This will install all of the game and engine dependencies from NPM &mdash; it can take a couple of minutes. If you see any warning (denoted by <code>npm WARN</code>) this is okay, this just means that a package Splat-ECS uses is out of date it should not effect your game and newer versions of Splat-ECS Starter Project will take care of this issue. You will know <strong>npm install</strong> is finished when the terminal returns to your command prompt (you will see your username).</p>
 
-<p> The zip file should be called <strong>splat-ecs-starter-project-master.zip</strong>. Unzip this file and you will be left with a folder named <strong>splat-ecs-starter-project-master</strong>, this is where we will start the tutorial project.</p>
+	</div>
 
-<p>In your terminal navigate into the <strong>splat-ecs-starter-project-master</strong> folder.
-<pre><code class="bash">
-cd /Path/To/splat-ecs-starter-project-master
-</code></pre>
-Next we will run npm install to install Splat ECS and all of it's modules:
-<pre><code class="bash">
-npm install
-</code></pre>
-</p>
-
-<p>This will install all of the game and engine dependencies from NPM - it can take a couple minutes.</p>
+	<div class="col-xs-12 col-md-6">
+		<img src="img/install.jpg" class="image-responsive"/>
+	</div>
 
 </div>
-</div>
-<div class="col1-2">
-<div class="module">
-<img src="img/install.jpg" class="expand"/>
-</div>
-</div>
-</div>
-
-
-<h3>The development process</h3>
-
+<div class="row">
+	<div class="col-xs-12">
+		<h2>The development process</h2>
 <h4>Trying out the test project</h4>
-
-<p>To run a Splat ECS game all you need to do is type the command:</p>
-
- <pre><code>npm start</code></pre>
-
-<p>while in the root of the project folder.
-This will run webpack, which builds your game and also runs eslint which checks your JavaScript code for errors.</p>
-
+<p>To run a Splat ECS game all you need to do is type the command: <i class="glyphicon glyphicon-console"></i><code>npm start</code> while in the root of the project folder. This will run webpack, which builds your game and also runs eslint which checks your JavaScript code for errors.</p>
+<p><strong>Once you have the webpack server running you simply leave this terminal window open while you work on your game.</strong> Making changes to your game's code and saving them will trigger the webpack server to rebuild the game and your browser will refresh automatically. This is the main workflow you will use while developing your game!</p>
 <div class="alert alert-info">
-<i class="fa fa-file-code-o"></i>
-<strong>A note on code formatting and error checking</strong>
-
-<p>Splat ECS uses <a href="http://eslint.org/" target="_blank">eslint</a> to test your game code before each time you build it, this will prevent errors or straying from the recommended JavaScript formatting rules. When you build your game you may see errors or warnings, errors prevent the game from building and must be addressed before you can continue.</p>
+	<i class="glyphicon glyphicon-exclamation-sign"></i>
+	<strong>A note on code formatting and error checking</strong>
+	<p>Splat ECS uses <a href="http://eslint.org/" target="_blank">eslint</a> to test your game code before each time you build it, this will prevent errors or straying from the recommended JavaScript formatting rules. When you build your game you may see errors or warnings, errors prevent the game from building and must be addressed before you can continue.</p>
 </div>
-
-<p>You should try running your game to make sure it is working before you continue.
-Open a browser and go to http://127.0.0.1:4000 or localhost:4000.</p>
-
-<img src="img/npmstart.jpg" class="expand"/>
-
-<p>The Splat ECS sample game is just a red-outlined square you can control with WASD, or arrow keys.
-Test that this is working and note that if the keys are not working you may need to click inside the browser window to give the game your 'focus'.</p>
-
+<p>You should try running your game to make sure it is working before you continue. When the last line in your terminal reads <strong>'webpack: bundle is now VALID.'</strong> this means webpack is done and now you can open a browser and go to <a href="http://localhost:4000" target="_blank">localhost:4000</a>.</p>
+<img src="img/npmstart.jpg" class="image-responsive"/>
+<p>The Splat ECS sample game is just white screen with a black-outlined square you can control with WASD, or arrow keys. Test that this is working and note that if the keys are not working you may need to click inside the browser window to give the game your 'focus'.</p>
 <p>Now that we have a sample game running we can get started.</p>
-
-
-
-<a name="understandingECS"></a>
-<h2>Understanding ECS</h2>
-<em class="sub">The foundational concepts behind Splat ECS</em>
-
+</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<h2>Understanding ECS</h2>
+<h3>The foundational concepts behind Splat ECS</h3>
 <p>Splat ECS uses an Entity Component system or ECS for short, as the name implies this is a very important part of Splat ECS. ECS is at the core and you will need to understand the ECS mindset while working on your game. But don't worry, you will ease into it and it will begin to become clear to you why ECS was chosen, as it is a very powerful and organized design pattern.</p>
-
-<p>Learn more about Entity Component systems on <a href="https://en.wikipedia.org/wiki/Entity_component_system" target="_blank"> Wikipedia</a>.<p>
-
+<p>Learn more about Entity Component systems on <a href="https://en.wikipedia.org/wiki/Entity_component_system" target="_blank"> Wikipedia</a>.</p>
 <div class="alert alert-success">
-<i class="fa fa-child"></i>
-<strong>Entities</strong>
-
-<p>Represent objects in your game and serve as containers for components.</p>
+	<i class="glyphicon glyphicon-user"></i>
+	<strong>Entities</strong> <p>Represent objects in your game and serve as containers for components.</p>
 </div>
 
 <div class="alert alert-warning">
-<i class="fa fa-list"></i>
-<strong>Components</strong>
-
-<p>Hold related properties of an entity such as position, speed, animation, etc.</p>
+	<i class="glyphicon glyphicon-th-list"></i>
+	<strong>Components</strong> <p>Hold related properties of an entity such as position, speed, animation, etc.</p>
 </div>
 
 <div class="alert alert-danger">
-<i class="fa fa-cogs"></i>
-<strong>Systems</strong>
-
-<p>Code that processes entities which have specific components in order to enact the behaviors those components represent.</p>
+	<i class="glyphicon glyphicon-cog"></i>
+	<strong>Systems</strong> <p>Code that processes entities which have specific components in order to enact the behaviors those components represent.</p>
 </div>
 
 
-<h5>Splat ECS basics</h5>
 
+<h5>Splat ECS basics</h5>
 <ul>
 	<li>All objects in the game that you can interact with should be entities</li>
 	<li>The only way to modify an entity is to edit or delete it's components or add new components</li>
 	<li>Systems run in the game loop (once per frame)</li>
-	<li>Systems are where your JavaScript code will live, and there are two types Renderer and Simulation</li>
+	<li>Systems are where your JavaScript code will live, and there are two types &mdash; Renderer and Simulation</li>
 </ul>
-
-<h4>Working on your game</h4>
-
+</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<h4>Working on your game</h4>
 <p>Let's get into some code.</p>
-
 <p>Everything you will ever edit in your game is inside the <strong>src/</strong> folder.</p>
-
 <p>Let's examine the existing game code for the sample project.</p>
-
-<p>If you remember there was a red outlined square and keyboard controls, how does that work?</p>
-
+<p>If you remember there was a black outlined square and keyboard controls, how does that work?</p>
 <h4>Entities and their Components</h4>
-
-<p>Open <strong>src/data</strong> and you will notice several .json files, these are the core of your game because this is where we will store all of the game's data.</p>
+<p>Open up the game project in your code editor or choice.</p>
+<p>Open <strong>src/data</strong> and you will notice several <strong>.json</strong> files, these are the core of your game because this is where we will store all of the game's data.</p>
 
 
 <div class="alert alert-info">
-<i class="fa fa-th"></i>
-<strong>Data-driven game development</strong>
-
-<p>Much of how the game is set up (players, enemies, items, backgrounds, animations) is stored as data in JSON format.</p>
+	<i class="fa fa-th"></i>
+	<strong>Data-driven game development</strong>
+	<p>Much of how the game is set up (players, enemies, items, backgrounds, animations) is stored as data in JSON format.</p>
 </div>
 
+<p>If you open up <strong>src/data/entities.json</strong> you will see an array of entities called <strong>main</strong>, this is a <strong>scene</strong>. All of the entities contained by the <strong>main</strong> scene are inside the '[ ]'</p>
 
-<p>If you open up <strong>src/data/entities.json</strong> you will see an array of entities inside the '[ ]'</p>
-
-<pre><code class="json">
-{
+<pre><code class="json">{
  "main": [
   {
    "id": 0,
    "name": "camera",
-
+   "camera": true,
    "position": {
     "x": 0,
     "y": 0
@@ -285,7 +202,6 @@ Test that this is working and note that if the keys are not working you may need
   {
    "id": 1,
    "name": "player",
-   "strokeStyle": "red",
    "position": {
     "x": 100,
     "y": 100
@@ -323,1418 +239,1190 @@ Test that this is working and note that if the keys are not working you may need
 }
 </code></pre>
 
-<p>Notice the <code>id</code> of 1, <code>name</code>, <code>strokeStyle</code>, <code>position</code>, <code>size</code>, <code>velocity</code>, <code>playerController2d</code>, <code>movement2d</code>, and <code>friction</code>. This is the player entity, it is just a bucket that holds components and has an id.</p>
+<p>Notice the <code>id</code> of 1, <code>name</code>, <code>position</code>, <code>size</code>, <code>velocity</code>, <code>playerController2d</code>, <code>movement2d</code>, and <code>friction</code>. This is the player entity, it is just a bucket that holds components and has an id.</p>
 
-<p>This is our red-outlined box from before, it is a rectangle that is 100x100 and it's top left corner is drawn at x 100 and y 100 on the screen.
-Everything in our game world is based on coordinates like a graph, the top left point is x:0, y:0 as you move right the x number increases, and as you move down the y number increases.
-The position, and size objects are what we call components in the ECS world, they can be added, edited, or deleted to make an entity have different properties and/or behaviours.</p>
-
-<!-- coordinates graph picture -->
-
+<p>This is our black-outlined box from before, it is a rectangle that is 100x100 and it's top left corner is drawn at coordinate x:100 and y:100 on the screen. Everything in our game world is based on coordinates like a graph, the top left point is x:0, y:0 as you move right the x number increases, and as you move down the y number increases. The <code>position</code>, and <code>size</code> objects are what we call components in the ECS world, they can be added, edited, or deleted to make an entity have different properties and/or behaviours.</p>
 
 <p>The player entity is controllable with WASD or arrow keys, this works using the <code>playerController2d</code> component built into Splat ECS.</p>
-<!-- elaborate ont he keyboard controls -->
 
-
-<p>Splat ECS handles rendering of all entities for us, and by default there is a system called <code>draw-rectangles</code> that will outline each entity in red to let us know where they are. While this system is excellent for debugging, we will want to disable it once we get futher along.</p>
+<p>Splat ECS handles rendering of all entities for us, and by default there is a system called <code>draw-rectangles</code> that will outline each entity in a thin black line to let us know where they are. While this system is excellent for debugging, we will want to disable it once we get futher along.</p>
 
 <h4>Systems</h4>
 
-<p>So we have seen entities and components so far, what about systems?
-Let's open up the <strong>systems</strong> folder and see what is inside.
-In the <strong>systems</strong> folder you will see two other folders named <strong>renderer</strong>, and <strong>simulation</strong>.</p>
+<p>So we have seen entities and components so far, what about systems? Let's open up the <strong>systems</strong> folder and see what is inside. In the <strong>systems</strong> folder you will see two other folders named <strong>renderer</strong>, and <strong>simulation</strong>.</p>
 
-<p>These are the only two types of systems you will need in Splat ECS.
-<strong>Renderer systems</strong> draw to the screen, and <strong>simulation systems</strong> do everything else.</p>
+<p>These are the only two types of systems you will need in Splat ECS. <strong>Renderer systems</strong> draw to the screen, and <strong>Simulation systems</strong> do everything else.</p>
 
-<p>Splat ECS uses the Common JS module format for all system modules you will be creating.
-Let's open the file <strong>src/systems/simulation/sample-simulation-system.js</strong>
-Inside this system we will see how we format our code in Splat ECS.
-Here you will see <pre>module.exports</pre> on line 3, this is the code to export the module for use by the game project and is vital that you wrap your code in this.</p>
-
-<p>You will notice the arguments <pre>ecs</pre> and <pre>game</pre>. Every chunk of system code in Splat ECS is run through the ECS so it must be included - <pre>game</pre> is everything in the data folder which becomes a large JavaScript object when the game is built.</p>
+<p>Splat ECS uses the <a href="http://www.requirejs.org/docs/commonjs.html" target="_blank">Common JS module format</a> for all system modules you will be creating. Let's open the file <strong>src/systems/simulation/sample-simulation-system.js</strong> Inside this system we will see how we format our code in Splat ECS. Here you will see <code>module.exports</code> on line 3, this is the code to export the module for use by the game project and is vital that you wrap your code in this.</p>
+<div class="alert alert-success">
+	<p>Don't get intimidated by the code here, the sample systems are there for you to use as templates that you can copy each time to create your own systems.</p>
+</div>
+<p>You will notice the arguments <code>ecs</code> and <code>game</code>. Every chunk of system code in Splat ECS is run through the ECS so it must be included. <code>game</code> is everything in the data folder which becomes a large JavaScript object when the game is built.</p>
 
 <p>This process might seem overwhelming but it will become easier with time.</p>
 
 <p>So to get started let's add a sprite for our player!</p>
-
-<a name="images"></a>
-<h2>Using images in Splat ECS</h2>
-<em class="sub">Sticky Baby lives!</em>
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_001.png">
-				<source src="mov/step_001.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>To start using images in splat it is as easy as adding them to the <strong>/src/img/</strong> folder!</p>
-
-			<p>First download the assets pack for this game here:</p>
-
-			<a class="btn" href="https://github.com/SplatJS/Splatformer-Tutorial/raw/master/splatformer_assets_pack.zip"><i class="fa fa-file-archive-o"></i>Splatformer Assets Pack</a>
-
-			<p> When you unzip the file you will find two folders, images &amp; sounds, copy all of the images into your game's <strong>/src/img/</strong> and <strong>/src/sounds/</strong>.</p>
-
-			<p>First we should give the player an image, to do this we need to go into <strong>/src/data/entities.json</strong>.
-			Inside <strong>/src/data/entities.json</strong> you will see an array called <code>"main: []"</code> this refers to the main scene. In this tutorial we will only be working in one scene so all of our entities must be in "main". In future tutorials or in your own projects you can create as many scenes as you want and each can have it's own set of entities.</p>
-
-		</div>
-	</div>
 </div>
+</div>
+<div class="row">
 
+	<div class="col-xs-12">
+		<h2>Using images in Splat ECS</h2>
+		<h3>Sticky Baby lives!</h3>
+	</div>
 
+</div><div class="row">
 
-<p>Let's find player in the list on entities and add an <strong>image</strong> to it!
-To add a static image to an entity in Splat ECS you use the <strong>image</strong> component like this:</p>
+	<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_001.png">
+			<source src="mov/step_001.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<p>To start using images in splat it is as easy as adding them to the <strong>/src/img/</strong> folder!</p>
+
+		<p>First download the assets pack for this game here:</p>
+
+		<a class="btn btn-primary" href="https://github.com/SplatJS/Splatformer-Tutorial/raw/master/splatformer_assets_pack.zip"><i class="glyphicon glyphicon-file"></i>Splatformer Assets Pack</a>
+
+		<p> When you unzip the file you will find two folders, images and sounds. Copy all of the images into your game's <strong>/src/img/</strong> folder and all of the included sounds into your game's <strong>/src/sounds/</strong> folder.</p>
+
+		<p>First we should give the player an image, to do this we need to go into <strong>/src/data/entities.json</strong>. Inside <strong>/src/data/entities.json</strong> you will see an array called <code>"main: []"</code> this refers to the main scene. In this tutorial we will only be working in one scene so all of our entities must be in "main". In future tutorials or in your own projects you can create as many scenes as you want and each can have it's own set of entities.</p>
+	</div>
+
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
+		<p>Let's find player in the list on entities and add an <strong>image</strong> to it! To add a static image to an entity in Splat ECS you use the <strong>image</strong> component like this:</p>
 
 <pre><code class="json">
-{
-	...
-	"id": 1,
-	"name": "player",
-	"strokeStyle": "red",
-	<em>"image":{
-	  "name": "player-idle.png"
-  	},</em>
-	...
- }
+...
+"id": 1,
+"name": "player",
+"image":{
+	"name": "player-idle.png"
+},
+"position": {
+	"x": 100,
+	"y": 100
+},
+...
 </code></pre>
 
-<p>Now if you check your browser you should see the red-outlined box now has sticky baby inside it! But something looks wrong... Sticky baby's image is being stretched to the size of the player entity (100x100).</p>
-
-<img src="img/screenshot_001.png" class="expand" alt="Step 1 screenshot" title="" />
-
-<a name="cp1"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 1</h3>
-			<em class="sub">Sticky baby lives!</em>
-		</div>
+		<p>Be sure to save the file and now if you check your browser you should see the black-outlined box now has sticky baby inside it! But something looks wrong... Sticky baby's image is being stretched to the size of the player entity (100x100).</p>
 	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_001/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 1</a>
-		</div>
+
+	<div class="col-xs-12 col-md-6">
+		<img src="img/screenshot_001.png" class="image-responsive" alt="Step 1 screenshot" title="" />
+	</div>
+
+</div>
+<div class="row">
+
+<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_002.png">
+			<source src="mov/step_002.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
+	</div>
+	<div class="col-xs-12 col-md-6">
+		<p>By default images added to an entity will take on the position and size of the entity. We could fix this by changing the size of the entity to match the image size, or add properties to the image component to make it a specific size. To keep things simple let's change the size of the player entity like this:</p>
 	</div>
 </div>
 
+<div class="row">
 
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_002.png">
-				<source src="mov/step_002.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-
-
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>By default images added to an entity will take on the position and size of the entity, to fix this we can change the size of the entity to match the image size, or add properties to the image component to make it a specific size. For this case we want to change the size of the player entity anyway so let's go ahead and do that like this:</p>
-
-		</div>
-	</div>
-</div>
-
+<div class="col-xs-12 col-md-6">
 <pre><code class="json">
 {
-  "id": 1,
-  "name": "player",
-  ...
-  <em>"size": {
-      "width": 32,
-      "height": 48
-  },</em>
-  ...
- }
-</code></pre>
-
-<p>Now the player should be the correct size, and not stretched.</p>
-
-<p><img src="img/screenshot_002.png" class="expand" alt="Step 2 screenshot" title="" /></p>
-
-<a name="cp2"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 2</h3>
-			<em class="sub">Sizing things up</em>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_002/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 2</a>
-		</div>
-	</div>
-</div>
-
-
-
-
-
-
-
-<a name="keepingOnScreen"></a>
-<h2>Keeping the player on the screen</h2>
-<em class="sub">Knowing your boundaries</em>
-
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_003.png">
-				<source src="mov/step_003.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-
-
-
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>The next thing we will work on is keeping the player within the bounds of the screen. For our simple game we will always want the player to stay inside of a playable area of 800 by 800 px. To do this we need to make use of our first additional system. The system we need to add is called <code>constrain-position</code> and it is part of Splat ECS engine so you can use it in any project.</p>
-
-			<h3>Adding a new system</h3>
-
-			<p>To add a new system we have to edit <strong>/src/data/systems.json</strong>, the trickiest thing about systems is ordering them, but we will get into that more later.</p>
-
-			<p>Systems come in two types: <strong>Renderer</strong> and <strong>Simulation</strong>.
-			Since <code>constrain-position</code> has to do with keeping an entity inside a rectangular area (using it's position and size) it is a <strong>Simulation</strong> system. Inside <strong>/src/data/systems.json</strong> you will see a JSON object with two named arrays inside:</p>
-		</div>
-	</div>
-</div>
-
-
-
-<pre><code class="json">
-{
-    "simulation": [...],
-    "renderer": [...]
+"id": 1,
+"name": "player",
+...
+"size": {
+	 "width": 32,
+	 "height": 48
+ },
+...
 }
 </code></pre>
 
-<p>Systems are regular JavaScript files and the references to them in <strong>/src/data/systems.json</strong> are normal file paths. The JSON for adding a system is as follows:</p>
+		<p>Now save again and the player should be the correct size, and not stretched.</p>
+	</div>
+	<div class="col-xs-12 col-md-6">
+		<p><img src="img/screenshot_002.png" class="image-responsive" alt="Step 2 screenshot" title="" /></p>
+	</div>
+</div>
 
+<div class="row">
+	<div class="col-xs-12">
+
+		<h2>Keeping the player on the screen</h2>
+		<h3>Knowing your boundaries</h3>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-12 col-sm-6">
+		<video  class="img-responsive" controls poster="img/screenshot_003.png">
+			<source src="mov/step_003.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<p>The next thing we will work on is keeping the player within the bounds of the screen. For our simple game we will always want the player to stay inside of a playable area of 800 by 800 pixels. To do this we need to make use of our first additional system. The system we need to add is called <code>constrain-position</code> and it is part of the Splat-ECS engine so you can use it in any project.</p>
+
+		<h3>Adding a new system</h3>
+
+		<p>To add a new system we need to open the list of systems used by our game, this file is called <strong>/src/data/systems.json</strong>. Getting the system reference in the correct order is the trickiest thing about systems, but we will get into that more later.</p>
+
+		<p>Systems come in two types: <strong>Renderer</strong> and <strong>Simulation</strong>. The list of systems in   <strong>/src/data/systems.json</strong> is seperated into these two categories. Since <code>constrain-position</code> has to do with keeping an entity inside a rectangular area (using it's position and size) it is a <strong>Simulation</strong> system. Inside <strong>/src/data/systems.json</strong> you will see a JSON object with two named arrays inside:</p>
+	</div>
+</div>
+
+
+<div class="row">
+
+<div class="col-xs-12">
 <pre><code class="json">
-<em>{
-    "name": "splat-ecs/lib/systems/constrain-position",
-    "scenes": [
-        "main"
-    ]
-}</em>
+{
+	"simulation": [...],
+	"renderer": [...]
+}
 </code></pre>
 
-<p><code>"name"</code> is the path to the system JavaScript file, if it is a built in splat system it will begin with <strong>splat-ecs/lib/systems/</strong>, if it's your own system it will be either <strong>./systems/simulation/your-system-here</strong> or <strong>./systems/renderer/your-system-here</strong>. <!--To see a list of all available built-in Splat ECS systems and what they do click here: (Splat ECS Default Systems)[]--></p>
+		<p>Systems are regular JavaScript files and the references to them in <strong>/src/data/systems.json</strong> are normal file paths.</p>
 
-<p>So let's add the <code>constrain-position</code> system reference after <code>box-collider</code>, here is what that will look like:</p>
+		<p>Each system has a couple of parts: <code>"name"</code> is the path to the system JavaScript file. If it is a built-in Splat-ECS system it will begin with <strong>splat-ecs/lib/systems/</strong>, if it's your own system it will be either <strong>./systems/simulation/your-system-here</strong> or <strong>./systems/renderer/your-system-here</strong>. </p>
+
+		<p><code>"scenes"</code> can be either an array '[]' of scene names to include this system in, or the keyword <code>"all"</code> to enable this system on all scenes.</p>
+
+		<p>So let's add the <code>constrain-position</code> system reference after <code>box-collider</code>. Here is what that will look like:</p>
+
 
 <pre><code class="json">
-...
     {
-        "name": "splat-ecs/lib/systems/box-collider",
-        "scenes": [
-            "main"
-        ]
+      "name": "splat-ecs/lib/systems/constrain-position",
+      "scenes": "all"
     },
-    <em>{
-        "name": "splat-ecs/lib/systems/constrain-position",
-        "scenes": [
-            "main"
-        ]
-    },</em>
-    {
-        "name": "./systems/simulation/sample-simulation-system",
-        "scenes": [
-            "main"
-        ]
-    }
-...
 </code></pre>
 
-<p>Before we can add the <code>constrainPosition</code> component to the player entity, we need another entity to contain it, for this we will create a new entity in `/src/data/entities.json` beneath the player entity.</p>
+		<p>Next we need to add the <code>constrainPosition</code> component to the player entity, but before we do that we need another entity with a position and size so it can act as an invisible boundary to contain the player, for this we will create a new entity in <strong>/src/data/entities.json</strong> after the player entity.</p>
 
 <pre><code class="json">
-	{
-		"id": 1,
-		"name": "player",
-		...
-<em>	},
-	{
-		"id": 2,
-		"position": {
-			"x": 0,
-			"y": 0
-		},
-		"size": {
-			"width": 800,
-			"height": 800
-		}
-	}</em>
+{
+  "id": 2,
+  "position": {
+    "x": 0,
+    "y": 0
+  },
+  "size": {
+    "width": 800,
+    "height": 800
+  }
+}
 </code></pre>
 
-<p>Since the playable area we are defining above in <code>"id": 2</code> is 800 by 800 px, we need to make sure the game is scaled to fit proportionally in the canvas. To do this we need to add one line to <strong>src/scripts/main-enter.js</strong>, this is a special method that will tell Splat ECS the size we want our game to be.
+
+
+</div>
+
+</div><div class="row">
+
+<div class="col-xs-12 col-md-6">
+	<p>Since the playable area we are defining above in <code>"id": 2</code> is 800 by 800 pixels, we need to make sure the game is scaled to fit proportionally in the canvas. To do this we need to add the line <code>game.scaleCanvasToFitRectangle(800,800);</code> to <strong>src/scripts/main-enter.js</strong>, this is a special method that will tell Splat-ECS the size we want our game to be.</p>
 
 <pre><code class="javascript">
 "use strict";
 
 module.exports = function(game) { // eslint-disable-line no-unused-vars
-	<em>game.scaleCanvasToFitRectangle(800,800);</em>
+	game.scaleCanvasToFitRectangle(800,800);
 };
 </code></pre>
 
-<p>There is one more thing we need to do to make <code>constrain-position</code> work, that is tell it which entity to constrain, and which entity we want to keep it inside of, which in our case is the entity with the id 2 that we jsut created. To do this we need to revisit <strong>src/data/entities.json</strong> and add this to component and properties to the player:</p>
+				<p>There is one more thing we need to do to make <code>constrain-position</code> work, that is tell it which entity to constrain, and which entity we want to keep it inside of, which in our case is the entity with the id 2 that we just created. To do this we need to revisit <strong>src/data/entities.json</strong> and add this component to the player:</p>
 
 <pre><code class="json">
-<em>"constrainPosition": {
-    "id": 2
-}</em>
+	"constrainPosition": {
+		"id": 2
+	}
 </code></pre>
 
-<p>Check the game in the browser. Now you should stop at an invisible wall when you hit the edges of the 800x800 rectangle.</p>
+				<p>Make sure everything is saved and check the game in the browser. Now you should stop at an invisible wall when you hit the edges of the 800x800 rectangle.</p>
 
-<p><img src="img/screenshot_003.png" class="expand" alt="Step 3 screenshot" title="" /></p>
-
-<a name="cp3"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 3</h3>
-			<em class="sub">Knowing your boundaries</em>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_003/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 3</a>
-		</div>
-	</div>
 </div>
-
-
-
-
-
-
-<a name="addingBackground"></a>
-<h2>Adding a background</h2>
-<em class="sub">A change of scenery</em>
-
-
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_004.png">
-				<source src="mov/step_004.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
+			<div class="col-xs-12 col-md-6">
+				<img src="img/constrain-position.png" class="image-responsive" alt="constrain-position Splat-ECS" title="" />
+			</div>
 		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-		<p>It is a bit hard to see where the playable area ends, so let's go ahead and add a simple background image to our game. This is really easy because Splat ECS handles all the drawing of entities with images for us. Let's take the entity with the <code>"id": 2</code> that we just created in the last step and add a couple of new components to it. Open up <strong>src/data/entities.json</strong> again and add the following:</p>
-		</div>
-	</div>
-</div>
+<div class="row">
 
+	<div class="col-xs-12">
+		<h2>Adding a background</h2>
+		<h3>A change of scenery</h3>
+	</div>
 
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_004.png">
+			<source src="mov/step_004.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<p>It is a bit hard to belive that our hero Sticky Baby lives in such a bleak world, so let's go ahead and add a simple background image to our game. This is really easy because Splat ECS handles all the drawing of entities with images for us. Let's take the entity with the <code>"id": 2</code> that we just created in the last step and add a couple of new components to it. Open up <strong>src/data/entities.json</strong> again and add <code>"name"</code>,<code>"position"</code>, and <code>"image"</code>:</p>
+	</div>
+
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
 <pre><code class="json">
-...
-{
+	{
     "id": 2,
-    <em>"name": "background",</em>
+    "name": "background",
     "position": {
-        "x": 0,
-        "y": 0
+      "x": 0,
+      "y": 0
     },
     "size": {
-        "width": 800,
-        "height": 800
-    <em>},
+      "width": 800,
+      "height": 800
+    },
     "image": {
-        "name": "sky.png"
-    }</em>
-}
-...
+      "name": "sky.png"
+    }
+	}
 </code></pre>
 
-<p>The <code>name</code> component is really just for us as developers to know which entity we are looking at. The engine, on the other hand, knows each entity by it's id. <code>"position"</code> is the x &amp; y coordinates of where to start drawing that entity, in this case 0,0 is the top left of the game canvas. <code>"size"</code> is the size of the background, and <code>"image"</code> contains a property for the name of the background image.</p>
+				<p>The <code>name</code> component is really just for us as developers to know which entity we are looking at. The engine, on the other hand, knows each entity by it's id. <code>"position"</code> is the x &amp; y coordinates of where to start drawing that entity, in this case 0,0 is the top left of the game canvas. <code>"size"</code> is the size of the background, and <code>"image"</code> contains a property for the name of the background image.</p>
 
-<p>Now we should see a background with rolling green hills, a deep blue sky, and fluffy white clouds for our game, just the way sticky baby likes it!</p>
+				<p>Now we should see a background with rolling green hills, a deep blue sky, and fluffy white clouds for our game, just the way sticky baby likes it!</p>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<img src="img/background-image.png" class="image-responsive" alt="background image Splat-ECS game engine"/>
+			</div>
 
-<p><img src="img/screenshot_004.png" class="expand" alt="Step 4 screenshot" title="" /></p>
-
-<a name="cp4"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 4</h3>
-			<em class="sub">A change of scenery</em>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_004/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 4</a>
-		</div>
-	</div>
 </div>
+<div class="row">
 
+  <div class="col-xs-12">
+    <h2>Gravity</h2>
+    <h3>Weighing you down</h3>
+  </div>
 
+</div><div class="row">
 
+  <div class="col-xs-12 col-md-6">
+    <video  class="img-responsive" controls poster="img/screenshot_005.png">
+      <source src="mov/step_005.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+    </video>
+  </div>
 
-
-
-<a name="gravity"></a>
-<h2>Gravity</h2>
-<em class="sub">Weighing you down</em>
-
-
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_005.png">
-				<source src="mov/step_005.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>Another staple of platformer games is gravity, in Splat ECS gravity is simply a force applied down on entities, this will be the first time we get to create our own system.</p>
-
-			<p>Before we add our system we need to set a gravity component on the player, we do this by adding:</p>
-
-		</div>
-	</div>
-</div>
-
-
+  <div class="col-xs-12 col-md-6">
+    <p>Another staple of platformer games is gravity, in Splat-ECS gravity can be simulated simply by creating a force applied downward on entities, to do this we can use the built-in system <strong>apply-acceleration</strong></p>
+    <h3>appy-acceleration</h3> is a system that acts on anything with <strong>"acceleration"</strong> and <strong>"velocity"</strong> components. Our player entity already has <strong>"velocity"</strong> so we only need to add:
 <pre><code class="json">
-"gravity": 0.02,
+  "acceleration": {
+    "x": 0,
+    "y": 0.2
+  },
 </code></pre>
-You can add this anywhere in the player entity, but I added it after <code>"velocity:{}"</code> since it will effect the velocity.</p>
 
-<p>Your player entity should now look like this:</p>
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12">
+    <p>You can add this anywhere in the player entity, but I added it after the <code>"velocity:{}"</code> component since it will effect the player's velocity.</p>
+
+    <p>Your player entity should now look like this:</p>
 
 <pre><code class="json">
-{
+  {
     "id": 1,
     "name": "player",
-    "strokeStyle": "red",
     "image":{
-        "name": "player-idle.png"
+      "name": "player-idle.png"
     },
     "position": {
-        "x": 100,
-        "y": 100
+      "x": 100,
+      "y": 100
     },
     "size": {
-        "width": 32,
-        "height": 48
+      "width": 32,
+      "height": 48
     },
     "velocity": {
-        "x": 0,
-        "y": 0
+      "x": 0,
+      "y": 0
     },
-<em>"gravity": 0.02,</em>
+    "acceleration": {
+      "x": 0,
+      "y": 0.2
+    },
     "playerController2d": {
-        "up": "up",
-        "down": "down",
-        "left": "left",
-        "right": "right"
+      "up": "up",
+      "down": "down",
+      "left": "left",
+      "right": "right"
     },
     "movement2d": {
-        "upMax": -0.5,
-        "downMax": 0.5,
-        "leftMax": -0.5,
-        "rightMax": 0.5,
-        "upAccel": -0.02,
-        "downAccel": 0.02,
-        "leftAccel": -0.02,
-        "rightAccel": 0.02
+      "upMax": -0.5,
+      "downMax": 0.5,
+      "leftMax": -0.5,
+      "rightMax": 0.5,
+      "upAccel": -0.02,
+      "downAccel": 0.02,
+      "leftAccel": -0.02,
+      "rightAccel": 0.02
     },
     "friction": {
-        "x": 0.97,
-        "y": 0.97
+      "x": 0.97,
+      "y": 0.97
     },
     "constrainPosition": {
-        "x": 0,
-        "y": 0,
-        "width": 800,
-        "height": 800
+      "id": 2
     }
-}
+  },
 </code></pre>
 
-<p>Inside of <strong>src/systems/simulation</strong> there will be a file named <strong>sample-simulation-system.js</strong> open that file up in your editor, we are going to modify this to create a system that handles gravity.</p>
-
-<p>Inside the <strong>src/systems/simulation/sample-simulation-system.js</strong> file you will notice the word "player" on line 5, this is letting the ECS know which entities to apply this system to, in this particular case it will apply your code to any entities with a component named "player".</p>
-
-<p>The first step will be to change this, we want to apply this system to anything with a "gravity" component.</p>
-
-<p>Inside the ecs.addEach function you will need to get the velocity of the entity, and it's gravity. The reason I am setting the value for gravity on the player entity is so we can tweak the gravity per entity later.</p>
-
-<p>Let's add two variables inside our system, one to store the player's velocity, and one to store the player's gravity.
-To get values out of the entity's components in Splat ECS we use the <code>get</code> method. Since everything in the entity pool has a unique ID, the ID is what we use to tell Splat ECS which entity we are looking for. Since the system is applying the code to each entity with a "gravity" component it acts a lot like a loop, the "entity" attribute on line 4 is the id of the current entity it is running on.</p>
-
-<p>So let's go ahead and add those two variables with <code>get</code>:</p>
-
-<pre><code class="javascript"><em>
-	var velocity = game.entities.get(entity, "velocity");
-	var gravity = game.entities.get(entity, "gravity");
-</em></code></pre>
-
-<p>Once we have those two variables we need to run some code that will apply gravity to the player entity's y velocity (since gravity is a downward force.)</p>
-
-<p>The code we will use is:</p>
-
-<pre><code class="hljs javascript">
-<em>velocity.y += gravity;</em>
-</code></pre>
-
-<p> We are using += to add gravity because higher numbers on the y axis are lower on the screen.</p>
-
-<p>So here is what the entire file should look like:</p>
-
-<pre><code class="hljs javascript">
-<em>"use strict";
-
-module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
-    ecs.addEach(function(entity, elapsed) { // eslint-disable-line no-unused-vars
-        var velocity = game.entities.get(entity, "velocity");
-        var gravity = game.entities.get(entity, "gravity");
-        velocity.y += gravity;
-    }, "gravity");
-};</em>
-</code></pre>
-
-<p>Now save the file and let's rename it to <strong>gravity.js</strong>. Since we changed the name of the system, you guessed it - we need to change the reference in <strong>src/data/systems.json</strong></p>
-
-Before:
-<pre><code class="json">
-{
-	<em class="remove">"name": "./systems/simulation/sample-simulation-system",</em>
-	"scenes": [
-	    "main"
-	]
-}
-</code></pre>
- After:
-<pre><code class="json">
-{
-	<em>"name": "./systems/simulation/gravity",</em>
-	"scenes": [
-	    "main"
-	]
-}
-</code></pre>
-
-<p>Now check the game in your browser, if everything was done correctly the player should fall out of the sky and land on the bottom of the screen, you can still of course move left and right.</p>
-
-<p><img src="img/screenshot_005.png" class="expand" alt="Step 5 screenshot" title="" /></p>
-
-<a name="cp5"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 5</h3>
-			<em class="sub">Weighing you down</em>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_005/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 5</a>
-		</div>
-	</div>
 </div>
 
+</div><div class="row">
 
+  <div class="col-xs-12 col-md-6">
+    <p>Now all we need to do is add a reference to <strong>apply-acceleration</strong> in <strong>src/data/systems.json</strong> I would reccoment adding it under apply-velocity</p>
+    <pre><code class="json">
+      {
+        "name": "splat-ecs/lib/systems/apply-acceleration",
+        "scenes": "all"
+      },
+    </code></pre>
+    <p>Now check the game in your browser, if everything was done correctly the player should fall out of the sky and land on the bottom of the screen, you can still of course move left and right.</p>
+  </div>
 
+  <div class="col-xs-12 col-md-6">
+    <img src="img/gravity.png" class="image-responsive" alt="gravity - Splat-ECS game engine" title="" />
+  </div>
 
-
-
-
-<a name="jumping"></a>
-<h2>Jumping</h2>
-<em class="sub">A leap of faith</em>
-
-
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_006.png">
-				<source src="mov/step_006.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>To add jumping we will first need to add a jump button in the game's list for usable inputs. Splat ECS uses virtual buttons so you can name a button "action" or "jump" or whatever you like and assign as many keyboard keys to it as you like.</p>
-
-			<h3>Adding a new input</h3>
-
-			<p>To add a new input you will need to edit <strong>src/data/inputs.json</strong>
-			inside the file you will see inputs for the up, down, right, and left buttons. We can add a jump button at the bottom by adding this before the closing bracket:</p>
-
-		</div>
-	</div>
 </div>
+<div class="row">
 
+  <div class="col-xs-12">
+    <h2>Jumping</h2>
+    <h3>A leap of faith</h3>
+  </div>
 
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
+    <video  class="img-responsive" controls poster="img/screenshot_006.png">
+      <source src="mov/step_006.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+    </video>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <p>To add jumping we will first need to add a jump button in the game's list for usable inputs. Splat ECS uses virtual buttons so you can name a button "action" or "jump" or whatever you like and assign as many keyboard keys to it as you like.</p>
+    <h3>Adding a new input</h3>
+    <p>To add a new input you will need to edit <strong>src/data/inputs.json</strong> inside the file you will see inputs for the up, down, right, and left buttons. We can add a jump button at the top above "up" by adding this JSON:</p>
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
 <pre><code class="json">
-<em>"jump": {
-    "type": "button",
-    "inputs": [{
-        "device": "keyboard",
-        "key": "space"
-    }]
-}</em>
+  "jump": [
+    {
+      "device": "keyboard",
+      "button": "space"
+    }
+  ],
 </code></pre>
+  </div>
 
-<p>By changing "key" you can map jump to any keyboard key.</p>
+  <div class="col-xs-12 col-md-6">
+    <p>By changing "key" you can map jump to any keyboard key.</p>
+    <div class="alert alert-success">
+      <strong>Splat-ECS supports controllers!</strong>
+      <p>Just like <strong>"keyboard"</strong>, you can use <strong>"gamepad"</strong> as a device type in <strong>src/data/inputs.json</strong> you can use <strong>"a"</strong> for the jump button and try it out on your usb controllwer of choice!</p>
+    </div>
+  </div>
 
-<p>Now that we have added a new input we can create a new system for jumping. create a new file in the <strong>src/systems/simulation</strong> folder and name it <strong>jump.js</strong></p>
+</div><div class="row">
 
-<p>Here is the code for a very basic jumping system:</p>
+  <div class="col-xs-12 col-md-6">
+    <p>Now that we have added a new input we can create a new system for jumping. create a new file in the <strong>src/systems/simulation</strong> folder and name it <strong>jump.js</strong></p>
+    <p>Inside of <strong>src/systems/simulation</strong> there will be a file named <strong>sample-simulation-system.js</strong> this is a sample system that acts as a useful template for creating your own systems. Duplicate this file and rename it <strong>jump.js</strong></p>
+    <div class="alert alert-success">
+      <strong>Pro tip</strong>
+      <p>Leaving both the <strong>sample-simulation-system.js</strong> and <strong>sample-rendering-system.js</strong> in your project will save you time when you create new systems, they are handy templates!</p>
+    </div>
+    <p>Inside the <strong>src/systems/simulation/jump.js</strong> file you just created you will notice the word <code>"playerController2d"</code> on line 5, this is letting the ECS know which entities to apply this system to, in this particular case it will apply your code to any entities with a component named <code>"playerController2d"</code>.</p>
+    <p>Let's add a variable inside our system to store the player's velocity. To get values out of the entity's components in Splat ECS we use the get method. Since everything in the entity pool has a unique ID, the ID is what we use to tell Splat ECS which entity we are looking for. Since the system is applying the code to each entity with a <code>"playerController2d"</code> component it acts a lot like a loop, the "entity" attribute on line 4 is the id of the current entity it is running on. </p>
+  </div>
 
+  <div class="col-xs-12 col-md-6">
+    <strong>src/systems/simulation/jump.js</strong>
 <pre><code class="javascript">
-<em>"use strict";
+  "use strict";
 
-module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
-	ecs.addEach(function jump(entity, elapsed) { // eslint-disable-line no-unused-vars
-		var velocity = game.entities.get(entity, "velocity");
+  module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
+  	ecs.addEach(function jump(entity, elapsed) { // eslint-disable-line no-unused-vars
+  		var velocity = game.entities.get(entity, "velocity");
 
-		if (game.inputs.buttonPressed("jump")) {
-			velocity.y  = -1.2;
-		}
+  		if (game.inputs.buttonPressed("jump")) {
+  			velocity.y  = -1.2;
+  		}
 
-	}, "playerController2d");
+  	}, "playerController2d");
 
-};</em>
+  };
+
 </code></pre>
+  </div>
 
-<p>Similar to how the gravity system we created earlier looked for entities with the "gravity" component, you can see the ecs.addEach function is looking for entities with the "player" component.</p>
+</div><div class="row">
 
-<p>Inside the function we are making a variable for the player's velocity on line 5, and then on line 7 we are checking if the "jump" button is pressed.</p>
+  <div class="col-xs-12">
+    <p>Inside the function we are making a variable for the player's velocity on line 5, and then on line 7 we are checking if the "jump" button is pressed.</p>
+    <p>There are 3 different <strong>game.input</strong> methods we can use,</p>
+    <ul>
+      <li><strong>game.inputs.button("name-here")</strong> true if button is currently down (each frame).</li>
+      <li><strong>game.inputs.buttonPressed("name-here")</strong> true for one frame at the beginning of the button press.</li>
+      <li><strong>game.inputs.buttonReleased("name-here")</strong> true for one frame when the button is released.</li>
+    </ul>
+    <p>The reason I chose <code>buttonPressed</code> is because it will only jump once when the button is first pressed instead of continually jumping.</p>
+    <p>Inside the if block where we are checking the button notice this bit of code: <code>velocity.y  = -1.2; </code>. The reason we are setting the velocity y (up/down axis) to -1.2 is so the player will go up, the 'gravity' we created earlier with <strong>apply-acceleration</strong> will take care of bringing the player back down to earth and the whole process happens again the next time the jump button is pressed.</p>
+  </div>
 
-<p>There are 3 different game.input methods we can use,</p>
+</div><div class="row">
 
-<ul>
-<li>game.inputs.button("name-here") true if button is currently down (each frame).</li>
-<li>game.inputs.buttonPressed("name-here") true for one frame at the beginning of the button press.</li>
-<li>game.inputs.buttonReleased("name-here") true for one frame when the button is released.</li>
-</ul>
-
-<p>The reason I chose <code>buttonPressed</code> is because it will only jump once when the button is first pressed instead of continually jumping.</p>
-
-<p>Inside the if block where we are checking the button is this bit of code:</p>
-
-<pre><code class="javascript">
-velocity.y  = -1.2;
-</code></pre>
-
-<p>The reason we are setting the velocity y (up/down axis) to -1.2 is so the player will go up, gravity will take care of bringing the play back down to earth and the whole process happens again the next time the jump button is pressed.</p>
-
-<p>Next we need to register this system in <strong>src/data/systems.json</strong> inside the <code>"simulation": []</code> array because it is a simulation system. We can add it using the following:</p>
-
+  <div class="col-xs-12 col-md-6">
+    <p>Next we need to register this system in <strong>src/data/systems.json</strong> inside the <code>"simulation": []</code> array because it is a simulation system. We can add it using the following:</p>
 <pre><code class="json">
-<em>{
-   "name": "./systems/simulation/jump",
-   "scenes": [
-       "main"
-   ]
-}</em>
+{
+  "name": "./systems/simulation/jump",
+  "scenes": "all"
+},
 </code></pre>
-
-<p>I recommend adding it before <code>control-player</code>.</p>
-
-<p>We also need to adjust the vertical friction (to disable it actually). To do this we need to set the player entity's friction y to 1:</p>
-
+    <p>I recommend adding it before <code>control-player</code>.</p>
+    <p>We also need to adjust the vertical friction (to disable it actually). To do this we need to set the player entity's friction y to 1:</p>
 <pre><code class="json">
-"friction": {
+  "friction": {
     "x": 0.97,
-<em>"y": 1</em>
-}
+    "y": 1
+  },
 </code></pre>
+    <p>Now when you view your game in the browser your player will be able to jump when space is pressed. You will probably notice that if you continue to jump you can jump in mid-air, we will fix this later. Now for the element that makes this game a platformer more than anything... platforms!</p>
+  </div>
 
-<p>Now when you view your game in the browser your player will be able to jump when space is pressed. You will probably notice that if you continue to jump you can jump in mid-air, we will fix this later. Now for the element that makes this game a platformer more than anything... platforms!</p>
+  <div class="col-xs-12 col-md-6">
+    <img src="img/jumping.png" class="image-responsive" alt="jumping! - Splat-ECS game engine" title="" />
+  </div>
 
-<p><img src="img/screenshot_006.png" class="expand" alt="Step 6 screenshot" title="" /></p>
-
-<a name="cp6"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 6</h3>
-			<em class="sub">A leap of faith</em>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_006/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 6</a>
-		</div>
-	</div>
 </div>
+<div class="row">
+
+  <div class="col-xs-12">
+
+    <h2>Adding platforms</h2>
+    <h3>A firm foundation</h3>
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
+    <video  class="img-responsive" controls poster="img/screenshot_007.png">
+      <source src="mov/step_007.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+    </video>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <p>Let's start by adding ground, we can do this simply by creating a new entity.</p>
+    <p>Let's add this entity to <strong>src/data/entities.json</strong>:</p>
+    <pre><code class="json">
+      {
+        "id": 4,
+        "position": {
+          "x": 0,
+          "y": 736
+        },
+        "size": {
+          "width": 800,
+          "height": 64
+        },
+        "collisions": [],
+        "image":{
+          "name":"ground.png"
+        }
+      }
+    </code></pre>
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-8">
+    <p>When you check your game in the browser, you will notice that the player falls right through the ground, that's because we do not have any code in place to handle collisions - or more importantly the resolution of collisions.</p>
+
+    <h3>Collision resolution</h3>
+
+    <p>This is code you specify to do something only when two entities are colliding. The collision resolution we want for our game is for the player to be pushed back one pixel if the player enters any of the game's platforms. Pushing the player away by one pixel will keep the player "standing" on top of the platform entity.</p>
+    <p>To resolve collisions we need two new systems, <code>track-last-position</code> and <code>resolve-collisions</code>, both of which we will need to add manually to our project.</p>
+
+    <p><code>track-last-position</code> runs each frame on every entity with a position and records it in a component called "lastPosition". This is important for knowing what position to restore the entity to after it intersects another.</p>
+  </div>
+  <div class="col-xs-12 col-md-4">
+
+    <img src="img/collision-resolution.png" class="image-responsive"/>
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
 
 
+    <p>To add the <code>track-last-position</code> system we need to create a new file in <strong>src/systems/simulation/</strong> named <strong>track-last-position.js</strong>, the contents of this file should be:</p>
 
+    <pre><code class="javascript">
+      "use strict";
 
+      module.exports = function(ecs, data) { // eslint-disable-line no-unused-vars
+        ecs.addEach(function trackLastPosition(entity, elapsed) { // eslint-disable-line no-unused-vars
+          var position = data.entities.get(entity, "position");
+          data.entities.set(entity, "lastPosition", { x: position.x, y: position.y });
+        }, "position");
+      };
+    </code></pre>
+  </div>
 
+  <div class="col-xs-12 col-md-6">
+    <p>We will also need to register this system in <strong>src/data/systems.json</strong>, I recommend adding it right before <code>match-canvas-size</code>  in the <code>"simulation":[]</code> array.</p>
 
-
-<a name="platforms"></a>
-<h2>Adding platforms</h2>
-<em class="sub">A firm foundation</em>
-
-
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_007.png">
-				<source src="mov/step_007.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-
-
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>Let's start by adding ground, we can do this simply by creating a new entity.</p>
-
-			<p>Let's add this entity to <strong>src/data/entities.json</strong>:</p>
-		</div>
-	</div>
-</div>
-
-
-
-<pre><code class="json">
-<em>{
-    "id": 4,
-
-    "position": {
-        "x": 0,
-        "y": 736
-    },
-    "size": {
-        "width": 800,
-        "height": 64
-    },
-    "collisions": [],
-    "image":{
-        "name":"ground.png"
-    }
-}</em>
-</code></pre>
-
-<p>When you check your game in the browser, you will notice that the player falls right through the ground, that's because we do not have any code in place to handle collisions - or more importantly the resolution of collisions.</p>
-
-<h3>Collision resolution</h3>
-
-<ul>
-<li>This is code you specify to do something only when two entities are colliding. The collision resolution we want for our game is for the player to be pushed back one pixel if the player enters any of the game's platforms. Pushing the player away by one pixel will keep the player "standing" on top of the platform entity.</li>
-</ul>
-
-<p>To resolve collisions we need two new systems, <code>track-last-position</code> and <code>resolve-collisions</code>, both of which we will need to add manually to our project.</p>
-
-<p><code>track-last-position</code> runs each frame on every entity with a position and records it in a component called "lastPosition". This is important for knowing what position to restore the entity to after it intersects another.</p>
-
-<p>To add the <code>track-last-position</code> system we need to create a new file in <strong>src/systems/simulation/</strong> named <strong>track-last-position.js</strong>, the contents of this file should be:</p>
-
-<pre><code class="javascript">
-<em>"use strict";
-
-module.exports = function(ecs, data) { // eslint-disable-line no-unused-vars
-	ecs.addEach(function trackLastPosition(entity, elapsed) { // eslint-disable-line no-unused-vars
-		var position = data.entities.get(entity, "position");
-		data.entities.set(entity, "lastPosition", { x: position.x, y: position.y });
-	}, "position");
-};</em>
-</code></pre>
-
-<p>We will also need to register this system in <strong>src/data/systems.json</strong>, I recommend adding it right before <code>match-canvas-size</code>  in the <code>"simulation":[]</code> array.</p>
-
-<pre><code class="json">
-<em>{
-    "name": "./systems/simulation/track-last-position",
-    "scenes": [
+    <pre><code class="json">
+      {
+        "name": "./systems/simulation/track-last-position",
+        "scenes": [
         "main"
-    ]
-}</em>
-</code></pre>
+        ]
+      }
+    </code></pre>
 
-<p>Every time you add a new system you should check to make sure everything is working, so go ahead and look at the game in your browser and make sure everything is working. Nothing should have changed yet, but just be sure there are no new typos or bugs.</p>
+    <p>Every time you add a new system you should check to make sure everything is working, so go ahead and look at the game in your browser and make sure everything is working. Nothing should have changed yet, but just be sure there are no new typos or bugs.</p>
+  </div>
 
-<p>Next we need to do the same for <code>resolve-collisions</code>, create a new file in <strong>src/systems/simulation/</strong> named <strong>resolve-collisions.js</strong>, the contents of this file should be:</p>
+</div><div class="row">
+
+  <div class="col-xs-12">
+    <p>Next we need to do the same for <code>resolve-collisions</code>, create a new file in <strong>src/systems/simulation/</strong> named <strong>resolve-collisions.js</strong>, the contents of this file should be:</p>
 
 <pre><code class="javascript">
-<em>"use strict";
+  "use strict";
 
-function wasLeft(entityLastPosition, entitySize, otherPosition) {
-	return entityLastPosition.x + entitySize.width <= otherPosition.x;
-}
-function wasRight(entityLastPosition, otherPosition, otherSize) {
-	return entityLastPosition.x >= otherPosition.x + otherSize.width;
-}
-function wasAbove(entityLastPosition, entitySize, otherPosition) {
-	return entityLastPosition.y + entitySize.height <= otherPosition.y;
-}
-function wasBelow(entityLastPosition, otherPosition, otherSize) {
-	return entityLastPosition.y >= otherPosition.y + otherSize.height;
-}
+  function wasLeft(entityLastPosition, entitySize, otherPosition) {
+    return entityLastPosition.x + entitySize.width <= otherPosition.x;
+  }
+  function wasRight(entityLastPosition, otherPosition, otherSize) {
+    return entityLastPosition.x >= otherPosition.x + otherSize.width;
+  }
+  function wasAbove(entityLastPosition, entitySize, otherPosition) {
+    return entityLastPosition.y + entitySize.height <= otherPosition.y;
+  }
+  function wasBelow(entityLastPosition, otherPosition, otherSize) {
+    return entityLastPosition.y >= otherPosition.y + otherSize.height;
+  }
 
-module.exports = function(ecs, data) { // eslint-disable-line no-unused-vars
-	data.entities.registerSearch("resolveCollisions", ["collisions","velocity","lastPosition","position"]);
-	ecs.addEach(function resolveCollisions(entity, elapsed) { // eslint-disable-line no-unused-vars
-		var entityCollisions = data.entities.get(entity, "collisions");
-		var entityPosition = data.entities.get(entity, "position");
-		var entitySize = data.entities.get(entity, "size");
-		var entityVelocity = data.entities.get(entity, "velocity");
-		var entityLastPosition = data.entities.get(entity, "lastPosition");</p>
+  module.exports = function(ecs, data) { // eslint-disable-line no-unused-vars
+    data.entities.registerSearch("resolveCollisions", ["collisions","velocity","lastPosition","position"]);
+    ecs.addEach(function resolveCollisions(entity, elapsed) { // eslint-disable-line no-unused-vars
+      var entityCollisions = data.entities.get(entity, "collisions");
+      var entityPosition = data.entities.get(entity, "position");
+      var entitySize = data.entities.get(entity, "size");
+      var entityVelocity = data.entities.get(entity, "velocity");
+      var entityLastPosition = data.entities.get(entity, "lastPosition");
 
-		for (var i = 0; i < entityCollisions.length; i++) {
-			var other = entityCollisions[i];
-			var otherPosition = data.entities.get(other, "position");
-			var otherSize = data.entities.get(other, "size");
+      for (var i = 0; i < entityCollisions.length; i++) {
+        var other = entityCollisions[i];
+        var otherPosition = data.entities.get(other, "position");
+        var otherSize = data.entities.get(other, "size");
 
-			if (wasLeft(entityLastPosition, entitySize, otherPosition)) {
-				entityPosition.x = otherPosition.x - entitySize.width;
-				entityVelocity.x = 0;
-			}
-			if (wasRight(entityLastPosition, otherPosition, otherSize)) {
-				entityPosition.x = otherPosition.x + otherSize.width;
-				entityVelocity.x = 0;
-			}
-			if (wasAbove(entityLastPosition, entitySize, otherPosition)) {
-				entityPosition.y = otherPosition.y - entitySize.height;
-				entityVelocity.y = 0;
-			}
-			if (wasBelow(entityLastPosition, otherPosition, otherSize)) {
-				entityPosition.y = otherPosition.y + otherSize.height;
-				entityVelocity.y = 0;
-			}
-		}
-	}, "resolveCollisions");
+        if (wasLeft(entityLastPosition, entitySize, otherPosition)) {
+          entityPosition.x = otherPosition.x - entitySize.width;
+          entityVelocity.x = 0;
+        }
+        if (wasRight(entityLastPosition, otherPosition, otherSize)) {
+          entityPosition.x = otherPosition.x + otherSize.width;
+          entityVelocity.x = 0;
+        }
+        if (wasAbove(entityLastPosition, entitySize, otherPosition)) {
+          entityPosition.y = otherPosition.y - entitySize.height;
+          entityVelocity.y = 0;
+        }
+        if (wasBelow(entityLastPosition, otherPosition, otherSize)) {
+          entityPosition.y = otherPosition.y + otherSize.height;
+          entityVelocity.y = 0;
+        }
+      }
+    }, "resolveCollisions");
 
-};</em>
+  };
 </code></pre>
 
-<p>This is a long one, TL;DR version of this is, if your player collides with another entity that has a "collisions" component the player will be pushed back one pixel in the appropriate direction.</p>
+  </div>
 
-<p>Be sure to add this system to <strong>src/data/systems.json</strong>, I recommend adding it right after <code>constrain-position</code>  in the <code>"simulation":[]</code> array.</p>
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
+    <p>This is a long one, TL;DR version of this is, if your player collides with another entity that has a "collisions" component the player will be pushed back one pixel in the appropriate direction.</p>
+
+    <p>Be sure to add this system to <strong>src/data/systems.json</strong>, I recommend adding it right after <code>constrain-position</code>  in the <code>"simulation":[]</code> array.</p>
 
 <pre><code class="json">
-<em>{
+  {
     "name": "./systems/simulation/resolve-collisions",
     "scenes": [
-        "main"
+    "main"
     ]
-}</em>
+  }
 </code></pre>
 
-<p>The last step is to add a collisions component to the player, we do this by adding the following to <strong>src/data/entities.json</strong> inside of the player entity:</p>
+    <p>The last step is to add a collisions component to the player, we do this by adding the following to <strong>src/data/entities.json</strong> inside of the player entity: <code>collisions":[]</code></p>
 
-<pre><code class="json">
-<em>"collisions":[]</em>
-</code></pre>
+    <p>Okay now we can go back to the browser and if everything was done correctly your player should fall and land on top of the ground entity, you can jump around and you should always land on the ground.</p>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <p><img src="img/screenshot_007.png" class="image-responsive" alt="Step 7 screenshot" title="" /></p>
+  </div>
+</div>
+<div class="row">
 
-<p>Okay now we can go back to the browser and if everything was done correctly your player should fall and land on top of the ground entity, you can jump around and you should always land on the ground.</p>
+  <div class="col-xs-12">
+    <h2>Adding more platforms</h2>
+    <h3>Feeling jumpy</h3>
+  </div>
 
-<p><img src="img/screenshot_007.png" class="expand" alt="Step 7 screenshot" title="" /></p>
+</div><div class="row">
 
-<a name="cp7"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 7</h3>
-			<em class="sub">A firm foundation</em>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_007/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 7</a>
-		</div>
-	</div>
+  <div class="col-xs-12 col-md-6">
+    <video  class="img-responsive" controls poster="img/screenshot_008.png">
+      <source src="mov/step_008.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+    </video>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <p>This part will be pretty easy now that we have systems in place to handle resolving our collisions, we can add platforms wherever we want and they will just work.</p>
+    <p>To start let's add another platform in <strong>src/data/entities.json</strong> like so:</p>
+  </div>
+
 </div>
 
+<div class="row">
+  <div class="col-xs-12">
+    <pre><code class="json">
+      {
+        "id": 5,
 
+        "position": {
+          "x": 0,
+          "y": 450
+        },
+        "size": {
+          "width": 406,
+          "height": 41
+        },
+        "collisions": [],
+        "image":{
+          "name":"platform.png"
+        }
+      }
+    </code></pre>
 
+    <p>Be sure the ids of any platforms you add are unique, and add another:</p>
 
+    <pre><code class="json">
+      {
+        "id":6,
 
+        "position": {
+          "x": 394,
+          "y": 600
+        },
+        "size": {
+          "width": 406,
+          "height": 41
+        },
+        "collisions": [],
+        "image":{
+          "name":"platform.png"
+        }
+      }
+    </code></pre>
+  </div>
 
+</div>  <div class="row">
 
-<a name="morePlatforms"></a>
-<h2>Adding more platforms</h2>
-<em class="sub">Feeling jumpy</em>
+  <div class="col-xs-12 col-md-6">
+    <p>You should recognize what each of the components in these platform entities is doing by now, but here is a quick recap:</p>
+    <ul>
+      <li>id - A unique number for each entity, the engine reads this to keep track of each entity</li>
+      <li>platform - This is so we can later write systems that target only "platforms" which is just a name we made up for these. This just acts as a tag, and you can make up any tags like this with any name you desire.</li>
+      <li>position - This is the position of the top left of the entity to let Splat ECS know where to draw it.</li>
+      <li>size - The width and height of the entity, this is it's collision are as well, the size of the object the player will bump into.</li>
+      <li>collisions - Anything that you need to track collisions on will need this component, it has an array of the ids of all other entities it is currently intersecting.</li>
+      <li>image : name - The image to draw on the entity.</li>
+    </ul>
+    <p>So now if you play the game in your browser you will be able to jump onto the other platforms! You might notice that the jumping in the game acts a bit weird, you can continue to jump over and over and there is no way to stop sticky baby from jumping in mid-air!</p>
+  </div>
 
+  <div class="col-xs-12 col-md-6">
+    <img src="img/screenshot_008.png" class="image-responsive" alt="Step 8 screenshot" title="" />
+  </div>
 
+</div>
+<div class="row">
 
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_008.png">
-				<source src="mov/step_008.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
+  <div class="col-xs-12">
+    <h2>Fixing jumping</h2>
+    <h3>Following the rules</h3>
+  </div>
 
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>This part will be pretty easy now that we have systems in place to handle resolving our collisions, we can add platforms wherever we want and they will just work.</p>
-
-			<p>To start let's add another platform in <strong>src/data/entities.json</strong> like so:</p>
-
-		</div>
-	</div>
 </div>
 
+<div class="row">
 
-<pre><code class="json">
-<em>{
-    "id": 5,
+  <div class="col-xs-12 col-md-6">
+    <video  class="img-responsive" controls poster="img/screenshot_009.png">
+      <source src="mov/step_009.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+    </video>
+  </div>
 
-    "position": {
-        "x": 0,
-        "y": 450
-    },
-    "size": {
-        "width": 406,
-        "height": 41
-    },
-    "collisions": [],
-    "image":{
-        "name":"platform.png"
-    }
-}</em>
-</code></pre>
+  <div class="col-xs-12 col-md-6">
+    <p>To fix this we need to edit the <strong>src/systems/simulation/jump.js</strong> system a bit, and now that we have platforms it makes since to only let the player jump if the player is standing on top of a platform. Here is the code we use to add that feature and how the system should look after it is added:</p>
+  </div>
 
-<p>Be sure the ids of any platforms you add are unique, and add another:</p>
+</div><div class="row">
 
-<pre><code class="json">
-<em>{
-    "id":6,
-
-    "position": {
-        "x": 394,
-        "y": 600
-    },
-    "size": {
-        "width": 406,
-        "height": 41
-    },
-    "collisions": [],
-    "image":{
-        "name":"platform.png"
-    }
-}</em>
-</code></pre>
-
-<p>You should recognize what each of the components in these platform entities is doing by now, but here is a quick recap:</p>
-
-<ul>
-<li>id - A unique number for each entity, the engine reads this to keep track of each entity</li>
-<li>platform - This is so we can later write systems that target only "platforms" which is just a name we made up for these. This just acts as a tag, and you can make up any tags like this with any name you desire.</li>
-<li>position - This is the position of the top left of the entity to let Splat ECS know where to draw it.</li>
-<li>size - The width and height of the entity, this is it's collision are as well, the size of the object the player will bump into.</li>
-<li>collisions - Anything that you need to track collisions on will need this component, it has an array of the ids of all other entities it is currently intersecting.</li>
-<li>image : name - The image to draw on the entity.</li>
-</ul>
-
-<p>So now if you play the game in your browser you will be able to jump onto the other platforms!
-You might notice that the jumping in the game acts a bit weird, you can continue to jump over and over and there is no way to stop sticky baby from jumping in mid-air!</p>
-
-<p><img src="img/screenshot_008.png" class="expand" alt="Step 8 screenshot" title="" /></p>
-
-<a name="cp8"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 8</h3>
-			<em class="sub">Feeling jumpy</em>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_008/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 8</a>
-		</div>
-	</div>
-</div>
-
-
-
-
-
-
-
-<a name="fixJumping"></a>
-<h2>Fixing jumping</h2>
-<em class="sub">Following the rules</em>
-
-
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_009.png">
-				<source src="mov/step_009.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>To fix this we need to edit the <strong>src/systems/simulation/jump.js</strong> system a bit, and now that we have platforms it makes since to only let the player jump if the player is standing on top of a platform. Here is the code we use to add that feature and how the system should look after it is added:</p>
-
-		</div>
-	</div>
-</div>
-
-
+  <div class="col-xs-12 col-md-7">
 
 <pre><code class="javascript">
 "use strict";
 
 module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
-	ecs.addEach(function jump(entity, elapsed) { // eslint-disable-line no-unused-vars
-		var velocity = game.entities.get(entity, "velocity");
+  ecs.addEach(function jump(entity, elapsed) { // eslint-disable-line no-unused-vars
+    var velocity = game.entities.get(entity, "velocity");
 
-<em>		if (game.inputs.buttonPressed("jump")) {
-			var entityCollisions = game.entities.get(entity, "collisions");
+    if (game.inputs.buttonPressed("jump")) {
+      var entityCollisions = game.entities.get(entity, "collisions");
 
-			for (var i = 0; i < entityCollisions.length; i++) {
-				var other = entityCollisions[i];
-				var otherPosition = game.entities.get(other, "position");
-				var position = game.entities.get(entity, "position");
-				var size = game.entities.get(entity, "size");
-				if ((position.y + size.height) <= otherPosition.y) {
-					velocity.y  = -1.2;
-				}
-			}</em>
-		}
+      for (var i = 0; i < entityCollisions.length; i++) {
+        var other = entityCollisions[i];
+        var otherPosition = game.entities.get(other, "position");
+        var position = game.entities.get(entity, "position");
+        var size = game.entities.get(entity, "size");
+        if ((position.y + size.height) <= otherPosition.y) {
+          velocity.y  = -1.2;
+        }
+      }
+    }
 
-	}, "playerController2d");
+  }, "playerController2d");
 
 };
 </code></pre>
+  </div>
 
-<p>This is a bit complicated - so let's break it down step-by-step.</p>
+  <div class="col-xs-12 col-md-5">
+    <p>This is a bit complicated - so let's break it down step-by-step.</p>
+    <ol>
+      <li>We are adding a variable called <code>entityCollisions</code> so we can loop over all of the other entities the player is currently touching.</li>
+      <li>Each time this loop runs it is create a new variable called <code>other</code> which contains the current entity that the player is touching.</li>
+      <li>The next bit of code (inside the 'if' statement) only runs if the <code>other</code> entity has a <code>"platform"</code> component.</li>
+      <li>Next we are then creating variables for the platform's position, and the player's current size and position.</li>
+      <li>if the player's top plus height (player's bottom) is less than or equal to the top  of the platform the player is standing on top of it.</li>
+      <li>Let that sucker jump!</li>
+    </ol>
+    <p>So to recap - if the player is touching a platform we are checking to see if the player is above the platform, and if it is, sticky baby can jump!</p>
+    <p>Now it is starting to feel like a real game, let's add something else that real games have - animation!</p>
+  </div>
 
-<ol>
-<li>We are adding a variable called <code>entityCollisions</code> so we can loop over all of the other entities the player is currently touching.</li>
-<li>Each time this loop runs it is create a new variable called <code>other</code> which contains the current entity that the player is touching.</li>
-<li>The next bit of code (inside the 'if' statement) only runs if the <code>other</code> entity has a <code>"platform"</code> component.</li>
-<li>Next we are then creating variables for the platform's position, and the player's current size and position.</li>
-<li>if the player's top plus height (player's bottom) is less than or equal to the top  of the platform the player is standing on top of it.</li>
-<li>Let that sucker jump!</li>
-</ol>
-
-<p>So to recap - if the player is touching a platform we are checking to see if the player is above the platform, and if it is, sticky baby can jump!</p>
-
-<p>Now it is starting to feel like a real game, let's add something else that real games have - animation!</p>
-
-<a name="cp9"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 9</h3>
-			<em class="sub">Following the rules</em>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_009/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 9</a>
-		</div>
-	</div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Animation</h2>
+    <h3>Motion to add emotion</h3>
+  </div>
 </div>
 
+<div class="row">
+  <div class="col-xs-12 col-md-6">
+    <video  class="img-responsive" controls poster="img/screenshot_010.png">
+      <source src="mov/step_010.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+    </video>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <p>Splat ECS has built in support for sprite animation and if you setup your artwork to work with the default format it can be super easy to get animated sprites working quickly.</p>
 
-<a name="animations"></a>
-<h2>Animation</h2>
-<em class="sub">Motion to add emotion</em>
+    <p>The first animations we will add will be for the player. Sticky baby can currently move left and right but the image stays the same. Let's fix that.</p>
 
-
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_010.png">
-				<source src="mov/step_010.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>Splat ECS has built in support for sprite animation and if you setup your artwork to work with the default format it can be super easy to get animated sprites working quickly.</p>
-
-			<p>The first animations we will add will be for the player. Sticky baby can currently move left and right but the image stays the same. Let's fix that.</p>
-
-			<p>To add animations we must edit <strong>src/data/animations.json</strong>. Let's add the idle, left, and right running animations now. Below is the format for filmstrip-formatted spritesheets:</p>
-
-		</div>
-	</div>
+    <p>To add animations we must edit <strong>src/data/animations.json</strong>. Let's add the idle, left, and right running animations now. Below is the format for filmstrip-formatted spritesheets:</p>
+  </div>
 </div>
 
-
-
+<div class="row">
+  <div class="col-xs-12 col-md-6">
 <pre><code class="json">
-<em>"player-idle": [{
-    "filmstripFrames": 1,
-    "time": 1,
-    "properties": {
-        "image": {
-            "name": "player-idle.png",
-            "sourceX": 0,
-            "sourceY": 0,
-            "sourceWidth": 32,
-            "sourceHeight": 48
-        }
+"player-idle": [{
+  "filmstripFrames": 1,
+  "time": 1,
+  "properties": {
+    "image": {
+      "name": "player-idle.png",
+      "sourceX": 0,
+      "sourceY": 0,
+      "sourceWidth": 32,
+      "sourceHeight": 48
     }
+  }
 }],
 "player-run-left": [{
-    "filmstripFrames": 4,
-    "time": 150,
-    "properties": {
-        "image": {
-            "name": "player-run-left.png",
-            "sourceX": 0,
-            "sourceY": 0,
-            "sourceWidth": 128,
-            "sourceHeight": 48
-        }
+  "filmstripFrames": 4,
+  "time": 150,
+  "properties": {
+    "image": {
+      "name": "player-run-left.png",
+      "sourceX": 0,
+      "sourceY": 0,
+      "sourceWidth": 128,
+      "sourceHeight": 48
     }
+  }
 }],
 "player-run-right": [{
-    "filmstripFrames": 4,
-    "time": 150,
-    "properties": {
-        "image": {
-            "name": "player-run-right.png",
-            "sourceX": 0,
-            "sourceY": 0,
-            "sourceWidth": 128,
-            "sourceHeight": 48
-        }
+  "filmstripFrames": 4,
+  "time": 150,
+  "properties": {
+    "image": {
+      "name": "player-run-right.png",
+      "sourceX": 0,
+      "sourceY": 0,
+      "sourceWidth": 128,
+      "sourceHeight": 48
     }
-}]</em>
+  }
+}]
 </code></pre>
+  </div>
+  <div class="col-xs-12 col-md-6">
 
-<p>So what does all this data do? Let's go through it one piece at a time:</p>
-<ul>
-	<li> key - This is the name we want to give to the animation, often best to make it the same as the image name the animation uses, in our example: <code>player-run-right</code></li>
-	<li> filmstripFrames - this lets the engine know how to chop up the spritesheet, it will use the width of the image and devide it by the number of frames to create individual images to cycle through.</li>
-	<li> time - The time in milliseconds that each frame will last, use this to adjust the speed of the animation.</li>
-	<li> properties - image
-		<ul>
-			<li> name - Image file to use in our example: <code>player-run-right</code>.</li>
-			<li> sourceX - Point to start the first frame, usually 0.</li>
-			<li> sourceY - Point to start the first frame, usually 0.</li>
-			<li> sourceWidth - The width of the entire spritesheet.</li>
-			<li> sourceHeight - The height of the entire spritesheet.</li>
-		</ul>
-	</li>
-</ul>
-<p>So now that we have animations defined, we need to use them.
-To change the animations the player uses we will create a new system in the <strong>src/systems/simulation/</strong> folder called <code>run.js</code></p>
 
-<p>The contents of this system should be as follows:</p>
+    <p>So what does all this data do? Let's go through it one piece at a time:</p>
+    <ul>
+      <li> key - This is the name we want to give to the animation, often best to make it the same as the image name the animation uses, in our example: <code>player-run-right</code></li>
+      <li> filmstripFrames - this lets the engine know how to chop up the spritesheet, it will use the width of the image and devide it by the number of frames to create individual images to cycle through.</li>
+      <li> time - The time in milliseconds that each frame will last, use this to adjust the speed of the animation.</li>
+      <li> properties - image
+        <ul>
+          <li> name - Image file to use in our example: <code>player-run-right</code>.</li>
+          <li> sourceX - Point to start the first frame, usually 0.</li>
+          <li> sourceY - Point to start the first frame, usually 0.</li>
+          <li> sourceWidth - The width of the entire spritesheet.</li>
+          <li> sourceHeight - The height of the entire spritesheet.</li>
+        </ul>
+      </li>
+    </ul>
 
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
+    <p>So now that we have animations defined, we need to use them. To change the animations the player uses we will create a new system in the <strong>src/systems/simulation/</strong> folder called <code>run.js</code></p>
+    <p>The <code>run</code> system we   created looks for any entities with <code>"player"</code> components and runs the following code on them each frame:</p>
+    <p>Create a variable for the animation component on the player. If the left button is pressed, change the player's animation name to <code>"player-run-left"</code>, else if the input named right is pressed switch to the animation named <code>"player-run-right"</code>, and if neither of those are currently pressed return to the <code>"player-idle"</code> animation.</p>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <p>The contents of this system should be as follows:</p>
 <pre><code class="javascript">
-<em>"use strict";
+"use strict";
 
 module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
-	ecs.addEach(function run(entity, elapsed) { // eslint-disable-line no-unused-vars
-		var animation = game.entities.get(entity, "animation");
+  ecs.addEach(function run(entity, elapsed) { // eslint-disable-line no-unused-vars
+    var animation = game.entities.get(entity, "animation");
 
-		if (game.inputs.button("left")) {
-			animation.name = "player-run-left";
-		} else if (game.inputs.button("right")) {
-			animation.name = "player-run-right";
-		} else {
-			animation.name = "player-idle";
-		}
+    if (game.inputs.button("left")) {
+      animation.name = "player-run-left";
+    } else if (game.inputs.button("right")) {
+      animation.name = "player-run-right";
+    } else {
+      animation.name = "player-idle";
+    }
 
-	}, "playerController2d");
+  }, "playerController2d");
 
-};</em>
+};
 
 </code></pre>
 
-<p>The <code>run</code> system we   created looks for any entities with <code>"player"</code> components and runs the following code on them each frame:</p>
+  </div>
 
-<p>Create a variable for the animation component on the player.
-if the left button is pressed, change the player's animation name to <code>"player-run-left"</code>, else if the input named right is pressed switch to the animation named <code>"player-run-right"</code>, and if neither of those are currently pressed return to the <code>"player-idle"</code> animation.</p>
+</div><div class="row">
 
-<p>We now need to add this new system to <strong>src/data/systems.json</strong>, I recommend adding it right before <code>box-collider</code> in the <code>"simulation":[]</code> array.</p>
+  <div class="col-xs-12 col-md-6">
+    <p>We now need to add this new system to <strong>src/data/systems.json</strong>, I recommend adding it right before <code>box-collider</code> in the <code>"simulation":[]</code> array.</p>
 
 <pre><code class="json">
-<em>{
-    "name": "./systems/simulation/run",
-    "scenes": [
-        "main"
-    ]
-}</em>
+{
+  "name": "./systems/simulation/run",
+  "scenes": [
+  "main"
+  ]
+}
 </code></pre>
 
-<p>Now we need to replace the <code>"image"</code> component on our player with an <code>"animation"</code> component like so:</p>
+    <p>Now we need to replace the <code>"image"</code> component on our player with an <code>"animation"</code> component like so:</p>
 
 <pre><code class="json">
-<em>"animation": {
+"animation": {
+  "time": 0,
+  "frame": 0,
+  "loop": true,
+  "speed": 1,
+  "name": "player-idle.png"
+}
+</code></pre>
+
+    <p>Now test out the game in the browser and sticky baby should be able to run around in style!</p>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <img src="img/screenshot_010.png" class="image-responsive" alt="Step 10 screenshot" />
+  </div>
+
+</div>
+<div class="row">
+
+  <div class="col-xs-12">
+    <h2>Pickups!</h2>
+    <h3>Feeling prefabulous</h3>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-12 col-md-6">
+    <video  class="img-responsive" controls poster="img/screenshot_011.png">
+      <source src="mov/step_011.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+    </video>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <p>The sticky baby needs to collect balls of goo to remain sticky, so let's get some goo in the game.</p>
+    <p>So we want to be able to add lots of items for the player to pick up, and in this tutorial they will all use the same an animation. In Splat ECS there is a great feature designed to help with situations just like this, and it's called <strong>prefabs</strong>.</p>
+    <p>Before we get into the magic of prefabs, let's add a new animation to <strong>src/data/animations.json</strong> for our goo balls.</p>
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
+<pre><code class="json">
+"goo": [{
+  "filmstripFrames": 5,
+  "time": 600,
+  "properties": {
+    "image": {
+      "name": "goo.png",
+      "sourceX": 0,
+      "sourceY": 0,
+      "sourceWidth": 50,
+      "sourceHeight": 12
+    }
+  }
+}]
+</code></pre>
+
+  </div>
+  <div class="col-xs-12 col-md-6">
+
+    <h3>Adding a new prefab</h3>
+
+    <p>Prefabs are reusable entities, think of them as a mold for stamping out a bunch of the same exact entity. To add a new prefab we add an entity to <strong>src/data/prefabs.json</strong> the same way we would add an entity to <strong>src/data/entities.json</strong>. Since prefabs are a template for creating a new entity we don't need to create a unique id for them, Splat ECS will handle that for us. The other difference is that prefabs is not an array of entities, it is an object containing key-value pairs where the key is the name you want to give the prefab, and the value is an entity object.</p>
+
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12">
+    <p>Here is the JSON we need for the collectable goo entities</p>
+
+<pre><code class="json">
+"goo": {
+  "points": 1,
+  "position": {
+    "x": 0,
+    "y": 0
+  },
+  "size": {
+    "width": 13,
+    "height": 18
+  },
+  "velocity": {
+    "x": 0,
+    "y": 0
+  },
+  "collisions": [],
+  "animation":{
     "time": 0,
     "frame": 0,
     "loop": true,
     "speed": 1,
-    "name": "player-idle.png"
-}</em>
+    "name": "goo.png"
+  },
+  "image": {
+    "name": "goo.png",
+    "destinationWidth": 13,
+    "destinationHeight": 13
+  },
+  "gravity": 0.001
+}
 </code></pre>
+  </p>
+</div>
+<div class="col-xs-12">
 
-<p>Now test out the game in the browser and sticky baby should be able to run around in style!</p>
-
-<img src="img/screenshot_010.png" class="expand" alt="Step 10 screenshot" />
-
-<a name="cp10"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 10</h3>
-			<em class="sub">Motion to add emotion</em>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_010/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 10</a>
-		</div>
-	</div>
+  <p>Now we need code to place the prefabs in our game, to do that we will use something new to us. We want the goo entities to be created once at the beginning of the game, but simulation and renderer systems run each frame, so that will not work - instead to create the goo entities once, when you ever the main scene of the game we will use a script called <code>main-enter</code>.</p>
 </div>
 
+</div><div class="row">
 
+  <div class="col-xs-12 col-md-6">
 
+    <h3>Enter and exit scripts</h3>
 
-<a name="pickups"></a>
-<h2>Pickups!</h2>
-<em class="sub">Feeling prefabulous</em>
+    <p>Each scene can have code that runs at the beginning and end of it, these are stored in the <strong>src/scripts/</strong> folder and are named `scenename-enter.js` and `scenename-exit.js`(where 'scenename' is replaced with the name of the actual scene).</p>
 
+    <p>The sample project already has <strong>src/scripts/main-enter.js</strong> created for us, so we just need to modify it. Inside of the <code>module.exports = function</code> we will add code that will add new entities based on the prefab we created - to do this we will use their <code>game.instantiatePrefab</code> method.</p>
 
+    <p>game.instantiatePrefab takes a single parameter that is the key name of the prefab we created as a string, for example in our case "goo". It does two main things when called:</p>
+    <ol>
+      <li> Creates a new entity and adds it to the entity pool.</li>
+      <li>Returns the id of the new entity. (it automatically assigns it a unique id for you)
+      </ol>
+    </div>
 
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_011.png">
-				<source src="mov/step_011.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>The sticky baby needs to collect balls of goo to remain sticky, so let's get some goo in the game.</p>
-
-			<p>So we want to be able to add lots of items for the player to pick up, and in this tutorial they will all use the same an animation. In Splat ECS there is a great feature designed to help with situations just like this, and it's called <strong>prefabs</strong>.</p>
-
-			<p>Before we get into the magic of prefabs, let's add a new animation to <strong>src/data/animations.json</strong> for our goo balls.</p>
-
-
-		</div>
-	</div>
-</div>
-
-
-<pre><code class="json">
-<em>"goo": [{
-    "filmstripFrames": 5,
-    "time": 600,
-    "properties": {
-        "image": {
-            "name": "goo.png",
-            "sourceX": 0,
-            "sourceY": 0,
-            "sourceWidth": 50,
-            "sourceHeight": 12
-        }
-    }
-}]</em>
-</code></pre>
-
-<h3>Adding a new prefab</h3>
-
-<p>Prefabs are reusable entities, think of them as a mold for stamping out a bunch of the same exact entity. To add a new prefab we add an entity to <strong>src/data/prefabs.json</strong> the same way we would add an entity to <strong>src/data/entities.json</strong>. Since prefabs are a template for creating a new entity we don't need to create a unique id for them, Splat ECS will handle that for us. The other difference is that prefabs is not an array of entities, it is an object containing key-value pairs where the key is the name you want to give the prefab, and the value is an entity object.</p>
-
-<p>Here is the JSON we need for the collectable goo entities
-
-<pre><code class="json">
-<em>"goo": {
-    "points": 1,
-    "position": {
-        "x": 0,
-        "y": 0
-    },
-    "size": {
-        "width": 13,
-        "height": 18
-    },
-    "velocity": {
-        "x": 0,
-        "y": 0
-    },
-    "collisions": [],
-    "animation":{
-        "time": 0,
-        "frame": 0,
-        "loop": true,
-        "speed": 1,
-        "name": "goo.png"
-    },
-    "image": {
-        "name": "goo.png",
-        "destinationWidth": 13,
-        "destinationHeight": 13
-    },
-    "gravity": 0.001
-}</em>
-</code></pre>
-</p>
-
-<p>Now we need code to place the prefabs in our game, to do that we will use something new to us. We want the goo entities to be created once at the beginning of the game, but simulation and renderer systems run each frame, so that will not work - instead to create the goo entities once, when you ever the main scene of the game we will use a script called <code>main-enter</code>.</p>
-
-<h3>Enter and exit scripts</h3>
-
-<p>Each scene can have code that runs at the beginning and end of it, these are stored in the <strong>src/scripts/</strong> folder and are named `scenename-enter.js` and `scenename-exit.js`(where 'scenename' is replaced with the name of the actual scene).
-</p>
-
-<p>The sample project already has <strong>src/scripts/main-enter.js</strong> created for us, so we just need to modify it. Inside of the <code>module.exports = function</code> we will add code that will add new entities based on the prefab we created - to do this we will use their <code>game.instantiatePrefab</code> method.</p>
-
-<p>game.instantiatePrefab takes a single parameter that is the key name of the prefab we created as a string, for example in our case "goo". It does two main things when called:
-1. Creates a new entity and adds it to the entity pool.
-2. Returns the id of the new entity. (it automatically assigns it a unique id for you)</p>
-
+    <div class="col-xs-12 col-md-6">
 <pre><code class="javascript">
-<em>"use strict";
+"use strict";
 
 module.exports = function(game) { // eslint-disable-line no-unused-vars
-	game.scaleCanvasToFitRectangle(800,800);
+  game.scaleCanvasToFitRectangle(800,800);
 
-<em>	for (var i = 0; i < 12; i++) {
-		var goo = game.instantiatePrefab("goo");
-		game.entities.set(goo, "position", {
-			"x": i * 70,
-			"y": -13
-		});</em>
-	}
-};</em>
+  for (var i = 0; i < 12; i++) {
+    var goo = game.instantiatePrefab("goo");
+    game.entities.set(goo, "position", {
+      "x": i * 70,
+      "y": -13
+    });
+  }
+};
 </code></pre>
+    </div>
+  </div><div class="row">
 
-<p>The code above creates a variable called "goo", and stores the returned value of <code>game.instantiatePrefab("goo")</code> (the new entity id).
-The next line <code>game.entities.set</code> will give the brand new entity it's own position, in our case we are setting them to all be 70 pixels apart, and to spawn above the screen (0, the top of the screen minus the height of the goo entity).</p>
+    <div class="col-xs-12">
+      <p>The code above creates a variable called "goo", and stores the returned value of <code>game.instantiatePrefab("goo")</code> (the new entity id). The next line <code>game.entities.set</code> will give the brand new entity it's own position, in our case we are setting them to all be 70 pixels apart, and to spawn above the screen (0, the top of the screen minus the height of the goo entity).</p>
 
-<p>Those two lines are wrapped in a for loop that runs the code inside 12 times.</p>
+      <p>Those two lines are wrapped in a for loop that runs the code inside 12 times.</p>
 
-<p>When we revisit the game in the browser we should see 12 balls of goo fall from the sky and land on the ground directly under where they spawned.</p>
+      <p>When we revisit the game in the browser we should see 12 balls of goo fall from the sky and land on the ground directly under where they spawned.</p>
 
-<p>You should notice that this process seemed much easier than when we started out, these prefabs all already have thier own animation, gravity component with a set value, and collisions component, so the systems we already have in place to handle gravity and collisions for the player effect these as well, pretty cool right!?</p>
+      <p>You should notice that this process seemed much easier than when we started out, these prefabs all already have thier own animation, gravity component with a set value, and collisions component, so the systems we already have in place to handle gravity and collisions for the player effect these as well, pretty cool right!?</p>
 
-<p>But don't stop just yet - we still need to let sticky baby collect the goo, right now they just act like more platforms!
-To do this we need to add another simulation system, let's call this one <strong>collect-goo.js</strong></p>
+    </div>
 
-<p>Create a new file inside of <strong>src/systems/simulation/</strong> and name it <strong>collect-goo.js</strong>, the contents of the file should be as follows:</p>
+  </div><div class="row">
+
+    <div class="col-xs-12 col-md-6">
+      <p>But don't stop just yet - we still need to let sticky baby collect the goo, right now they just act like more platforms! To do this we need to add another simulation system, let's call this one <strong>collect-goo.js</strong></p>
+      <p>The code looks for any entity with a <code>"player"</code> component and does the following:</p>
+
+      <ul>
+        <li>Creates a variable for the player's collisions array,</li>
+        <li>Loops over all current collisions the player entity is experiencing</li>
+        <li>Checks to see if any of the other entities player is colliding with have a <code>"points"</code> component, and if they do it destroys them.</li>
+      </ul>
+
+    </div>
+
+
+    <div class="col-xs-12 col-md-6">
+
+      <p>Create a new file inside of <strong>src/systems/simulation/</strong> and name it <strong>collect-goo.js</strong>, the contents of the file should be as follows:</p>
 
 <pre><code class="javascript">
-<em>"use strict";
+"use strict";
 
 module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
-	ecs.addEach(function collectGoo(entity, elapsed) { // eslint-disable-line no-unused-vars
-		var entityCollisions = game.entities.get(entity, "collisions");
+  ecs.addEach(function collectGoo(entity, elapsed) { // eslint-disable-line no-unused-vars
+    var entityCollisions = game.entities.get(entity, "collisions");
 
-		for (var i = 0; i < entityCollisions.length; i++) {
-			var other = entityCollisions[i];
-			if (game.entities.get(other, "points")) {
-				game.entities.destroy(other);
-			}
-		}
-	}, "playerController2d");
+    for (var i = 0; i < entityCollisions.length; i++) {
+      var other = entityCollisions[i];
+      if (game.entities.get(other, "points")) {
+        game.entities.destroy(other);
+      }
+    }
+  }, "playerController2d");
 
-};</em>
+};
 </code></pre>
 
-<p>The code looks for any entity with a <code>"player"</code> component and does the following:</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
 
-<ul>
-<li>Creates a variable for the player's collisions array,</li>
-<li>Loops over all current collisions the player entity is experiencing</li>
-<li>Checks to see if any of the other entities player is colliding with have a <code>"points"</code> component, and if they do it destroys them.</li>
-</ul>
-
-<p>We now need to add this new system to <strong>src/data/systems.json</strong>, I recommend adding it right after <code>resolve-collisions</code> at the end of the <code>"simulation":[]</code> array.</p>
+        <p>We now need to add this new system to <strong>src/data/systems.json</strong>, I recommend adding it right after <code>resolve-collisions</code> at the end of the <code>"simulation":[]</code> array.</p>
 
 <pre><code class="json">
-<em>{
-    "name": "./systems/simulation/collect-goo",
-    "scenes": [
-        "main"
-    ]
-}</em>
+{
+  "name": "./systems/simulation/collect-goo",
+  "scenes": [
+  "main"
+  ]
+}
 </code></pre>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <img src="img/screenshot_011.png" class="image-responsive" alt="Step 11 screenshot" title="" />
 
-<p><img src="img/screenshot_011.png" class="expand" alt="Step 11 screenshot" title="" /></p>
+      </div>
+    </div>
+<div class="row">
 
-<a name="cp11"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 11</h3>
-			<em class="sub">Feeling prefabulous</em>
-		</div>
+	<div class="col-xs-12">
+		<h2>Keeping score</h2>
+		<h3>Competitive gaming</h3>
 	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_011/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 11</a>
-		</div>
+
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_012.png">
+			<source src="mov/step_012.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
 	</div>
-</div>
 
-
-
-
-
-
-
-<a name="score"></a>
-<h2>Keeping score</h2>
-<em class="sub">Competitive gaming</em>
-
-
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_012.png">
-				<source src="mov/step_012.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-		</div>
+	<div class="col-xs-12 col-md-6">
+		<p>We are almost done, we have a pretty real feeling game now, but I want to show you one more thing, rendering text on the screen, and to do this we will add a score counter.</p>
+		<p>This will be our first and only render system necessary for the tutorial. Let's delete the <strong>src/systems/renderer/sample-renderer-system.js</strong> and add a new file inside of <strong>src/systems/renderer/</strong>, let's name it <strong>draw-score.js</strong></p>
 	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>We are almost done, we have a pretty real feeling game now, but I want to show you one more thing, rendering text on the screen, and to do this we will add a score counter.</p>
 
-			<p>This will be our first and only render system necessary for the tutorial. Let's delete the <strong>src/systems/renderer/sample-renderer-system.js</strong> and add a new file inside of <strong>src/systems/renderer/</strong>, let's name it <strong>draw-score.js</strong></p>
+</div><div class="row">
 
-			<p>The contents of <strong>draw-score.js</strong> should be as follows:</p>
-
-		</div>
-	</div>
-</div>
-
-
-
-
-
+	<div class="col-xs-12 col-md-6">
+		<p>The contents of <strong>draw-score.js</strong> should be as follows:</p>
 <pre><code class="javascript">
-<em>"use strict";
+"use strict";
 
 module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	ecs.addEach(function harvest(entity, context) { // eslint-disable-line no-unused-vars
@@ -1745,56 +1433,58 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 		context.fillText("Goo: " + score, 16, 35);
 
 	} ,"player");
-};</em>
+};
 </code></pre>
+	</div>
 
-<p>This code will run one per frame for each entity with the <code>"player"</code> component, which should be familiar by now, but there is one main difference that rendering systems have - they draw things to the screen or <strong>context</strong>.</p>
+	<div class="col-xs-12 col-md-6">
+		<p>This code will run one per frame for each entity with the <code>"player"</code> component, which should be familiar by now, but there is one main difference that rendering systems have - they draw things to the screen or <strong>context</strong>.</p>
+		<p>To draw the score we want to draw normal text to the screen and to do this we can use normal html5 canvas functions. I will explain each line staring with <code>var score</code></p>
+		<ul>
+			<li>Create a variable for the player's <code>"score"</code> component (which we will add after)</li>
+			<li>Set the color of the text, in our case <strong>#fff</strong> for white.</li>
+			<li>Set the font to bold 26px arial.</li>
+			<li>Draw the text "Goo:" to the screen followed by the number of the player's current score at the position x:16, y:35.</li>
+		</ul>
+	</div>
 
-<p>To draw the score we want to draw normal text to the screen and to do this we can use normal html5 canvas functions. I will explain each line staring with <code>var score</code></pre>
 
-<ul>
-<li>Create a variable for the player's <code>"score"</code> component (which we will add after)</li>
-<li>Set the color of the text, in our case <strong>#fff</strong> for white.</li>
-<li>Set the font to bold 26px arial.</li>
-<li>Draw the text "Goo:" to the screen followed by the number of the player's current score at the position x:16, y:35.</li>
-</ul>
+</div><div class="row">
 
-<p>We now - you guessed it - need to add this new system to <strong>src/data/systems.json</strong>, I recommend adding it right before <code>draw-frame-rate</code> in the <code>"renderer":[]</code> array this time.</p>
+
+	<div class="col-xs-12">
+		<p>We now - you guessed it - need to add this new system to <strong>src/data/systems.json</strong>, I recommend adding it right before <code>draw-frame-rate</code> in the <code>"renderer":[]</code> array this time.</p>
 
 <pre><code class="json">
-<em>{
-   "name": "./systems/renderer/draw-score",
-   "scenes": [
-       "main"
-   ]
-}</em>
+{
+	"name": "./systems/renderer/draw-score",
+	"scenes": [
+	"main"
+	]
+}
 </code></pre>
 
-<p>Also while you have this file open, remove this sample system reference:
+		<p>Also while you have this file open, remove this sample system reference:</p>
 <pre><code class="json">
-<em class="remove">{
-    "name": "./systems/renderer/sample-renderer-system",
-    "scenes": [
-        "main"
-    ]
-}</em>
+{
+	"name": "./systems/renderer/sample-renderer-system",
+	"scenes": [
+	"main"
+	]
+}
 </code></pre>
 
-<p>Now we need to give the player a <code>"score"</code> component, and add a way to increase the score.</p>
+		<p>Now we need to give the player a <code>"score"</code> component, and add a way to increase the score.</p>
 
-<p>Let's start by adding this to our player entity in <strong>src/data/entities.json</strong>:</p>
+		<p>Let's start by adding this to our player entity in <strong>src/data/entities.json</strong>: <code>"score": 0,</code> </p>
 
-<pre><code class="json">
-<em>"score": 0,</em>
-</code></pre>
+		<p>This component starts the player with 0 score and will serve as the place for us to store the score as it increases.</p>
 
-<p>This component starts the player with 0 score and will serve as the place for us to store the score as it increases.</p>
+		<p>Next we need to pick the event that will increase the score, this should be the moment when the goo entity the player touches is destroyed.</p>
 
-<p>Next we need to pick the event that will increase the score, this should be the moment when the goo entity the player touches is destroyed.</p>
+		<p>Open up <strong>src/systems/simulation/collect-goo.js</strong> again and let's add a few lines:</p>
 
-<p>Open up <strong>src/systems/simulation/collect-goo.js</strong> again and let's add a few lines:</p>
-
-<p>Here is how the file will look after we add two lines, one to get the <code>"score"</code> component of the player entity, and one to add the amount of points (from the goo's `points` component) to it each time the player grabs a ball of goo.
+		<p>Here is how the file will look after we add two lines, one to get the <code>"score"</code> component of the player entity, and one to add the amount of points (from the goo's `points` component) to it each time the player grabs a ball of goo.</p>
 
 <pre><code class="javascript">
 "use strict";
@@ -1802,14 +1492,14 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	ecs.addEach(function collectGoo(entity, elapsed) { // eslint-disable-line no-unused-vars
 		var entityCollisions = game.entities.get(entity, "collisions");
-		<em>var score = game.entities.get(entity, "score");</em>
+		var score = game.entities.get(entity, "score");
 
 		for (var i = 0; i < entityCollisions.length; i++) {
 			var other = entityCollisions[i];
 			var points = game.entities.get(other, "points");
 			if (points) {
 				game.entities.destroy(other);
-				<em>game.entities.set(entity, "score", score + points);</em>
+				game.entities.set(entity, "score", score + points);
 			}
 		}
 	}, "playerController2d");
@@ -1817,77 +1507,43 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 };
 </code></pre>
 
-<p>Now if you try out the game in your browser you should be able to run around and collect all 12 balls of goo.</p>
+		<p>Now if you try out the game in your browser you should be able to run around and collect all 12 balls of goo.</p>
 
-<p><img src="img/screenshot_012.png" class="expand" alt="Step 12 screenshot" title="" /></p>
-
-<a name="cp12"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 12</h3>
-			<em class="sub">Competitive gaming</em>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_012/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 12</a>
-		</div>
+		<img src="img/screenshot_012.png" class="image-responsive" alt="Step 12 screenshot" title="" />
 	</div>
 </div>
+<div class="row">
 
-
-
-
-
-
-
-<a name="sound"></a>
-<h2>Sound</h2>
-<em class="sub">Hearing is believing</em>
-
-
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_013.png">
-				<source src="mov/step_013.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-		</div>
+	<div class="col-xs-12">
+		<h2>Sound</h2>
+		<h3>Hearing is believing</h3>
 	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>Sound is a huge boost to your game and adds a ton of feeling and depth to what you see and do on the screen. Sound is really easy to add in Splat ECS, but that does not mean sound is easy in games, it can often take a lot of effort to create the right sound effects, ambience, and music to make your creation feel just right.</p>
 
-			<p>To start let's add a couple of sound effects I created with BFXR to <strong>src/sounds/</strong> in your game project, you can find them in the assets pack that the images were in.</p>
-
-			<p>We need to add and name sounds we wish to use in the game to the <strong>src/data/sounds.json</strong> file like so:</p>
-
-		</div>
+	<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_013.png">
+			<source src="mov/step_013.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
 	</div>
-</div>
 
+	<div class="col-xs-12 col-md-6">
+		<p>Sound is a huge boost to your game and adds a ton of feeling and depth to what you see and do on the screen. Sound is really easy to add in Splat ECS, but that does not mean sound is easy in games, it can often take a lot of effort to create the right sound effects, ambience, and music to make your creation feel just right.</p>
+		<p>To start let's add a couple of sound effects I created with BFXR to <strong>src/sounds/</strong> in your game project, you can find them in the assets pack that the images were in.</p>
+		<p>We need to add and name sounds we wish to use in the game to the <strong>src/data/sounds.json</strong> file like so:</p>
+	</div>
 
-
-
+	<div class="col-xs-12">
 <pre><code class="json">
 {
-	<em>"jump": "sounds/jump.mp3",
-    "pickup": "sounds/pickup.mp3"</em>
+	"jump": "sounds/jump.mp3",
+	"pickup": "sounds/pickup.mp3"
 }
 </code></pre>
-
-<p>Now that sounds are available for us to use in the game it is an easy one-liner to add them in</p>
-
-<pre><code class="javascript">
-game.sounds.play("jump.mp3");
-</code></pre>
-
-<p>The first sound would work well in the jump system <strong>src/systems/simulation/jump.js</strong>.</p>
-
-<p>Here is what that system looks like with the sound added:</p>
-
+		<p>Now that sounds are available for us to use in the game it is an easy one-liner to add them in</p>
+		<pre><code class="javascript">
+			game.sounds.play("jump.mp3");
+		</code></pre>
+		<p>The first sound would work well in the jump system <strong>src/systems/simulation/jump.js</strong>.</p>
+		<p>Here is what that system looks like with the sound added:</p>
 <pre><code class="javascript">
 "use strict";
 
@@ -1904,7 +1560,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 				var position = game.entities.get(entity, "position");
 				var size = game.entities.get(entity, "size");
 				if ((position.y + size.height) <= otherPosition.y) {
-					<em>game.sounds.play("jump.mp3");</em>
+					game.sounds.play("jump.mp3");
 					velocity.y  = -1.2;
 				}
 			}
@@ -1915,11 +1571,8 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 
 };
 </code></pre>
-
-<p>Now we should add a sound when sticky baby picks up a ball of goo, we can do this in <strong>src/systems/simulation/collect-goo.js</strong>:</p>
-
-<p>here is the <strong>collect-goo</strong> system with the added sound:</p>
-
+		<p>Now we should add a sound when sticky baby picks up a ball of goo, we can do this in <strong>src/systems/simulation/collect-goo.js</strong>:</p>
+		<p>here is the <strong>collect-goo</strong> system with the added sound:</p>
 <pre><code class="javascript">
 "use strict";
 
@@ -1932,7 +1585,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 			var other = entityCollisions[i];
 			var points = game.entities.get(other, "points");
 			if (points) {
-				<em>game.sounds.play("pickup.mp3");</em>
+				game.sounds.play("pickup.mp3");
 				game.entities.destroy(other);
 				game.entities.set(entity, "score", score + points);
 			}
@@ -1941,274 +1594,206 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 
 };
 </code></pre>
-
-<p>And now when you play the game in your browser check to see if the sounds are working, and if they are congratulate yourself for completing this tutorial, and creating what might be your first of many games with Splat ECS!</p>
-
-<p><img src="img/screenshot_013.png" class="expand" alt="Step 13 screenshot" title="" /></p>
-
-<a name="cp13"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 13</h3>
-			<em class="sub">Hearing is believing</em>
-		</div>
+		<p>And now when you play the game in your browser check to see if the sounds are working, and if they are congratulate yourself for completing this tutorial, and creating what might be your first of many games with Splat ECS!</p>
+		<img src="img/screenshot_013.png" class="image-responsive" alt="Step 13 screenshot" title="" />
 	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_013/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 13</a>
-		</div>
-	</div>
+
 </div>
-
-
-
-
-
-
-
-<a name="aspect"></a>
-<h2>Adjusting the aspect ratio</h2>
-<em class="sub">Making things presentable</em>
-
-
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_014.png">
-				<source src="mov/step_014.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-		</div>
+<div class="row">
+	<div class="col-xs-12">
+		<h2>Adjusting the aspect ratio</h2>
+		<h3>Making things presentable</h3>
 	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>You will notice that our game is stuck up in the top left corner of a full-screen black canvas. We want the game to scale depending on the browser window size so that the whole game is always in view (not cut off) and the artwork is always the correct aspect ratio.</p>
 
-			<p>To do this we need to add another reference to a built in Splat ECS system called <code>match-center</code> to <strong>src/data/systems.json</strong>.</p>
-
-		</div>
+	<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_014.png">
+			<source src="mov/step_014.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
 	</div>
-</div>
 
+	<div class="col-xs-12 col-md-6">
+		<p>You will notice that our game is stuck up in the top left corner of a full-screen black canvas. We want the game to scale depending on the browser window size so that the whole game is always in view (not cut off) and the artwork is always the correct aspect ratio.</p>
+		<p>To do this we need to add another reference to a pair of built-in Splat-ECS systems called <code>match-center-x</code> and <code>match-center-y</code> to <strong>src/data/systems.json</strong>.</p>
+	</div>
 
-
-<p><strong>src/data/systems.json</strong>
+	<div class="col-xs-12 col-md-6">
+		<p><strong>src/data/systems.json</strong></p>
 <pre><code class="json">
-<em>{
-    "name": "splat-ecs/lib/systems/match-center",
-    "scenes": [
-        "main"
-    ]
-}</em>
+	{
+		"name": "splat-ecs/lib/systems/match-center-x",
+		"scenes": "all"
+	},
+	{
+		"name": "splat-ecs/lib/systems/match-center-y",
+		"scenes": "all"
+	}
 </code></pre>
-
-<p><code>match-center</code> lets you add a <code>matchCenter</code> component to any entity and provide it the id of any other entity. The system will center the entity whose id you provide on the first entity. In our case we are going to add the <code>matchCenter</code> component to our camera entity, and tell id 2, or the background image to center on it. We also need to add another component to the camera called <code>matchCanvasSize</code> this will make our 800 x 600 game scale to the size of the browser window without getting cut off, sicne we are not drawing anything outside of the 800x600 area the game will effectively have letterboxing on the right and left sides.</p>
-
-<p><strong>src/data/entities.json</strong> inside the camera entity
-<pre><code class="json">
-<em>"matchCanvasSize": true,
-"matchCenter": {
-    "id": 2
-}</em>
-</code></pre>
-</p>
-
-
-<p><img src="img/screenshot_014.png" class="expand" alt="Step 14 screenshot" title="" /></p>
-
-<a name="cp14"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 14</h3>
-			<em class="sub">Making things presentable</em>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_014/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 14</a>
-		</div>
-	</div>
-</div>
-
-
-
-
-
-
-
-<a name="debug"></a>
-<h2>Removing debugging systems</h2>
-<em class="sub">The finished product</em>
-
-
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<video controls style="max-width: 100%;" poster="img/screenshot_015.png">
-				<source src="mov/step_015.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
-			</video>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<p>Removing the red outlines around entities is as simple as deleting these lines in <strong>src/data/systems.json</strong>:</p>
-
-		</div>
-	</div>
-</div>
-
+		<p>These two systems let you add a <code>matchCenterX</code> and <code>matchCenterX</code> components to any entity and provide it the id of any other entity. The system will center the entity whose id you provide on the first entity. In our case we are going to add the <code>matchCenterX</code> and <code>matchCenterY</code> components to our camera entity, and tell id 2(the background image) to center on it. We also need to add another component to the camera called <code>matchCanvasSize</code> this will make our 800 x 600 game scale to the size of the browser window without getting cut off, since we are not drawing anything outside of the 800x600 area the game will effectively have letterboxing on the right and left sides.</p>
+		<p><strong>src/data/entities.json</strong> inside the camera entity</p>
 
 <pre><code class="json">
-<em class="remove">{
-    "name": "splat-ecs/lib/systems/draw-rectangles",
-    "scenes": [
-        "main"
-    ]
-}</em>
+"matchCanvasSize": true,
+"matchCenterX": {
+	"id": 2
+},
+"matchCenterY": {
+	"id": 2
+}
+</code></pre>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<img src="img/screenshot_014.png" class="image-responsive" alt="Step 14 screenshot" title="" />
+	</div>
+
+</div>
+<div class="row">
+
+	<div class="col-xs-12">
+		<h2>Removing debugging systems</h2>
+		<h3>The finished product</h3>
+	</div>
+
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_015.png">
+			<source src="mov/step_015.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
+
+		<p>Removing the black outlines around entities is as simple as removing the scenes from the  entry for draw-rectangles in <strong>src/data/systems.json</strong> replacing it with an empty array '[]':</p>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+<pre><code class="json">
+{
+	"name": "splat-ecs/lib/systems/draw-rectangles",
+	"scenes": []
+}
 </code></pre>
 
-<p>Now we just need to remove the frame rate display:</p>
+		<p>Now we just need to do the same for the  frame rate display:</p>
 
 <pre><code class="json">
-<em class="remove">{
-    "name": "splat-ecs/lib/systems/draw-frame-rate",
-    "scenes": [
-        "main"
-    ]
-}</em>
+{
+	"name": "splat-ecs/lib/systems/draw-frame-rate",
+	"scenes": []
+}
 </code></pre>
+		<p>Doing this instead of deleting the system entry entirely let you go back and 'turn on' the system again as easy as adding <code>"scenes": "all"</code>.</p>
 
-<p>Now when you check the game in your browser the red outlines and fps display should be gone, leaving behind your great looking game.
-You have completed the tutorial, great job!</p>
+	</div>
 
-<p><img src="img/screenshot_015.png" class="expand" alt="Step 15 screenshot" title="" /></p>
+	</div><div class="row">
 
+	<div class="col-xs-12">
+		<p>Now when you check the game in your browser the red outlines and fps display should be gone, leaving behind your great looking game. You have completed the tutorial, great job!</p>
+		<img src="img/screenshot_015.png" class="image-responsive" alt="Step 15 screenshot" title="" />
+	</div>
 
-<a name="cp15"></a>
-<div class="flexrow checkpoint">
-	<div class="col1-2">
-		<div class="module">
-			<h3><i class="fa fa-check-circle-o"></i>Checkpoint 15</h3>
-			<em class="sub">The finished product</em>
+</div>
+<div class="row">
+
+	<div class="col-xs-12">
+		<h3>Building your game</h3>
+		<p>To get a feeling for the process we will use to publish our game navigate inside of the starter project in your terminal and run:</p>
+		<i class="glyphicon glyphicon-console"></i> <code>npm run build</code>
+		<p>This is the build command that creates a fresh 'build' of your game which you can try in your browser or distribute on the web, once this command is run the only thing you need to play your game is the 'build' folder and its contents.</p>
+		<blockquote>
+			<p>For example if you were submitting your game to itch.io you could zip and rename the build folder and upload that as your game.</p>
+		</blockquote>
+	</div>
+
+</div><div class="row">
+	
+	<div class="col-xs-12 col-md-6">
+		<p>Inside the build folder we have <strong>index.html</strong>, <strong>index.js</strong>,  <strong>images</strong>, and <strong>sounds</strong>.</p>
+		<ul>
+			<li><strong>index.html</strong> - The main html page your game will be displayed on, this contains the canvas element where your game is displayed.</li>
+			<li><strong>index.js</strong> - this is all of the code of your game, but it is also all the code for Splat ECS and all of its dependencies, This is a 'compiled' build version so everything is smashed into a single file.</li>
+			<li><strong>images</strong>, <strong>sounds</strong> - where the assets your games uses live in the build folder.</li>
+		</ul>
+		<div class="alert-alert-warning">
+			<p>Never edit anything in the build folder, this is the output of your game and the next time you run <i class="glyphicon glyphicon-console"></i> <code>npm run build</code> it will all be overwritten anyway.</p>
 		</div>
 	</div>
-	<div class="col1-2">
-		<div class="module">
-			<a href="https://github.com/SplatJS/Splatformer-Tutorial/tree/master/step_015/src" target="_blank" class="btn"><i class="fa fa-code"></i> view code for checkpoint 15</a>
+
+	<div class="col-xs-12 col-md-6">
+		<img src="img/build.jpg" class="image-responsive"/>
+	</div>
+
+</div>
+<div class="row">
+
+	<div class="col-xs-12">
+		<p>Thanks again for trying out Splat ECS and remember this is an open source community drive project, so feel free to help us with bug reports, fixes, or new features! The github project lives at: <a href="https://github.com/SplatJS/splat-ecs">Splat ECS github</a>.</p>
+	</div>
+	
+</div>
+<div class="row">
+
+	<div class="col-xs-12">
+		<h2>Sharing Publishing your game</h2>
+		<p>Even though this is just a tutorial game I thought it would be usefull to include a few steps related to sharing or publishing a game created with Splat ECS.</p>
+	</div>
+
+</div><div class="row">
+	
+	<div class="col-xs-12 col-md-6">
+		<img src="img/packagejson.jpg" class="image-responsive"/>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<h3>If you are using github</h3>
+		<ul>
+			<li>The one file that is not in <strong>src/</strong> that you will need to edit is the <strong>package.json</strong>. Open package.json in your code editor. Change <code>name</code> to the name of your game (no caps or spaces)</li>
+			<li>edit <code>description</code> to describe your game</li>
+			<li><code>repository</code> - "url" to your github project url (if you have one)</li>
+			<li><code>bugs</code> - "url" to your github project url (if you have one)</li>
+			<li><code>homepage</code> - to your game project's website (if you have one)</li>
+			<li><code>author</code> - Your name</li>
+			<li><code>license</code> - Change to 'proprietary' unless you want your game to be free and open source.</li>
+		</ul>
+		<div class="alert alert-success">
+			<strong> A note on licenses</strong>
+			<p>Splat-ECS itself uses the MIT licence but your can use any license you want or make it proprietary. You can charge money for your Splat-ECS game, it is fully yours and you can do whatever you like with it with no restrictions. More info about the Open Source licenses like the MIT license can be found here: <a href="https://opensource.org/licenses">https://opensource.org/licenses</a></p>
 		</div>
+	</div>
+
+</div>
+<div class="row">
+	<div class="col-xs-12">
+
+		<h2> Check back soon for more useful info </h2>
+
+		<h3>Hosting your game on itch.io</h3>
+		<strong>coming soon</strong>
+
+		<h3>Setting up your game for the Chrome Web Store</h3>
+		<strong>coming soon</strong>
+
+		<h3>Creating a Mac build with <a href="http://electron.atom.io/" target="_blank">Electron</a></h3>
+		<strong>coming soon</strong>
+
+		<h3>Creating a Linux build with <a href="http://electron.atom.io/" target="_blank">Electron</a></h3>
+		<strong>coming soon</strong>
+
 	</div>
 </div>
+	</div><!-- end conatainer-fluid -->
 
 
+	<script src="js/highlight/highlight.pack.js"></script>
+	<script>
+	// Start Highlight.js
+	hljs.initHighlightingOnLoad();
 
-
-<p>Thanks again for trying out Splat ECS and remember this is an open source community drive project, so feel free to help us with bug reports, fixes, or new features! The github project lives at: <a href="https://github.com/SplatJS/splat-ecs">Splat ECS github</a>.</p>
-
-
-
-
-<a name="publishing"></a>
-<h2>Sharing Publishing your game</h2>
-
-<p>Even though this is just a tutorial game I thought it would be usefull to include a few steps related to sharing or publishing a game created with Splat ECS.
-</p>
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-			<img src="img/packagejson.jpg" class="expand"/>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<h3>If you are using github</h3>
-			<p>The one file that is not in <strong>src/</strong> that you will need to edit is the <strong>package.json</strong>. Open package.json in your code editor.
-			Change <code>name</code> to the name of your game (no caps or spaces)</p>
-
-			<p>edit <code>description</code> to describe your game</p>
-
-			<p><code>repository</code> -> "url" to your github project url (if you have one)</p>
-
-			<p><code>bugs</code> -> "url" to your github project url (if you have one)</p>
-
-			<p><code>homepage</code> to your game project's website (if you have one)</p>
-
-			<p>change <code>author</code> to your name</p>
-
-			<p>change <code>license</code> to 'proprietary' unless you want your game to be free and open source.</p>
-		</div>
-	</div>
-</div>
-
-
-
-
-<h3>Building your game</h3>
-
-<p>To get a feeling for the process we will use to publish our game navigate inside of the starter project in your terminal and run:
-<code>bash
-npm run build
-</code>
-This is the build command that creates a fresh 'build' of your game which you can try in your browser or distribute on the web, once this command is run the only thing you need to play your game is the 'build' folder and its contents.</p>
-
-<blockquote>
-  <p>For example if you were submitting your game to itch.io you could zip and rename the build folder and upload that as your game.</p>
-</blockquote>
-
-
-<div class="flexrow">
-	<div class="col1-2">
-		<div class="module">
-
-			<p>Inside the build folder we have <strong>index.html</strong>, <strong>index.js</strong>,  <strong>images</strong>, and <strong>sounds</strong>.</p>
-
-			<p><strong>index.html</strong> - The main html page your game will be displayed on, this contains the canvas element where your game is displayed.</p>
-
-			<p><strong>index.js</strong> - this is all of the code of your game, but it is also all the code for Splat ECS and all of its dependencies, This is a 'compiled' build version so everything is smashed into a single file.</p>
-
-			<p><strong>images</strong>, <strong>sounds</strong> - where the assets your games uses live in the build folder.</p>
-
-			<blockquote>
-			  <p>Never edit anything in the build folder, this is the output of your game and the next time you run <code>npm run build</code> it will all be overwritten anyway.</p>
-			</blockquote>
-		</div>
-	</div>
-	<div class="col1-2">
-		<div class="module">
-			<img src="img/build.jpg" class="expand"/>
-		</div>
-	</div>
-</div>
-
-
-<h3>Hosting your game on itch.io</h3>
-<strong>coming soon</strong>
-
-<h3>Setting up your game for the Chrome Web Store</h3>
-<strong>coming soon</strong>
-
-<h3>Creating a Mac build with <a href="http://electron.atom.io/" target="_blank">Electron</a></h3>
-<strong>coming soon</strong>
-
-<h3>Creating a Linux build with <a href="http://electron.atom.io/" target="_blank">Electron</a></h3>
-<strong>coming soon</strong>
-
-</div> <!-- module -->
-</div><!-- end col2-3 -->
-</div><!-- end flexrow -->
-
-<script src="js/highlight/highlight.pack.js"></script>
-
-<script>hljs.initHighlightingOnLoad();</script>
-
-<script>
+	// google-analytics
 	var _gaq=[['_setAccount','UA-48152351-17'],['_trackPageview']];
 	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-	g.src='//www.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
+		g.src='//www.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+
 </body>
 </html>

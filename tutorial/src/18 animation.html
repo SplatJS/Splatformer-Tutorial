@@ -1,0 +1,154 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Animation</h2>
+    <h3>Motion to add emotion</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6">
+    <video  class="img-responsive" controls poster="img/screenshot_010.png">
+      <source src="mov/step_010.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+    </video>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <p>Splat ECS has built in support for sprite animation and if you setup your artwork to work with the default format it can be super easy to get animated sprites working quickly.</p>
+
+    <p>The first animations we will add will be for the player. Sticky baby can currently move left and right but the image stays the same. Let's fix that.</p>
+
+    <p>To add animations we must edit <strong>src/data/animations.json</strong>. Let's add the idle, left, and right running animations now. Below is the format for filmstrip-formatted spritesheets:</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-md-6">
+<pre><code class="json">
+"player-idle": [{
+  "filmstripFrames": 1,
+  "time": 1,
+  "properties": {
+    "image": {
+      "name": "player-idle.png",
+      "sourceX": 0,
+      "sourceY": 0,
+      "sourceWidth": 32,
+      "sourceHeight": 48
+    }
+  }
+}],
+"player-run-left": [{
+  "filmstripFrames": 4,
+  "time": 150,
+  "properties": {
+    "image": {
+      "name": "player-run-left.png",
+      "sourceX": 0,
+      "sourceY": 0,
+      "sourceWidth": 128,
+      "sourceHeight": 48
+    }
+  }
+}],
+"player-run-right": [{
+  "filmstripFrames": 4,
+  "time": 150,
+  "properties": {
+    "image": {
+      "name": "player-run-right.png",
+      "sourceX": 0,
+      "sourceY": 0,
+      "sourceWidth": 128,
+      "sourceHeight": 48
+    }
+  }
+}]
+</code></pre>
+  </div>
+  <div class="col-xs-12 col-md-6">
+
+
+    <p>So what does all this data do? Let's go through it one piece at a time:</p>
+    <ul>
+      <li> key - This is the name we want to give to the animation, often best to make it the same as the image name the animation uses, in our example: <code>player-run-right</code></li>
+      <li> filmstripFrames - this lets the engine know how to chop up the spritesheet, it will use the width of the image and devide it by the number of frames to create individual images to cycle through.</li>
+      <li> time - The time in milliseconds that each frame will last, use this to adjust the speed of the animation.</li>
+      <li> properties - image
+        <ul>
+          <li> name - Image file to use in our example: <code>player-run-right</code>.</li>
+          <li> sourceX - Point to start the first frame, usually 0.</li>
+          <li> sourceY - Point to start the first frame, usually 0.</li>
+          <li> sourceWidth - The width of the entire spritesheet.</li>
+          <li> sourceHeight - The height of the entire spritesheet.</li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
+    <p>So now that we have animations defined, we need to use them. To change the animations the player uses we will create a new system in the <strong>src/systems/simulation/</strong> folder called <code>run.js</code></p>
+    <p>The <code>run</code> system we   created looks for any entities with <code>"player"</code> components and runs the following code on them each frame:</p>
+    <p>Create a variable for the animation component on the player. If the left button is pressed, change the player's animation name to <code>"player-run-left"</code>, else if the input named right is pressed switch to the animation named <code>"player-run-right"</code>, and if neither of those are currently pressed return to the <code>"player-idle"</code> animation.</p>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <p>The contents of this system should be as follows:</p>
+<pre><code class="javascript">
+"use strict";
+
+module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
+  ecs.addEach(function run(entity, elapsed) { // eslint-disable-line no-unused-vars
+    var animation = game.entities.get(entity, "animation");
+
+    if (game.inputs.button("left")) {
+      animation.name = "player-run-left";
+    } else if (game.inputs.button("right")) {
+      animation.name = "player-run-right";
+    } else {
+      animation.name = "player-idle";
+    }
+
+  }, "playerController2d");
+
+};
+
+</code></pre>
+
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
+    <p>We now need to add this new system to <strong>src/data/systems.json</strong>, I recommend adding it right before <code>box-collider</code> in the <code>"simulation":[]</code> array.</p>
+
+<pre><code class="json">
+{
+  "name": "./systems/simulation/run",
+  "scenes": [
+  "main"
+  ]
+}
+</code></pre>
+
+    <p>Now we need to replace the <code>"image"</code> component on our player with an <code>"animation"</code> component like so:</p>
+
+<pre><code class="json">
+"animation": {
+  "time": 0,
+  "frame": 0,
+  "loop": true,
+  "speed": 1,
+  "name": "player-idle.png"
+}
+</code></pre>
+
+    <p>Now test out the game in the browser and sticky baby should be able to run around in style!</p>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <img src="img/screenshot_010.png" class="image-responsive" alt="Step 10 screenshot" />
+  </div>
+
+</div>

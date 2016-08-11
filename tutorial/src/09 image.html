@@ -1,0 +1,54 @@
+<div class="row">
+
+	<div class="col-xs-12">
+		<h2>Using images in Splat ECS</h2>
+		<h3>Sticky Baby lives!</h3>
+	</div>
+
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_001.png">
+			<source src="mov/step_001.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<p>To start using images in splat it is as easy as adding them to the <strong>/src/img/</strong> folder!</p>
+
+		<p>First download the assets pack for this game here:</p>
+
+		<a class="btn btn-primary" href="https://github.com/SplatJS/Splatformer-Tutorial/raw/master/splatformer_assets_pack.zip"><i class="glyphicon glyphicon-file"></i>Splatformer Assets Pack</a>
+
+		<p> When you unzip the file you will find two folders, images and sounds. Copy all of the images into your game's <strong>/src/img/</strong> folder and all of the included sounds into your game's <strong>/src/sounds/</strong> folder.</p>
+
+		<p>First we should give the player an image, to do this we need to go into <strong>/src/data/entities.json</strong>. Inside <strong>/src/data/entities.json</strong> you will see an array called <code>"main: []"</code> this refers to the main scene. In this tutorial we will only be working in one scene so all of our entities must be in "main". In future tutorials or in your own projects you can create as many scenes as you want and each can have it's own set of entities.</p>
+	</div>
+
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
+		<p>Let's find player in the list on entities and add an <strong>image</strong> to it! To add a static image to an entity in Splat ECS you use the <strong>image</strong> component like this:</p>
+
+<pre><code class="json">
+...
+"id": 1,
+"name": "player",
+"image":{
+	"name": "player-idle.png"
+},
+"position": {
+	"x": 100,
+	"y": 100
+},
+...
+</code></pre>
+
+		<p>Be sure to save the file and now if you check your browser you should see the black-outlined box now has sticky baby inside it! But something looks wrong... Sticky baby's image is being stretched to the size of the player entity (100x100).</p>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<img src="img/screenshot_001.png" class="image-responsive" alt="Step 1 screenshot" title="" />
+	</div>
+
+</div>

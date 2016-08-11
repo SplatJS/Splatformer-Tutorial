@@ -1,0 +1,97 @@
+<div class="row">
+	<div class="col-xs-12">
+		<h4>Working on your game</h4>
+<p>Let's get into some code.</p>
+<p>Everything you will ever edit in your game is inside the <strong>src/</strong> folder.</p>
+<p>Let's examine the existing game code for the sample project.</p>
+<p>If you remember there was a black outlined square and keyboard controls, how does that work?</p>
+<h4>Entities and their Components</h4>
+<p>Open up the game project in your code editor or choice.</p>
+<p>Open <strong>src/data</strong> and you will notice several <strong>.json</strong> files, these are the core of your game because this is where we will store all of the game's data.</p>
+
+
+<div class="alert alert-info">
+	<i class="fa fa-th"></i>
+	<strong>Data-driven game development</strong>
+	<p>Much of how the game is set up (players, enemies, items, backgrounds, animations) is stored as data in JSON format.</p>
+</div>
+
+<p>If you open up <strong>src/data/entities.json</strong> you will see an array of entities called <strong>main</strong>, this is a <strong>scene</strong>. All of the entities contained by the <strong>main</strong> scene are inside the '[ ]'</p>
+
+<pre><code class="json">{
+ "main": [
+  {
+   "id": 0,
+   "name": "camera",
+   "camera": true,
+   "position": {
+    "x": 0,
+    "y": 0
+   },
+   "matchCanvasSize": true
+  },
+  {
+   "id": 1,
+   "name": "player",
+   "position": {
+    "x": 100,
+    "y": 100
+   },
+   "size": {
+    "width": 100,
+    "height": 100
+   },
+   "velocity": {
+    "x": 0,
+    "y": 0
+   },
+   "playerController2d": {
+    "up": "up",
+    "down": "down",
+    "left": "left",
+    "right": "right"
+   },
+   "movement2d": {
+    "upMax": -0.5,
+    "downMax": 0.5,
+    "leftMax": -0.5,
+    "rightMax": 0.5,
+    "upAccel": -0.02,
+    "downAccel": 0.02,
+    "leftAccel": -0.02,
+    "rightAccel": 0.02
+   },
+   "friction": {
+    "x": 0.97,
+    "y": 0.97
+   }
+  }
+ ]
+}
+</code></pre>
+
+<p>Notice the <code>id</code> of 1, <code>name</code>, <code>position</code>, <code>size</code>, <code>velocity</code>, <code>playerController2d</code>, <code>movement2d</code>, and <code>friction</code>. This is the player entity, it is just a bucket that holds components and has an id.</p>
+
+<p>This is our black-outlined box from before, it is a rectangle that is 100x100 and it's top left corner is drawn at coordinate x:100 and y:100 on the screen. Everything in our game world is based on coordinates like a graph, the top left point is x:0, y:0 as you move right the x number increases, and as you move down the y number increases. The <code>position</code>, and <code>size</code> objects are what we call components in the ECS world, they can be added, edited, or deleted to make an entity have different properties and/or behaviours.</p>
+
+<p>The player entity is controllable with WASD or arrow keys, this works using the <code>playerController2d</code> component built into Splat ECS.</p>
+
+<p>Splat ECS handles rendering of all entities for us, and by default there is a system called <code>draw-rectangles</code> that will outline each entity in a thin black line to let us know where they are. While this system is excellent for debugging, we will want to disable it once we get futher along.</p>
+
+<h4>Systems</h4>
+
+<p>So we have seen entities and components so far, what about systems? Let's open up the <strong>systems</strong> folder and see what is inside. In the <strong>systems</strong> folder you will see two other folders named <strong>renderer</strong>, and <strong>simulation</strong>.</p>
+
+<p>These are the only two types of systems you will need in Splat ECS. <strong>Renderer systems</strong> draw to the screen, and <strong>Simulation systems</strong> do everything else.</p>
+
+<p>Splat ECS uses the <a href="http://www.requirejs.org/docs/commonjs.html" target="_blank">Common JS module format</a> for all system modules you will be creating. Let's open the file <strong>src/systems/simulation/sample-simulation-system.js</strong> Inside this system we will see how we format our code in Splat ECS. Here you will see <code>module.exports</code> on line 3, this is the code to export the module for use by the game project and is vital that you wrap your code in this.</p>
+<div class="alert alert-success">
+	<p>Don't get intimidated by the code here, the sample systems are there for you to use as templates that you can copy each time to create your own systems.</p>
+</div>
+<p>You will notice the arguments <code>ecs</code> and <code>game</code>. Every chunk of system code in Splat ECS is run through the ECS so it must be included. <code>game</code> is everything in the data folder which becomes a large JavaScript object when the game is built.</p>
+
+<p>This process might seem overwhelming but it will become easier with time.</p>
+
+<p>So to get started let's add a sprite for our player!</p>
+</div>
+</div>

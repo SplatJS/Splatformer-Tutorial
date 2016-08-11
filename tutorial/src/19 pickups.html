@@ -1,0 +1,199 @@
+<div class="row">
+
+  <div class="col-xs-12">
+    <h2>Pickups!</h2>
+    <h3>Feeling prefabulous</h3>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-12 col-md-6">
+    <video  class="img-responsive" controls poster="img/screenshot_011.png">
+      <source src="mov/step_011.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+    </video>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <p>The sticky baby needs to collect balls of goo to remain sticky, so let's get some goo in the game.</p>
+    <p>So we want to be able to add lots of items for the player to pick up, and in this tutorial they will all use the same an animation. In Splat ECS there is a great feature designed to help with situations just like this, and it's called <strong>prefabs</strong>.</p>
+    <p>Before we get into the magic of prefabs, let's add a new animation to <strong>src/data/animations.json</strong> for our goo balls.</p>
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
+<pre><code class="json">
+"goo": [{
+  "filmstripFrames": 5,
+  "time": 600,
+  "properties": {
+    "image": {
+      "name": "goo.png",
+      "sourceX": 0,
+      "sourceY": 0,
+      "sourceWidth": 50,
+      "sourceHeight": 12
+    }
+  }
+}]
+</code></pre>
+
+  </div>
+  <div class="col-xs-12 col-md-6">
+
+    <h3>Adding a new prefab</h3>
+
+    <p>Prefabs are reusable entities, think of them as a mold for stamping out a bunch of the same exact entity. To add a new prefab we add an entity to <strong>src/data/prefabs.json</strong> the same way we would add an entity to <strong>src/data/entities.json</strong>. Since prefabs are a template for creating a new entity we don't need to create a unique id for them, Splat ECS will handle that for us. The other difference is that prefabs is not an array of entities, it is an object containing key-value pairs where the key is the name you want to give the prefab, and the value is an entity object.</p>
+
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12">
+    <p>Here is the JSON we need for the collectable goo entities</p>
+
+<pre><code class="json">
+"goo": {
+  "points": 1,
+  "position": {
+    "x": 0,
+    "y": 0
+  },
+  "size": {
+    "width": 13,
+    "height": 18
+  },
+  "velocity": {
+    "x": 0,
+    "y": 0
+  },
+  "collisions": [],
+  "animation":{
+    "time": 0,
+    "frame": 0,
+    "loop": true,
+    "speed": 1,
+    "name": "goo.png"
+  },
+  "image": {
+    "name": "goo.png",
+    "destinationWidth": 13,
+    "destinationHeight": 13
+  },
+  "gravity": 0.001
+}
+</code></pre>
+  </p>
+</div>
+<div class="col-xs-12">
+
+  <p>Now we need code to place the prefabs in our game, to do that we will use something new to us. We want the goo entities to be created once at the beginning of the game, but simulation and renderer systems run each frame, so that will not work - instead to create the goo entities once, when you ever the main scene of the game we will use a script called <code>main-enter</code>.</p>
+</div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
+
+    <h3>Enter and exit scripts</h3>
+
+    <p>Each scene can have code that runs at the beginning and end of it, these are stored in the <strong>src/scripts/</strong> folder and are named `scenename-enter.js` and `scenename-exit.js`(where 'scenename' is replaced with the name of the actual scene).</p>
+
+    <p>The sample project already has <strong>src/scripts/main-enter.js</strong> created for us, so we just need to modify it. Inside of the <code>module.exports = function</code> we will add code that will add new entities based on the prefab we created - to do this we will use their <code>game.instantiatePrefab</code> method.</p>
+
+    <p>game.instantiatePrefab takes a single parameter that is the key name of the prefab we created as a string, for example in our case "goo". It does two main things when called:</p>
+    <ol>
+      <li> Creates a new entity and adds it to the entity pool.</li>
+      <li>Returns the id of the new entity. (it automatically assigns it a unique id for you)
+      </ol>
+    </div>
+
+    <div class="col-xs-12 col-md-6">
+<pre><code class="javascript">
+"use strict";
+
+module.exports = function(game) { // eslint-disable-line no-unused-vars
+  game.scaleCanvasToFitRectangle(800,800);
+
+  for (var i = 0; i < 12; i++) {
+    var goo = game.instantiatePrefab("goo");
+    game.entities.set(goo, "position", {
+      "x": i * 70,
+      "y": -13
+    });
+  }
+};
+</code></pre>
+    </div>
+  </div><div class="row">
+
+    <div class="col-xs-12">
+      <p>The code above creates a variable called "goo", and stores the returned value of <code>game.instantiatePrefab("goo")</code> (the new entity id). The next line <code>game.entities.set</code> will give the brand new entity it's own position, in our case we are setting them to all be 70 pixels apart, and to spawn above the screen (0, the top of the screen minus the height of the goo entity).</p>
+
+      <p>Those two lines are wrapped in a for loop that runs the code inside 12 times.</p>
+
+      <p>When we revisit the game in the browser we should see 12 balls of goo fall from the sky and land on the ground directly under where they spawned.</p>
+
+      <p>You should notice that this process seemed much easier than when we started out, these prefabs all already have thier own animation, gravity component with a set value, and collisions component, so the systems we already have in place to handle gravity and collisions for the player effect these as well, pretty cool right!?</p>
+
+    </div>
+
+  </div><div class="row">
+
+    <div class="col-xs-12 col-md-6">
+      <p>But don't stop just yet - we still need to let sticky baby collect the goo, right now they just act like more platforms! To do this we need to add another simulation system, let's call this one <strong>collect-goo.js</strong></p>
+      <p>The code looks for any entity with a <code>"player"</code> component and does the following:</p>
+
+      <ul>
+        <li>Creates a variable for the player's collisions array,</li>
+        <li>Loops over all current collisions the player entity is experiencing</li>
+        <li>Checks to see if any of the other entities player is colliding with have a <code>"points"</code> component, and if they do it destroys them.</li>
+      </ul>
+
+    </div>
+
+
+    <div class="col-xs-12 col-md-6">
+
+      <p>Create a new file inside of <strong>src/systems/simulation/</strong> and name it <strong>collect-goo.js</strong>, the contents of the file should be as follows:</p>
+
+<pre><code class="javascript">
+"use strict";
+
+module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
+  ecs.addEach(function collectGoo(entity, elapsed) { // eslint-disable-line no-unused-vars
+    var entityCollisions = game.entities.get(entity, "collisions");
+
+    for (var i = 0; i < entityCollisions.length; i++) {
+      var other = entityCollisions[i];
+      if (game.entities.get(other, "points")) {
+        game.entities.destroy(other);
+      }
+    }
+  }, "playerController2d");
+
+};
+</code></pre>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+
+        <p>We now need to add this new system to <strong>src/data/systems.json</strong>, I recommend adding it right after <code>resolve-collisions</code> at the end of the <code>"simulation":[]</code> array.</p>
+
+<pre><code class="json">
+{
+  "name": "./systems/simulation/collect-goo",
+  "scenes": [
+  "main"
+  ]
+}
+</code></pre>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <img src="img/screenshot_011.png" class="image-responsive" alt="Step 11 screenshot" title="" />
+
+      </div>
+    </div>

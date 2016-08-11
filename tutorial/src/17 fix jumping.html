@@ -1,0 +1,67 @@
+<div class="row">
+
+  <div class="col-xs-12">
+    <h2>Fixing jumping</h2>
+    <h3>Following the rules</h3>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-xs-12 col-md-6">
+    <video  class="img-responsive" controls poster="img/screenshot_009.png">
+      <source src="mov/step_009.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+    </video>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <p>To fix this we need to edit the <strong>src/systems/simulation/jump.js</strong> system a bit, and now that we have platforms it makes since to only let the player jump if the player is standing on top of a platform. Here is the code we use to add that feature and how the system should look after it is added:</p>
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-7">
+
+<pre><code class="javascript">
+"use strict";
+
+module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
+  ecs.addEach(function jump(entity, elapsed) { // eslint-disable-line no-unused-vars
+    var velocity = game.entities.get(entity, "velocity");
+
+    if (game.inputs.buttonPressed("jump")) {
+      var entityCollisions = game.entities.get(entity, "collisions");
+
+      for (var i = 0; i < entityCollisions.length; i++) {
+        var other = entityCollisions[i];
+        var otherPosition = game.entities.get(other, "position");
+        var position = game.entities.get(entity, "position");
+        var size = game.entities.get(entity, "size");
+        if ((position.y + size.height) <= otherPosition.y) {
+          velocity.y  = -1.2;
+        }
+      }
+    }
+
+  }, "playerController2d");
+
+};
+</code></pre>
+  </div>
+
+  <div class="col-xs-12 col-md-5">
+    <p>This is a bit complicated - so let's break it down step-by-step.</p>
+    <ol>
+      <li>We are adding a variable called <code>entityCollisions</code> so we can loop over all of the other entities the player is currently touching.</li>
+      <li>Each time this loop runs it is create a new variable called <code>other</code> which contains the current entity that the player is touching.</li>
+      <li>The next bit of code (inside the 'if' statement) only runs if the <code>other</code> entity has a <code>"platform"</code> component.</li>
+      <li>Next we are then creating variables for the platform's position, and the player's current size and position.</li>
+      <li>if the player's top plus height (player's bottom) is less than or equal to the top  of the platform the player is standing on top of it.</li>
+      <li>Let that sucker jump!</li>
+    </ol>
+    <p>So to recap - if the player is touching a platform we are checking to see if the player is above the platform, and if it is, sticky baby can jump!</p>
+    <p>Now it is starting to feel like a real game, let's add something else that real games have - animation!</p>
+  </div>
+
+</div>

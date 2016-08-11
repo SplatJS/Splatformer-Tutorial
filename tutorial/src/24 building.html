@@ -1,0 +1,31 @@
+<div class="row">
+
+	<div class="col-xs-12">
+		<h3>Building your game</h3>
+		<p>To get a feeling for the process we will use to publish our game navigate inside of the starter project in your terminal and run:</p>
+		<i class="glyphicon glyphicon-console"></i> <code>npm run build</code>
+		<p>This is the build command that creates a fresh 'build' of your game which you can try in your browser or distribute on the web, once this command is run the only thing you need to play your game is the 'build' folder and its contents.</p>
+		<blockquote>
+			<p>For example if you were submitting your game to itch.io you could zip and rename the build folder and upload that as your game.</p>
+		</blockquote>
+	</div>
+
+</div><div class="row">
+	
+	<div class="col-xs-12 col-md-6">
+		<p>Inside the build folder we have <strong>index.html</strong>, <strong>index.js</strong>,  <strong>images</strong>, and <strong>sounds</strong>.</p>
+		<ul>
+			<li><strong>index.html</strong> - The main html page your game will be displayed on, this contains the canvas element where your game is displayed.</li>
+			<li><strong>index.js</strong> - this is all of the code of your game, but it is also all the code for Splat ECS and all of its dependencies, This is a 'compiled' build version so everything is smashed into a single file.</li>
+			<li><strong>images</strong>, <strong>sounds</strong> - where the assets your games uses live in the build folder.</li>
+		</ul>
+		<div class="alert-alert-warning">
+			<p>Never edit anything in the build folder, this is the output of your game and the next time you run <i class="glyphicon glyphicon-console"></i> <code>npm run build</code> it will all be overwritten anyway.</p>
+		</div>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<img src="img/build.jpg" class="image-responsive"/>
+	</div>
+
+</div>

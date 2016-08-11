@@ -1,0 +1,87 @@
+<div class="row">
+
+	<div class="col-xs-12">
+		<h2>Sound</h2>
+		<h3>Hearing is believing</h3>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_013.png">
+			<source src="mov/step_013.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<p>Sound is a huge boost to your game and adds a ton of feeling and depth to what you see and do on the screen. Sound is really easy to add in Splat ECS, but that does not mean sound is easy in games, it can often take a lot of effort to create the right sound effects, ambience, and music to make your creation feel just right.</p>
+		<p>To start let's add a couple of sound effects I created with BFXR to <strong>src/sounds/</strong> in your game project, you can find them in the assets pack that the images were in.</p>
+		<p>We need to add and name sounds we wish to use in the game to the <strong>src/data/sounds.json</strong> file like so:</p>
+	</div>
+
+	<div class="col-xs-12">
+<pre><code class="json">
+{
+	"jump": "sounds/jump.mp3",
+	"pickup": "sounds/pickup.mp3"
+}
+</code></pre>
+		<p>Now that sounds are available for us to use in the game it is an easy one-liner to add them in</p>
+		<pre><code class="javascript">
+			game.sounds.play("jump.mp3");
+		</code></pre>
+		<p>The first sound would work well in the jump system <strong>src/systems/simulation/jump.js</strong>.</p>
+		<p>Here is what that system looks like with the sound added:</p>
+<pre><code class="javascript">
+"use strict";
+
+module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
+	ecs.addEach(function jump(entity, elapsed) { // eslint-disable-line no-unused-vars
+		var velocity = game.entities.get(entity, "velocity");
+
+		if (game.inputs.buttonPressed("jump")) {
+			var entityCollisions = game.entities.get(entity, "collisions");
+
+			for (var i = 0; i < entityCollisions.length; i++) {
+				var other = entityCollisions[i];
+				var otherPosition = game.entities.get(other, "position");
+				var position = game.entities.get(entity, "position");
+				var size = game.entities.get(entity, "size");
+				if ((position.y + size.height) <= otherPosition.y) {
+					game.sounds.play("jump.mp3");
+					velocity.y  = -1.2;
+				}
+			}
+		}
+
+	}, "playerController2d");
+
+
+};
+</code></pre>
+		<p>Now we should add a sound when sticky baby picks up a ball of goo, we can do this in <strong>src/systems/simulation/collect-goo.js</strong>:</p>
+		<p>here is the <strong>collect-goo</strong> system with the added sound:</p>
+<pre><code class="javascript">
+"use strict";
+
+module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
+	ecs.addEach(function collectGoo(entity, elapsed) { // eslint-disable-line no-unused-vars
+		var entityCollisions = game.entities.get(entity, "collisions");
+		var score = game.entities.get(entity, "score");
+
+		for (var i = 0; i < entityCollisions.length; i++) {
+			var other = entityCollisions[i];
+			var points = game.entities.get(other, "points");
+			if (points) {
+				game.sounds.play("pickup.mp3");
+				game.entities.destroy(other);
+				game.entities.set(entity, "score", score + points);
+			}
+		}
+	}, "playerController2d");
+
+};
+</code></pre>
+		<p>And now when you play the game in your browser check to see if the sounds are working, and if they are congratulate yourself for completing this tutorial, and creating what might be your first of many games with Splat ECS!</p>
+		<img src="img/screenshot_013.png" class="image-responsive" alt="Step 13 screenshot" title="" />
+	</div>
+
+</div>

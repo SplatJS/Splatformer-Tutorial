@@ -1,0 +1,115 @@
+<div class="row">
+
+	<div class="col-xs-12">
+		<h2>Keeping score</h2>
+		<h3>Competitive gaming</h3>
+	</div>
+
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_012.png">
+			<source src="mov/step_012.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<p>We are almost done, we have a pretty real feeling game now, but I want to show you one more thing, rendering text on the screen, and to do this we will add a score counter.</p>
+		<p>This will be our first and only render system necessary for the tutorial. Let's delete the <strong>src/systems/renderer/sample-renderer-system.js</strong> and add a new file inside of <strong>src/systems/renderer/</strong>, let's name it <strong>draw-score.js</strong></p>
+	</div>
+
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
+		<p>The contents of <strong>draw-score.js</strong> should be as follows:</p>
+<pre><code class="javascript">
+"use strict";
+
+module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
+	ecs.addEach(function harvest(entity, context) { // eslint-disable-line no-unused-vars
+		var score = game.entities.get(entity, "score");
+
+		context.fillStyle = "#fff";
+		context.font = "bold 26px arial";
+		context.fillText("Goo: " + score, 16, 35);
+
+	} ,"player");
+};
+</code></pre>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<p>This code will run one per frame for each entity with the <code>"player"</code> component, which should be familiar by now, but there is one main difference that rendering systems have - they draw things to the screen or <strong>context</strong>.</p>
+		<p>To draw the score we want to draw normal text to the screen and to do this we can use normal html5 canvas functions. I will explain each line staring with <code>var score</code></p>
+		<ul>
+			<li>Create a variable for the player's <code>"score"</code> component (which we will add after)</li>
+			<li>Set the color of the text, in our case <strong>#fff</strong> for white.</li>
+			<li>Set the font to bold 26px arial.</li>
+			<li>Draw the text "Goo:" to the screen followed by the number of the player's current score at the position x:16, y:35.</li>
+		</ul>
+	</div>
+
+
+</div><div class="row">
+
+
+	<div class="col-xs-12">
+		<p>We now - you guessed it - need to add this new system to <strong>src/data/systems.json</strong>, I recommend adding it right before <code>draw-frame-rate</code> in the <code>"renderer":[]</code> array this time.</p>
+
+<pre><code class="json">
+{
+	"name": "./systems/renderer/draw-score",
+	"scenes": [
+	"main"
+	]
+}
+</code></pre>
+
+		<p>Also while you have this file open, remove this sample system reference:</p>
+<pre><code class="json">
+{
+	"name": "./systems/renderer/sample-renderer-system",
+	"scenes": [
+	"main"
+	]
+}
+</code></pre>
+
+		<p>Now we need to give the player a <code>"score"</code> component, and add a way to increase the score.</p>
+
+		<p>Let's start by adding this to our player entity in <strong>src/data/entities.json</strong>: <code>"score": 0,</code> </p>
+
+		<p>This component starts the player with 0 score and will serve as the place for us to store the score as it increases.</p>
+
+		<p>Next we need to pick the event that will increase the score, this should be the moment when the goo entity the player touches is destroyed.</p>
+
+		<p>Open up <strong>src/systems/simulation/collect-goo.js</strong> again and let's add a few lines:</p>
+
+		<p>Here is how the file will look after we add two lines, one to get the <code>"score"</code> component of the player entity, and one to add the amount of points (from the goo's `points` component) to it each time the player grabs a ball of goo.</p>
+
+<pre><code class="javascript">
+"use strict";
+
+module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
+	ecs.addEach(function collectGoo(entity, elapsed) { // eslint-disable-line no-unused-vars
+		var entityCollisions = game.entities.get(entity, "collisions");
+		var score = game.entities.get(entity, "score");
+
+		for (var i = 0; i < entityCollisions.length; i++) {
+			var other = entityCollisions[i];
+			var points = game.entities.get(other, "points");
+			if (points) {
+				game.entities.destroy(other);
+				game.entities.set(entity, "score", score + points);
+			}
+		}
+	}, "playerController2d");
+
+};
+</code></pre>
+
+		<p>Now if you try out the game in your browser you should be able to run around and collect all 12 balls of goo.</p>
+
+		<img src="img/screenshot_012.png" class="image-responsive" alt="Step 12 screenshot" title="" />
+	</div>
+</div>

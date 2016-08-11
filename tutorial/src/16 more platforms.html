@@ -1,0 +1,85 @@
+<div class="row">
+
+  <div class="col-xs-12">
+    <h2>Adding more platforms</h2>
+    <h3>Feeling jumpy</h3>
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
+    <video  class="img-responsive" controls poster="img/screenshot_008.png">
+      <source src="mov/step_008.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+    </video>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <p>This part will be pretty easy now that we have systems in place to handle resolving our collisions, we can add platforms wherever we want and they will just work.</p>
+    <p>To start let's add another platform in <strong>src/data/entities.json</strong> like so:</p>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <pre><code class="json">
+      {
+        "id": 5,
+
+        "position": {
+          "x": 0,
+          "y": 450
+        },
+        "size": {
+          "width": 406,
+          "height": 41
+        },
+        "collisions": [],
+        "image":{
+          "name":"platform.png"
+        }
+      }
+    </code></pre>
+
+    <p>Be sure the ids of any platforms you add are unique, and add another:</p>
+
+    <pre><code class="json">
+      {
+        "id":6,
+
+        "position": {
+          "x": 394,
+          "y": 600
+        },
+        "size": {
+          "width": 406,
+          "height": 41
+        },
+        "collisions": [],
+        "image":{
+          "name":"platform.png"
+        }
+      }
+    </code></pre>
+  </div>
+
+</div>  <div class="row">
+
+  <div class="col-xs-12 col-md-6">
+    <p>You should recognize what each of the components in these platform entities is doing by now, but here is a quick recap:</p>
+    <ul>
+      <li>id - A unique number for each entity, the engine reads this to keep track of each entity</li>
+      <li>platform - This is so we can later write systems that target only "platforms" which is just a name we made up for these. This just acts as a tag, and you can make up any tags like this with any name you desire.</li>
+      <li>position - This is the position of the top left of the entity to let Splat ECS know where to draw it.</li>
+      <li>size - The width and height of the entity, this is it's collision are as well, the size of the object the player will bump into.</li>
+      <li>collisions - Anything that you need to track collisions on will need this component, it has an array of the ids of all other entities it is currently intersecting.</li>
+      <li>image : name - The image to draw on the entity.</li>
+    </ul>
+    <p>So now if you play the game in your browser you will be able to jump onto the other platforms! You might notice that the jumping in the game acts a bit weird, you can continue to jump over and over and there is no way to stop sticky baby from jumping in mid-air!</p>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <img src="img/screenshot_008.png" class="image-responsive" alt="Step 8 screenshot" title="" />
+  </div>
+
+</div>

@@ -1,0 +1,103 @@
+<div class="row">
+
+  <div class="col-xs-12">
+    <h2>Gravity</h2>
+    <h3>Weighing you down</h3>
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
+    <video  class="img-responsive" controls poster="img/screenshot_005.png">
+      <source src="mov/step_005.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+    </video>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <p>Another staple of platformer games is gravity, in Splat-ECS gravity can be simulated simply by creating a force applied downward on entities, to do this we can use the built-in system <strong>apply-acceleration</strong></p>
+    <h3>appy-acceleration</h3> is a system that acts on anything with <strong>"acceleration"</strong> and <strong>"velocity"</strong> components. Our player entity already has <strong>"velocity"</strong> so we only need to add:
+<pre><code class="json">
+  "acceleration": {
+    "x": 0,
+    "y": 0.2
+  },
+</code></pre>
+
+  </div>
+
+</div><div class="row">
+
+  <div class="col-xs-12">
+    <p>You can add this anywhere in the player entity, but I added it after the <code>"velocity:{}"</code> component since it will effect the player's velocity.</p>
+
+    <p>Your player entity should now look like this:</p>
+
+<pre><code class="json">
+  {
+    "id": 1,
+    "name": "player",
+    "image":{
+      "name": "player-idle.png"
+    },
+    "position": {
+      "x": 100,
+      "y": 100
+    },
+    "size": {
+      "width": 32,
+      "height": 48
+    },
+    "velocity": {
+      "x": 0,
+      "y": 0
+    },
+    "acceleration": {
+      "x": 0,
+      "y": 0.2
+    },
+    "playerController2d": {
+      "up": "up",
+      "down": "down",
+      "left": "left",
+      "right": "right"
+    },
+    "movement2d": {
+      "upMax": -0.5,
+      "downMax": 0.5,
+      "leftMax": -0.5,
+      "rightMax": 0.5,
+      "upAccel": -0.02,
+      "downAccel": 0.02,
+      "leftAccel": -0.02,
+      "rightAccel": 0.02
+    },
+    "friction": {
+      "x": 0.97,
+      "y": 0.97
+    },
+    "constrainPosition": {
+      "id": 2
+    }
+  },
+</code></pre>
+
+</div>
+
+</div><div class="row">
+
+  <div class="col-xs-12 col-md-6">
+    <p>Now all we need to do is add a reference to <strong>apply-acceleration</strong> in <strong>src/data/systems.json</strong> I would reccoment adding it under apply-velocity</p>
+    <pre><code class="json">
+      {
+        "name": "splat-ecs/lib/systems/apply-acceleration",
+        "scenes": "all"
+      },
+    </code></pre>
+    <p>Now check the game in your browser, if everything was done correctly the player should fall out of the sky and land on the bottom of the screen, you can still of course move left and right.</p>
+  </div>
+
+  <div class="col-xs-12 col-md-6">
+    <img src="img/gravity.png" class="image-responsive" alt="gravity - Splat-ECS game engine" title="" />
+  </div>
+
+</div>

@@ -1,0 +1,49 @@
+<div class="row">
+
+	<div class="col-xs-12">
+		<h2>Adding a background</h2>
+		<h3>A change of scenery</h3>
+	</div>
+
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_004.png">
+			<source src="mov/step_004.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<p>It is a bit hard to belive that our hero Sticky Baby lives in such a bleak world, so let's go ahead and add a simple background image to our game. This is really easy because Splat ECS handles all the drawing of entities with images for us. Let's take the entity with the <code>"id": 2</code> that we just created in the last step and add a couple of new components to it. Open up <strong>src/data/entities.json</strong> again and add <code>"name"</code>,<code>"position"</code>, and <code>"image"</code>:</p>
+	</div>
+
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
+<pre><code class="json">
+	{
+    "id": 2,
+    "name": "background",
+    "position": {
+      "x": 0,
+      "y": 0
+    },
+    "size": {
+      "width": 800,
+      "height": 800
+    },
+    "image": {
+      "name": "sky.png"
+    }
+	}
+</code></pre>
+
+				<p>The <code>name</code> component is really just for us as developers to know which entity we are looking at. The engine, on the other hand, knows each entity by it's id. <code>"position"</code> is the x &amp; y coordinates of where to start drawing that entity, in this case 0,0 is the top left of the game canvas. <code>"size"</code> is the size of the background, and <code>"image"</code> contains a property for the name of the background image.</p>
+
+				<p>Now we should see a background with rolling green hills, a deep blue sky, and fluffy white clouds for our game, just the way sticky baby likes it!</p>
+			</div>
+			<div class="col-xs-12 col-md-6">
+				<img src="img/background-image.png" class="image-responsive" alt="background image Splat-ECS game engine"/>
+			</div>
+
+</div>

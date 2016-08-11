@@ -1,0 +1,48 @@
+<div class="row">
+	<div class="col-xs-12">
+		<h2>Adjusting the aspect ratio</h2>
+		<h3>Making things presentable</h3>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_014.png">
+			<source src="mov/step_014.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<p>You will notice that our game is stuck up in the top left corner of a full-screen black canvas. We want the game to scale depending on the browser window size so that the whole game is always in view (not cut off) and the artwork is always the correct aspect ratio.</p>
+		<p>To do this we need to add another reference to a pair of built-in Splat-ECS systems called <code>match-center-x</code> and <code>match-center-y</code> to <strong>src/data/systems.json</strong>.</p>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<p><strong>src/data/systems.json</strong></p>
+<pre><code class="json">
+	{
+		"name": "splat-ecs/lib/systems/match-center-x",
+		"scenes": "all"
+	},
+	{
+		"name": "splat-ecs/lib/systems/match-center-y",
+		"scenes": "all"
+	}
+</code></pre>
+		<p>These two systems let you add a <code>matchCenterX</code> and <code>matchCenterX</code> components to any entity and provide it the id of any other entity. The system will center the entity whose id you provide on the first entity. In our case we are going to add the <code>matchCenterX</code> and <code>matchCenterY</code> components to our camera entity, and tell id 2(the background image) to center on it. We also need to add another component to the camera called <code>matchCanvasSize</code> this will make our 800 x 600 game scale to the size of the browser window without getting cut off, since we are not drawing anything outside of the 800x600 area the game will effectively have letterboxing on the right and left sides.</p>
+		<p><strong>src/data/entities.json</strong> inside the camera entity</p>
+
+<pre><code class="json">
+"matchCanvasSize": true,
+"matchCenterX": {
+	"id": 2
+},
+"matchCenterY": {
+	"id": 2
+}
+</code></pre>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<img src="img/screenshot_014.png" class="image-responsive" alt="Step 14 screenshot" title="" />
+	</div>
+
+</div>
