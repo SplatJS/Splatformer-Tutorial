@@ -1,5 +1,16 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+	background: hsla(206, 19%, 93%, 1)
+}
 .container-fluid{
 	max-width: 1200px !important;
+	box-shadow: 0 0 37px 15px rgba(0, 0, 0, 0.08);
 }
 
 .image-responsive{
@@ -7,21 +18,25 @@
 }
 
 header{
-	background: #353535 !important;
-	color: white !important;
+
+	width: 100vw;
 }
 
-header a{
-	margin: 0 auto;
-	display: block;
+.header-inner{
+	max-width: 1200px;
+	margin: 0 auto !important;
 }
 
-body{
-	background: #353535;
+.logo img{
+	margin: 10px;
+	max-height: 150px;
 }
+
+
 
 .container-fluid{
 	background: white;
+	margin-bottom: 25px;
 }
 
 .terminal{
@@ -46,13 +61,13 @@ body{
 }
 
 .btn-primary{
-	border: 1px solid hsla(175, 100%, 35%, 1) !important;
-	background: linear-gradient( to bottom, hsla(175, 100%, 45%, 1), hsla(175, 100%, 40%, 1), hsla(175, 100%, 35%, 1)) !important;
+	border: 1px solid hsla(175, 100%, 40%, 1) !important;
+	background: hsla(175, 100%, 45%, 1) !important;
 }
 
 .btn-primary:hover{
 	border: 1px solid hsla(175, 100%, 40%, 1) !important;
-	background: linear-gradient( to bottom, hsla(175, 100%, 50%, 1), hsla(175, 100%, 45%, 1), hsla(175, 100%, 40%, 1)) !important;
+	background: hsla(175, 100%, 50%, 1) !important;
 }
 
 .btn .fa{
@@ -61,4 +76,55 @@ body{
 
 code em{
 	background: rgba(255,255,255,0.2);
+}
+
+pre{
+	padding: 0 !important;
+}
+
+
+.socialIcons{
+	margin: 25px 10px;
+	float: right;
+}
+
+.socialIcons a{
+	color: white;
+	background: hsla(175, 100%, 40%, 1);
+	border-radius: 40px;
+	width: 45px;
+	height: 45px;
+	padding: 2px;
+	font-size: 28px;
+	text-align: center;
+	display: block;
+}
+.socialIcons a:hover{
+	background: white;
+	color:hsla(175, 100%, 40%, 1);
+}
+
+
+
+.circle-icon{
+	color: white;
+	background: hsla(175, 100%, 40%, 1);
+	border-radius: 40px;
+	width: 45px;
+	height: 45px;
+	padding: 7px;
+	font-size: 28px !important;
+	text-align: center;
+	vertical-align: top;
+}
+
+.section-title{
+	border-bottom: 5px solid rgb(0, 229, 210);
+
+}
+
+.alert i{
+	font-size: 32px;
+	margin: 0 10px 10px 0;
+	vertical-align: middle;
 }

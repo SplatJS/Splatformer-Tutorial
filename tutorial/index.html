@@ -8,17 +8,32 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="css/tutorial.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link rel="stylesheet" title="Darcula" href="js/highlight/styles/darcula.css">
+  <link rel="stylesheet" title="Monokai" href="js/highlight/styles/monokai.css">
 
 </head>
 <body>
-  
+
+<header>
+    <div class="header-inner row">
+      <div class="col-xs-12 col-md-4">
+        <a href="http://splatjs.com" class="logo"><img src="img/logo.png"/></a>
+      </div>
+      <div class="col-xs-12 col-md-8">
+
+      <ul class="socialIcons list-inline">
+        <li>Follow the open source project:</li>
+        <li><a href="http://www.github.com/splatjs"><i class="fa fa-github"></i></a></li>
+      </ul>
+      </div>
+    </div>
+
+</header>
 
   <div class="container-fluid">
 <a name="overview"></a>
 <div class="row">
 	<div class="col-xs-12">
-		<h1><i class="fa fa-lightbulb-o"></i> Splatformer Tutorial</h1>
+		<h1><i class="fa fa-code circle-icon"></i> Splatformer Tutorial</h1>
     <h3>A brief intro to the Splat ECS Game Engine</h3>
 
 		<ul class="list-inline">
@@ -103,11 +118,18 @@
 	</div>
 </div>
 <a name="gatting_started"></a>
+<div class="row section-title">
+
+	<div class="col-xs-12">
+		<h2>Splat ECS Starter Project</h2>
+		<h4>Getting started</h4>
+	</div>
+
+</div>
 <div class="row">
 	<div class="col-xs-12 col-md-6">
 
-		<h2>Splat ECS Starter Project</h2>
-		<h4>Getting started</h4>
+
 
 		<p><a class="btn btn-primary btn-lg" href="https://github.com/SplatJS/splat-ecs-starter-project/archive/master.zip"><i class="fa fa-download"></i> Download the Splat ECS Starter Project</a></p>
 
@@ -184,10 +206,13 @@
 
 	</div>
 <a name="understanding_ecs"></a>
-<div class="row">
+<div class="row section-title">
 	<div class="col-xs-12">
 		<h2>Understanding ECS</h2>
 <h3>The foundational concepts behind Splat ECS</h3>
+</div>
+</div><div class="row">
+	<div class="col-xs-12">
 <p>Splat ECS uses an Entity Component system or ECS for short, as the name implies this is a very important part of Splat ECS. ECS is at the core and you will need to understand the ECS mindset while working on your game. But don't worry, you will ease into it and it will begin to become clear to you why ECS was chosen, as it is a very powerful and organized design pattern.</p>
 <p>Learn more about Entity Component systems on <a href="https://en.wikipedia.org/wiki/Entity_component_system" target="_blank"> Wikipedia</a>.</p>
 <div class="alert alert-success">
@@ -217,10 +242,16 @@
 </div>
 </div>
 <a name="diving_into_code"></a>
+
+<div class="row section-title">
+	<div class="col-xs-12">
+		<h2>Diving into code</h2>
+<h4>Let's get into some code.</h4>
+</div>
+</div>
 <div class="row">
 	<div class="col-xs-12">
-		<h4>Diving into code</h4>
-<p>Let's get into some code.</p>
+
 <p>Everything you will ever edit in your game is inside the <strong>src/</strong> folder.</p>
 <p>Let's examine the existing game code for the sample project.</p>
 <p>If you remember there was a black outlined square and keyboard controls, how does that work?</p>
@@ -314,7 +345,7 @@
 <p>So to get started let's add a sprite for our player!</p>
 </div>
 </div>
-<div class="row">
+<div class="row section-title">
 
 	<div class="col-xs-12">
 		<h2>Using images in Splat ECS</h2>
@@ -369,7 +400,7 @@
 
 </div>
 <a name="adding_images"></a>
-<div class="row">
+<div class="row section-title">
 
 	<div class="col-xs-12">
 		<h2>Using images in Splat ECS</h2>
@@ -425,7 +456,7 @@
 </div>
 <a name="entity_boxes"></a>
 
-<div class="row">
+<div class="row section-title">
 
 	<div class="col-xs-12">
 		<h2>Adjusting Entity Boxes</h2>
@@ -468,7 +499,7 @@
 </div>
 <a name="keep_on_screen"></a>
 
-<div class="row">
+<div class="row section-title">
 	<div class="col-xs-12">
 
 		<h2>Keeping the player on the screen</h2>
@@ -570,7 +601,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 		</div>
 <a name="background_image"></a>
 
-<div class="row">
+<div class="row section-title">
 
 	<div class="col-xs-12">
 		<h2>Adding a background</h2>
@@ -621,7 +652,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 </div>
 <a name="gravity"></a>
 
-<div class="row">
+<div class="row section-title">
 
   <div class="col-xs-12">
     <h2>Gravity</h2>
@@ -726,7 +757,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 </div>
 <a name="jumping"></a>
 
-<div class="row">
+<div class="row section-title">
 
   <div class="col-xs-12">
     <h2>Jumping</h2>
@@ -763,8 +794,8 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
   <div class="col-xs-12 col-md-6">
     <p>By changing "key" you can map jump to any keyboard key.</p>
     <div class="alert alert-info">
-      <strong>Splat-ECS supports controllers!</strong>
-      <p>Just like <strong>"keyboard"</strong>, you can use <strong>"gamepad"</strong> as a device type in <strong>src/data/inputs.json</strong> you can use <strong>"a"</strong> for the jump button and try it out on your usb controllwer of choice!</p>
+      <i class="fa fa-gamepad"></i><strong>Splat-ECS supports controllers!</strong>
+      <p>Just like <strong>"keyboard"</strong>, you can use <strong>"gamepad"</strong> as a device type in <strong>src/data/inputs.json</strong> you can use <strong>"a"</strong> for the jump button and try it out on your usb controller of choice!</p>
     </div>
   </div>
 
@@ -843,7 +874,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 </div>
 <a name="collision_resolution"></a>
 
-<div class="row">
+<div class="row section-title">
 
   <div class="col-xs-12">
 
@@ -883,7 +914,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 
 </div><div class="row">
 
-  <div class="col-xs-12 col-md-8">
+  <div class="col-xs-12 col-md-6">
     <p>When you check your game in the browser, you will notice that the player falls right through the ground, that's because we do not have any code in place to handle collisions - or more importantly the resolution of collisions.</p>
 
     <h3>Collision resolution</h3>
@@ -893,7 +924,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 
     <p><code>track-last-position</code> runs each frame on every entity with a position and records it in a component called "lastPosition". This is important for knowing what position to restore the entity to after it intersects another.</p>
   </div>
-  <div class="col-xs-12 col-md-4">
+  <div class="col-xs-12 col-md-6">
 
     <img src="img/collision-resolution.png" class="image-responsive"/>
   </div>
@@ -1017,7 +1048,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 </div>
 <a name="more_platforms"></a>
 
-<div class="row">
+<div class="row section-title">
 
   <div class="col-xs-12">
     <h2>Adding more platforms</h2>
@@ -1104,7 +1135,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 </div>
 <a name="fix_jumping"></a>
 
-<div class="row">
+<div class="row section-title">
 
   <div class="col-xs-12">
     <h2>Fixing jumping</h2>
@@ -1173,7 +1204,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 </div>
 <a name="animation"></a>
 
-<div class="row">
+<div class="row section-title">
   <div class="col-xs-12">
     <h2>Animation</h2>
     <h3>Motion to add emotion</h3>
@@ -1329,7 +1360,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 </div>
 <a name="pickups"></a>
 
-<div class="row">
+<div class="row section-title">
 
   <div class="col-xs-12">
     <h2>Pickups!</h2>
@@ -1530,7 +1561,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
     </div>
 <a name="keeping_score"></a>
 
-<div class="row">
+<div class="row section-title">
 
 	<div class="col-xs-12">
 		<h2>Keeping score</h2>
@@ -1647,13 +1678,13 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 </div>
 <a name="sound"></a>
 
-<div class="row">
+<div class="row section-title">
 
 	<div class="col-xs-12">
 		<h2>Sound</h2>
 		<h3>Hearing is believing</h3>
 	</div>
-
+</div><div class="row">
 	<div class="col-xs-12 col-md-6">
 		<video  class="img-responsive" controls poster="img/screenshot_013.png">
 			<source src="mov/step_013.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
@@ -1736,12 +1767,13 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 </div>
 <a name="aspect_ratio"></a>
 
-<div class="row">
+<div class="row section-title">
 	<div class="col-xs-12">
 		<h2>Adjusting the aspect ratio</h2>
 		<h3>Making things presentable</h3>
 	</div>
-
+</div><div class="row">
+	
 	<div class="col-xs-12 col-md-6">
 		<video  class="img-responsive" controls poster="img/screenshot_014.png">
 			<source src="mov/step_014.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
@@ -1786,7 +1818,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 </div>
 <a name="removing_debug"></a>
 
-<div class="row">
+<div class="row section-title">
 
 	<div class="col-xs-12">
 		<h2>Removing debugging systems</h2>
@@ -1834,10 +1866,17 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 </div>
 <a name="building_your_game"></a>
 
+<div class="row section-title">
+	<div class="col-xs-12">
+		<h2>Building your game</h2>
+
+</div>
+</div>
+
 <div class="row">
 
 	<div class="col-xs-12">
-		<h3>Building your game</h3>
+
 		<p>To get a feeling for the process we will use to publish our game navigate inside of the starter project in your terminal and run:</p>
 		<div class="terminal">
 			<i class="fa fa-terminal"></i> <code>npm run build</code>
@@ -1869,6 +1908,11 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 </div>
 <a name="thank_you"></a>
 
+<div class="row section-title">
+	<div class="col-xs-12">
+		<h2>Thank you!</h2>
+</div>
+</div>
 <div class="row">
 
 	<div class="col-xs-12">
@@ -1878,10 +1922,17 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 </div>
 <a name="publishing your game"></a>
 
+<div class="row section-title">
+	<div class="col-xs-12">
+		<h2>Sharing Publishing your game</h2>
+
+</div>
+</div>
+
 <div class="row">
 
 	<div class="col-xs-12">
-		<h2>Sharing Publishing your game</h2>
+
 		<p>Even though this is just a tutorial game I thought it would be usefull to include a few steps related to sharing or publishing a game created with Splat ECS.</p>
 	</div>
 
