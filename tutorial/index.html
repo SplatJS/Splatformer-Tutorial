@@ -107,12 +107,15 @@
 
 		<p>In your terminal navigate into the <strong>splat-ecs-starter-project-master</strong> folder.</p>
 
-		<i class="glyphicon glyphicon-console"></i> <code>cd /Path/To/splat-ecs-starter-project-master</code>
+		<div class="terminal">
+			<i class="glyphicon glyphicon-console"></i> <code>cd /Path/To/splat-ecs-starter-project-master</code>
+		</div>
 
 		<p>Next we will run npm install to install Splat ECS and all of it's modules:</p>
 
-		<i class="glyphicon glyphicon-console"></i> <code>npm install</code>
-
+		<div class="terminal">
+			<i class="glyphicon glyphicon-console"></i> <code>npm install</code>
+		</div>
 
 		<p>This will install all of the game and engine dependencies from NPM &mdash; it can take a couple of minutes. If you see any warning (denoted by <code>npm WARN</code>) this is okay, this just means that a package Splat-ECS uses is out of date it should not effect your game and newer versions of Splat-ECS Starter Project will take care of this issue. You will know <strong>npm install</strong> is finished when the terminal returns to your command prompt (you will see your username).</p>
 
@@ -125,22 +128,53 @@
 </div>
 <a name="development_process"></a>
 <div class="row">
+
 	<div class="col-xs-12">
 		<h2>The development process</h2>
-<h4>Trying out the test project</h4>
-<p>To run a Splat ECS game all you need to do is type the command: <i class="glyphicon glyphicon-console"></i><code>npm start</code> while in the root of the project folder. This will run webpack, which builds your game and also runs eslint which checks your JavaScript code for errors.</p>
-<p><strong>Once you have the webpack server running you simply leave this terminal window open while you work on your game.</strong> Making changes to your game's code and saving them will trigger the webpack server to rebuild the game and your browser will refresh automatically. This is the main workflow you will use while developing your game!</p>
-<div class="alert alert-info">
-	<i class="glyphicon glyphicon-exclamation-sign"></i>
-	<strong>A note on code formatting and error checking</strong>
-	<p>Splat ECS uses <a href="http://eslint.org/" target="_blank">eslint</a> to test your game code before each time you build it, this will prevent errors or straying from the recommended JavaScript formatting rules. When you build your game you may see errors or warnings, errors prevent the game from building and must be addressed before you can continue.</p>
-</div>
-<p>You should try running your game to make sure it is working before you continue. When the last line in your terminal reads <strong>'webpack: bundle is now VALID.'</strong> this means webpack is done and now you can open a browser and go to <a href="http://localhost:4000" target="_blank">localhost:4000</a>.</p>
-<img src="img/npmstart.jpg" class="image-responsive"/>
-<p>The Splat ECS sample game is just white screen with a black-outlined square you can control with WASD, or arrow keys. Test that this is working and note that if the keys are not working you may need to click inside the browser window to give the game your 'focus'.</p>
-<p>Now that we have a sample game running we can get started.</p>
-</div>
-</div>
+		<h4>Trying out the test project</h4>
+	</div>
+
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
+		<p>To run a Splat ECS game all you need to do is navigate to the project folder in your terminal and type <code>npm start</code></p>
+		<p>This will run webpack, which builds your game and also runs eslint which checks your JavaScript code for errors.</p>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<div class="terminal">
+			<i class="glyphicon glyphicon-console"></i><code>npm start</code>
+		</div>
+		<div class="alert alert-info">
+			<p><strong>Once you have the webpack server running you simply leave this terminal window open while you work on your game.</strong> Making changes to your game's code and saving them will trigger the webpack server to rebuild the game and your browser will refresh automatically. This is the main workflow you will use while developing your game!</p>
+		</div>
+	</div>
+
+</div><div class="row">
+
+
+
+
+
+	<div class="row">
+
+		<div class="col-xs-12 col-md-6">
+			<div class="alert alert-info">
+				<strong>A note on code formatting and error checking</strong>
+				<p>Splat ECS uses <a href="http://eslint.org/" target="_blank">eslint</a> to test your game code before each time you build it, this will prevent errors or straying from the recommended JavaScript formatting rules. When you build your game you may see errors or warnings, errors prevent the game from building and must be addressed before you can continue.</p>
+			</div>
+
+			<p>You should try running your game to make sure it is working before you continue. When the last line in your terminal reads <strong>'webpack: bundle is now VALID.'</strong> this means webpack is done and now you can open a browser and go to <a href="http://localhost:4000" target="_blank">localhost:4000</a>.</p>
+
+			<p>The Splat ECS sample game is just white screen with a black-outlined square you can control with WASD, or arrow keys. Test that this is working and note that if the keys are not working you may need to click inside the browser window to give the game your 'focus'.</p>
+			<p>Now that we have a sample game running we can get started.</p>
+		</div>
+
+		<div class="col-xs-12 col-md-6">
+			<img src="img/npmstart.jpg" class="image-responsive"/>
+		</div>
+
+	</div>
 <a name="understanding_ecs"></a>
 <div class="row">
 	<div class="col-xs-12">
@@ -1742,7 +1776,9 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	<div class="col-xs-12">
 		<h3>Building your game</h3>
 		<p>To get a feeling for the process we will use to publish our game navigate inside of the starter project in your terminal and run:</p>
-		<i class="glyphicon glyphicon-console"></i> <code>npm run build</code>
+		<div class="terminal">
+			<i class="glyphicon glyphicon-console"></i> <code>npm run build</code>
+		</div>
 		<p>This is the build command that creates a fresh 'build' of your game which you can try in your browser or distribute on the web, once this command is run the only thing you need to play your game is the 'build' folder and its contents.</p>
 		<blockquote>
 			<p>For example if you were submitting your game to itch.io you could zip and rename the build folder and upload that as your game.</p>
@@ -1759,7 +1795,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 			<li><strong>images</strong>, <strong>sounds</strong> - where the assets your games uses live in the build folder.</li>
 		</ul>
 		<div class="alert-alert-warning">
-			<p>Never edit anything in the build folder, this is the output of your game and the next time you run <i class="glyphicon glyphicon-console"></i> <code>npm run build</code> it will all be overwritten anyway.</p>
+			<p>Never edit anything in the build folder, this is the output of your game and the next time you run <code>npm run build</code> it will all be overwritten anyway.</p>
 		</div>
 	</div>
 

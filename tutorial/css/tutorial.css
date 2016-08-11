@@ -24,6 +24,19 @@ body{
 	background: white;
 }
 
+.terminal{
+	background: #353535;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+.terminal code{
+	background: transparent !important;
+	color: white !important;
+	margin-left: 15px !important;
+}
+
 .row{
 	//border: 5px solid yellow;
 	margin: 25px auto;
