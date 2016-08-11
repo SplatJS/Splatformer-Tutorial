@@ -7,21 +7,29 @@
   <title>Splat</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="css/tutorial.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" title="Darcula" href="js/highlight/styles/darcula.css">
 
 </head>
 <body>
-  <header class="container-fluid">
-    <a href="http://splatjs.com"><img class="image-responsive" src="img/logo.png"/></a>
-  </header>
+  
 
   <div class="container-fluid">
 <a name="overview"></a>
 <div class="row">
-	<div class="col-xs-12 col-md-6">
-		<h2>Splatformer Tutorial</h2>
-    <h4>A brief intro to the Splat ECS Game Engine</h4>
-		<strong>This tutorial currently uses Splat version 6.0.0</strong>
+	<div class="col-xs-12">
+		<h1><i class="fa fa-lightbulb-o"></i> Splatformer Tutorial</h1>
+    <h3>A brief intro to the Splat ECS Game Engine</h3>
+
+		<ul class="list-inline">
+			<li>by <a href="http://github.com/alexbezuska" target="_blank">Alex Bezuska</a></li>
+			<li>Difficulty: Intermediate</li>
+			<li>Length: ~2hours</li>
+		</ul>
+</div>
+</div><div class="row">
+<div class="col-xs-12 col-md-6">
+		<p><strong>This tutorial currently uses Splat version 6.0.0</strong></p>
 		<p>Splat ECS is a free and Open Source game engine project with the goal of making it easy to build games which are native to the web. Splat ECS is JavaScript and all the code you write to create your game is 100% real JavaScript and JSON. This tutorial will guide you through the basics of using Splat ECS and by the end we will have a simple game.</p>
 		<strong>In this tutorial you will learn:</strong>
 		<ul>
@@ -81,12 +89,12 @@
 			<li>For Windows users you will need to install <a href="http://www.cygwin.com/" target="_blank">Cygwin</a>, which is a free terminal emulator</li>
 		</ul>
 		<div class="alert alert-info">
-			<p>Check for the ' <i class="glyphicon glyphicon-console"></i> ' symbol in this tutorial, that means you need to type or copy a command into the terminal.</p>
+			<p>Check for the ' <i class="fa fa-terminal"></i> ' symbol in this tutorial, that means you need to type or copy a command into the terminal.</p>
 		</div>
 
 		<a name="tools-nodejs"></a>
 		<h4>Node.js</h4>
-		<p>It is also required to have Node installed. To check if you have Node installed you can type this command in your terminal <i class="glyphicon glyphicon-console"></i> <code>node -v</code> and hit enter, this should return a version number such as <strong>v6.3.1</strong> or let you know that you don't have Node installed.</p>
+		<p>It is also required to have Node installed. To check if you have Node installed you can type this command in your terminal <i class="fa fa-terminal"></i> <code>node -v</code> and hit enter, this should return a version number such as <strong>v6.3.1</strong> or let you know that you don't have Node installed.</p>
 		<p>To install node please refer to the instructions for your operating system here: <a href="https://nodejs.org" target="_blank">nodejs.org</a>.</p>
 
 		<a name="tools-engine"></a>
@@ -101,20 +109,20 @@
 		<h2>Splat ECS Starter Project</h2>
 		<h4>Getting started</h4>
 
-		<p><a class="btn btn-default" href="https://github.com/SplatJS/splat-ecs-starter-project/archive/master.zip"><i class="glyphicon glyphicon-file"></i> Download the Splat ECS Starter Project</a></p>
+		<p><a class="btn btn-primary btn-lg" href="https://github.com/SplatJS/splat-ecs-starter-project/archive/master.zip"><i class="fa fa-download"></i> Download the Splat ECS Starter Project</a></p>
 
 		<p> The zip file should be called <strong>splat-ecs-starter-project-master.zip</strong>. Unzip this file and you will be left with a folder named <strong>splat-ecs-starter-project-master</strong>, this is where we will start the tutorial project.</p>
 
 		<p>In your terminal navigate into the <strong>splat-ecs-starter-project-master</strong> folder.</p>
 
 		<div class="terminal">
-			<i class="glyphicon glyphicon-console"></i> <code>cd /Path/To/splat-ecs-starter-project-master</code>
+			<i class="fa fa-terminal"></i> <code>cd /Path/To/splat-ecs-starter-project-master</code>
 		</div>
 
 		<p>Next we will run npm install to install Splat ECS and all of it's modules:</p>
 
 		<div class="terminal">
-			<i class="glyphicon glyphicon-console"></i> <code>npm install</code>
+			<i class="fa fa-terminal"></i> <code>npm install</code>
 		</div>
 
 		<p>This will install all of the game and engine dependencies from NPM &mdash; it can take a couple of minutes. If you see any warning (denoted by <code>npm WARN</code>) this is okay, this just means that a package Splat-ECS uses is out of date it should not effect your game and newer versions of Splat-ECS Starter Project will take care of this issue. You will know <strong>npm install</strong> is finished when the terminal returns to your command prompt (you will see your username).</p>
@@ -143,7 +151,7 @@
 
 	<div class="col-xs-12 col-md-6">
 		<div class="terminal">
-			<i class="glyphicon glyphicon-console"></i><code>npm start</code>
+			<i class="fa fa-terminal"></i><code>npm start</code>
 		</div>
 		<div class="alert alert-info">
 			<p><strong>Once you have the webpack server running you simply leave this terminal window open while you work on your game.</strong> Making changes to your game's code and saving them will trigger the webpack server to rebuild the game and your browser will refresh automatically. This is the main workflow you will use while developing your game!</p>
@@ -183,17 +191,17 @@
 <p>Splat ECS uses an Entity Component system or ECS for short, as the name implies this is a very important part of Splat ECS. ECS is at the core and you will need to understand the ECS mindset while working on your game. But don't worry, you will ease into it and it will begin to become clear to you why ECS was chosen, as it is a very powerful and organized design pattern.</p>
 <p>Learn more about Entity Component systems on <a href="https://en.wikipedia.org/wiki/Entity_component_system" target="_blank"> Wikipedia</a>.</p>
 <div class="alert alert-success">
-	<i class="glyphicon glyphicon-user"></i>
+	<i class="fa fa-child"></i>
 	<strong>Entities</strong> <p>Represent objects in your game and serve as containers for components.</p>
 </div>
 
 <div class="alert alert-warning">
-	<i class="glyphicon glyphicon-th-list"></i>
+	<i class="fa fa-list"></i>
 	<strong>Components</strong> <p>Hold related properties of an entity such as position, speed, animation, etc.</p>
 </div>
 
 <div class="alert alert-danger">
-	<i class="glyphicon glyphicon-cog"></i>
+	<i class="fa fa-cogs"></i>
 	<strong>Systems</strong> <p>Code that processes entities which have specific components in order to enact the behaviors those components represent.</p>
 </div>
 
@@ -296,7 +304,7 @@
 <p>These are the only two types of systems you will need in Splat ECS. <strong>Renderer systems</strong> draw to the screen, and <strong>Simulation systems</strong> do everything else.</p>
 
 <p>Splat ECS uses the <a href="http://www.requirejs.org/docs/commonjs.html" target="_blank">Common JS module format</a> for all system modules you will be creating. Let's open the file <strong>src/systems/simulation/sample-simulation-system.js</strong> Inside this system we will see how we format our code in Splat ECS. Here you will see <code>module.exports</code> on line 3, this is the code to export the module for use by the game project and is vital that you wrap your code in this.</p>
-<div class="alert alert-success">
+<div class="alert alert-info">
 	<p>Don't get intimidated by the code here, the sample systems are there for you to use as templates that you can copy each time to create your own systems.</p>
 </div>
 <p>You will notice the arguments <code>ecs</code> and <code>game</code>. Every chunk of system code in Splat ECS is run through the ECS so it must be included. <code>game</code> is everything in the data folder which becomes a large JavaScript object when the game is built.</p>
@@ -326,7 +334,62 @@
 
 		<p>First download the assets pack for this game here:</p>
 
-		<a class="btn btn-primary" href="https://github.com/SplatJS/Splatformer-Tutorial/raw/master/splatformer_assets_pack.zip"><i class="glyphicon glyphicon-file"></i>Splatformer Assets Pack</a>
+		<a class="btn btn-primary btn-lg" href="https://github.com/SplatJS/Splatformer-Tutorial/raw/master/splatformer_assets_pack.zip"><i class="fa fa-download"></i>Download Splatformer Assets Pack</a>
+
+		<p> When you unzip the file you will find two folders, images and sounds. Copy all of the images into your game's <strong>/src/img/</strong> folder and all of the included sounds into your game's <strong>/src/sounds/</strong> folder.</p>
+
+		<p>First we should give the player an image, to do this we need to go into <strong>/src/data/entities.json</strong>. Inside <strong>/src/data/entities.json</strong> you will see an array called <code>"main: []"</code> this refers to the main scene. In this tutorial we will only be working in one scene so all of our entities must be in "main". In future tutorials or in your own projects you can create as many scenes as you want and each can have it's own set of entities.</p>
+	</div>
+
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
+		<p>Let's find player in the list on entities and add an <strong>image</strong> to it! To add a static image to an entity in Splat ECS you use the <strong>image</strong> component like this:</p>
+
+<pre><code class="json">
+...
+"id": 1,
+"name": "player",
+"image":{
+	"name": "player-idle.png"
+},
+"position": {
+	"x": 100,
+	"y": 100
+},
+...
+</code></pre>
+
+		<p>Be sure to save the file and now if you check your browser you should see the black-outlined box now has sticky baby inside it! But something looks wrong... Sticky baby's image is being stretched to the size of the player entity (100x100).</p>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<img src="img/screenshot_001.png" class="image-responsive" alt="Step 1 screenshot" title="" />
+	</div>
+
+</div>
+<a name="adding_images"></a>
+<div class="row">
+
+	<div class="col-xs-12">
+		<h2>Using images in Splat ECS</h2>
+		<h3>Sticky Baby lives!</h3>
+	</div>
+
+</div><div class="row">
+
+	<div class="col-xs-12 col-md-6">
+		<video  class="img-responsive" controls poster="img/screenshot_001.png">
+			<source src="mov/step_001.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+		</video>
+	</div>
+
+	<div class="col-xs-12 col-md-6">
+		<p>To start using images in splat it is as easy as adding them to the <strong>/src/img/</strong> folder!</p>
+
+		<p>First download the assets pack for this game here:</p>
+
+		<a class="btn btn-primary" href="https://github.com/SplatJS/Splatformer-Tutorial/raw/master/splatformer_assets_pack.zip"><i class="fa fa-download"></i>Splatformer Assets Pack</a>
 
 		<p> When you unzip the file you will find two folders, images and sounds. Copy all of the images into your game's <strong>/src/img/</strong> folder and all of the included sounds into your game's <strong>/src/sounds/</strong> folder.</p>
 
@@ -699,7 +762,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 
   <div class="col-xs-12 col-md-6">
     <p>By changing "key" you can map jump to any keyboard key.</p>
-    <div class="alert alert-success">
+    <div class="alert alert-info">
       <strong>Splat-ECS supports controllers!</strong>
       <p>Just like <strong>"keyboard"</strong>, you can use <strong>"gamepad"</strong> as a device type in <strong>src/data/inputs.json</strong> you can use <strong>"a"</strong> for the jump button and try it out on your usb controllwer of choice!</p>
     </div>
@@ -710,7 +773,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
   <div class="col-xs-12 col-md-6">
     <p>Now that we have added a new input we can create a new system for jumping. create a new file in the <strong>src/systems/simulation</strong> folder and name it <strong>jump.js</strong></p>
     <p>Inside of <strong>src/systems/simulation</strong> there will be a file named <strong>sample-simulation-system.js</strong> this is a sample system that acts as a useful template for creating your own systems. Duplicate this file and rename it <strong>jump.js</strong></p>
-    <div class="alert alert-success">
+    <div class="alert alert-info">
       <strong>Pro tip</strong>
       <p>Leaving both the <strong>sample-simulation-system.js</strong> and <strong>sample-rendering-system.js</strong> in your project will save you time when you create new systems, they are handy templates!</p>
     </div>
@@ -1740,7 +1803,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 
 	<div class="col-xs-12 col-md-6">
 		<p>Removing the black outlines around entities is as simple as removing the scenes from the  entry for draw-rectangles in <strong>src/data/systems.json</strong> replacing it with an empty array '[]':</p>
-		<div class="alert alert-success">
+		<div class="alert alert-info">
 			<p>Doing this instead of deleting the system entry entirely let you go back and 'turn on' the system again as easy as adding <code>"scenes": "all"</code>.</p>
 		</div>
 	</div>
@@ -1777,7 +1840,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 		<h3>Building your game</h3>
 		<p>To get a feeling for the process we will use to publish our game navigate inside of the starter project in your terminal and run:</p>
 		<div class="terminal">
-			<i class="glyphicon glyphicon-console"></i> <code>npm run build</code>
+			<i class="fa fa-terminal"></i> <code>npm run build</code>
 		</div>
 		<p>This is the build command that creates a fresh 'build' of your game which you can try in your browser or distribute on the web, once this command is run the only thing you need to play your game is the 'build' folder and its contents.</p>
 		<blockquote>
@@ -1839,7 +1902,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 			<li><code>author</code> - Your name</li>
 			<li><code>license</code> - Change to 'proprietary' unless you want your game to be free and open source.</li>
 		</ul>
-		<div class="alert alert-success">
+		<div class="alert alert-info">
 			<strong> A note on licenses</strong>
 			<p>Splat-ECS itself uses the MIT licence but your can use any license you want or make it proprietary. You can charge money for your Splat-ECS game, it is fully yours and you can do whatever you like with it with no restrictions. More info about the Open Source licenses like the MIT license can be found here: <a href="https://opensource.org/licenses">https://opensource.org/licenses</a></p>
 		</div>
