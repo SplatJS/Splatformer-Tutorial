@@ -7,7 +7,13 @@
 }
 
 header{
-	background:
+	background: #353535 !important;
+	color: white !important;
+}
+
+header a{
+	margin: 0 auto;
+	display: block;
 }
 
 body{

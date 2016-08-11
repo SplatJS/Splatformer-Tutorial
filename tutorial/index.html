@@ -13,14 +13,14 @@
 <body>
   <header class="container-fluid">
     <a href="http://splatjs.com"><img class="image-responsive" src="img/logo.png"/></a>
-    <h2>Splatformer Tutorial</h2>
-    <em class="sub whiteText">A brief intro to the Splat ECS Game Engine</em>
   </header>
 
   <div class="container-fluid">
-<!-- Intro -->
+<a name="overview"></a>
 <div class="row">
 	<div class="col-xs-12 col-md-6">
+		<h2>Splatformer Tutorial</h2>
+    <h4>A brief intro to the Splat ECS Game Engine</h4>
 		<strong>This tutorial currently uses Splat version 6.0.0</strong>
 		<p>Splat ECS is a free and Open Source game engine project with the goal of making it easy to build games which are native to the web. Splat ECS is JavaScript and all the code you write to create your game is 100% real JavaScript and JSON. This tutorial will guide you through the basics of using Splat ECS and by the end we will have a simple game.</p>
 		<strong>In this tutorial you will learn:</strong>
@@ -38,6 +38,7 @@
 		<img src="img/js-html5.png" class="image-responsive"/>
 	</div>
 </div>
+<a name="requirements"></a>
 <div class="row">
 	<div class="col-xs-12 col-md-6">
 		<video class="img-responsive" controls poster="img/screenshot_015.png">
@@ -56,7 +57,7 @@
 		</ul>
 	</div>
 </div>
-<!-- Tools / prerequisites -->
+<a name="tools"></a>
 <div class="row">
 	<div class="col-xs-12">
 		<h4>Browser</h4>
@@ -90,6 +91,7 @@
 		<p> The engine itself will come with the starter project in the next step below</p>
 	</div>
 </div>
+<a name="gatting_started"></a>
 <div class="row">
 	<div class="col-xs-12 col-md-6">
 
@@ -118,6 +120,7 @@
 	</div>
 
 </div>
+<a name="development_process"></a>
 <div class="row">
 	<div class="col-xs-12">
 		<h2>The development process</h2>
@@ -135,6 +138,7 @@
 <p>Now that we have a sample game running we can get started.</p>
 </div>
 </div>
+<a name="understanding_ecs"></a>
 <div class="row">
 	<div class="col-xs-12">
 		<h2>Understanding ECS</h2>
@@ -167,9 +171,10 @@
 </ul>
 </div>
 </div>
+<a name="diving_into_code"></a>
 <div class="row">
 	<div class="col-xs-12">
-		<h4>Working on your game</h4>
+		<h4>Diving into code</h4>
 <p>Let's get into some code.</p>
 <p>Everything you will ever edit in your game is inside the <strong>src/</strong> folder.</p>
 <p>Let's examine the existing game code for the sample project.</p>
@@ -318,7 +323,16 @@
 	</div>
 
 </div>
+<a name="entity_boxes"></a>
+
 <div class="row">
+
+	<div class="col-xs-12">
+		<h2>Adjusting Entity Boxes</h2>
+		<h4>Getting into shape</h4>
+	</div>
+
+</div><div class="row">
 
 <div class="col-xs-12 col-md-6">
 		<video  class="img-responsive" controls poster="img/screenshot_002.png">
@@ -326,7 +340,7 @@
 		</video>
 	</div>
 	<div class="col-xs-12 col-md-6">
-		<p>By default images added to an entity will take on the position and size of the entity. We could fix this by changing the size of the entity to match the image size, or add properties to the image component to make it a specific size. To keep things simple let's change the size of the player entity like this:</p>
+		<p>By default images added to an entity will take on the position and size of the entity's rectangle. The box around an entity is determined by it's <code>position</code> and <code>size</code> components. We could fix this by changing the size of the entity to match the image size, or add properties to the image component to make it a specific size. To keep things simple let's change the size of the player entity like this:</p>
 	</div>
 </div>
 
@@ -352,6 +366,7 @@
 		<p><img src="img/screenshot_002.png" class="image-responsive" alt="Step 2 screenshot" title="" /></p>
 	</div>
 </div>
+<a name="keep_on_screen"></a>
 
 <div class="row">
 	<div class="col-xs-12">
@@ -453,6 +468,8 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 				<img src="img/constrain-position.png" class="image-responsive" alt="constrain-position Splat-ECS" title="" />
 			</div>
 		</div>
+<a name="background_image"></a>
+
 <div class="row">
 
 	<div class="col-xs-12">
@@ -502,6 +519,8 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 			</div>
 
 </div>
+<a name="gravity"></a>
+
 <div class="row">
 
   <div class="col-xs-12">
@@ -605,6 +624,8 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
   </div>
 
 </div>
+<a name="jumping"></a>
+
 <div class="row">
 
   <div class="col-xs-12">
@@ -720,6 +741,8 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
   </div>
 
 </div>
+<a name="collision_resolution"></a>
+
 <div class="row">
 
   <div class="col-xs-12">
@@ -892,6 +915,8 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
     <p><img src="img/screenshot_007.png" class="image-responsive" alt="Step 7 screenshot" title="" /></p>
   </div>
 </div>
+<a name="more_platforms"></a>
+
 <div class="row">
 
   <div class="col-xs-12">
@@ -977,6 +1002,8 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
   </div>
 
 </div>
+<a name="fix_jumping"></a>
+
 <div class="row">
 
   <div class="col-xs-12">
@@ -1044,6 +1071,8 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
   </div>
 
 </div>
+<a name="animation"></a>
+
 <div class="row">
   <div class="col-xs-12">
     <h2>Animation</h2>
@@ -1198,6 +1227,8 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
   </div>
 
 </div>
+<a name="pickups"></a>
+
 <div class="row">
 
   <div class="col-xs-12">
@@ -1397,6 +1428,8 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 
       </div>
     </div>
+<a name="keeping_score"></a>
+
 <div class="row">
 
 	<div class="col-xs-12">
@@ -1512,6 +1545,8 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 		<img src="img/screenshot_012.png" class="image-responsive" alt="Step 12 screenshot" title="" />
 	</div>
 </div>
+<a name="sound"></a>
+
 <div class="row">
 
 	<div class="col-xs-12">
@@ -1599,6 +1634,8 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	</div>
 
 </div>
+<a name="aspect_ratio"></a>
+
 <div class="row">
 	<div class="col-xs-12">
 		<h2>Adjusting the aspect ratio</h2>
@@ -1647,6 +1684,8 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	</div>
 
 </div>
+<a name="removing_debug"></a>
+
 <div class="row">
 
 	<div class="col-xs-12">
@@ -1660,38 +1699,41 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 		<video  class="img-responsive" controls poster="img/screenshot_015.png">
 			<source src="mov/step_015.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
 		</video>
+</div>
 
+	<div class="col-xs-12 col-md-6">
 		<p>Removing the black outlines around entities is as simple as removing the scenes from the  entry for draw-rectangles in <strong>src/data/systems.json</strong> replacing it with an empty array '[]':</p>
+		<div class="alert alert-success">
+			<p>Doing this instead of deleting the system entry entirely let you go back and 'turn on' the system again as easy as adding <code>"scenes": "all"</code>.</p>
+		</div>
 	</div>
+
+</div><div class="row">
 
 	<div class="col-xs-12 col-md-6">
 <pre><code class="json">
 {
-	"name": "splat-ecs/lib/systems/draw-rectangles",
-	"scenes": []
+ "name": "splat-ecs/lib/systems/draw-rectangles",
+ "scenes": []
 }
 </code></pre>
-
 		<p>Now we just need to do the same for the  frame rate display:</p>
-
 <pre><code class="json">
 {
-	"name": "splat-ecs/lib/systems/draw-frame-rate",
-	"scenes": []
+ "name": "splat-ecs/lib/systems/draw-frame-rate",
+ "scenes": []
 }
 </code></pre>
-		<p>Doing this instead of deleting the system entry entirely let you go back and 'turn on' the system again as easy as adding <code>"scenes": "all"</code>.</p>
-
 	</div>
 
-	</div><div class="row">
-
-	<div class="col-xs-12">
-		<p>Now when you check the game in your browser the red outlines and fps display should be gone, leaving behind your great looking game. You have completed the tutorial, great job!</p>
+	<div class="col-xs-12 col-md-6">
+		<p>Now when you check the game in your browser the black outlines and fps display should be gone, leaving behind your great looking game. You have completed the tutorial, great job!</p>
 		<img src="img/screenshot_015.png" class="image-responsive" alt="Step 15 screenshot" title="" />
 	</div>
 
 </div>
+<a name="building_your_game"></a>
+
 <div class="row">
 
 	<div class="col-xs-12">
@@ -1705,7 +1747,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	</div>
 
 </div><div class="row">
-	
+
 	<div class="col-xs-12 col-md-6">
 		<p>Inside the build folder we have <strong>index.html</strong>, <strong>index.js</strong>,  <strong>images</strong>, and <strong>sounds</strong>.</p>
 		<ul>
@@ -1723,13 +1765,17 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	</div>
 
 </div>
+<a name="thank_you"></a>
+
 <div class="row">
 
 	<div class="col-xs-12">
 		<p>Thanks again for trying out Splat ECS and remember this is an open source community drive project, so feel free to help us with bug reports, fixes, or new features! The github project lives at: <a href="https://github.com/SplatJS/splat-ecs">Splat ECS github</a>.</p>
 	</div>
-	
+
 </div>
+<a name="publishing your game"></a>
+
 <div class="row">
 
 	<div class="col-xs-12">
@@ -1738,7 +1784,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	</div>
 
 </div><div class="row">
-	
+
 	<div class="col-xs-12 col-md-6">
 		<img src="img/packagejson.jpg" class="image-responsive"/>
 	</div>
@@ -1761,10 +1807,12 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	</div>
 
 </div>
+<a name="upcoming_features"></a>
+
 <div class="row">
 	<div class="col-xs-12">
 
-		<h2> Check back soon for more useful info </h2>
+		<h2> Check back soon for new features! </h2>
 
 		<h3>Hosting your game on itch.io</h3>
 		<strong>coming soon</strong>

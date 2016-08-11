@@ -1,3 +1,5 @@
+<a name="removing_debug"></a>
+
 <div class="row">
 
 	<div class="col-xs-12">
@@ -11,34 +13,35 @@
 		<video  class="img-responsive" controls poster="img/screenshot_015.png">
 			<source src="mov/step_015.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
 		</video>
+</div>
 
+	<div class="col-xs-12 col-md-6">
 		<p>Removing the black outlines around entities is as simple as removing the scenes from the  entry for draw-rectangles in <strong>src/data/systems.json</strong> replacing it with an empty array '[]':</p>
+		<div class="alert alert-success">
+			<p>Doing this instead of deleting the system entry entirely let you go back and 'turn on' the system again as easy as adding <code>"scenes": "all"</code>.</p>
+		</div>
 	</div>
+
+</div><div class="row">
 
 	<div class="col-xs-12 col-md-6">
 <pre><code class="json">
 {
-	"name": "splat-ecs/lib/systems/draw-rectangles",
-	"scenes": []
+ "name": "splat-ecs/lib/systems/draw-rectangles",
+ "scenes": []
 }
 </code></pre>
-
 		<p>Now we just need to do the same for the  frame rate display:</p>
-
 <pre><code class="json">
 {
-	"name": "splat-ecs/lib/systems/draw-frame-rate",
-	"scenes": []
+ "name": "splat-ecs/lib/systems/draw-frame-rate",
+ "scenes": []
 }
 </code></pre>
-		<p>Doing this instead of deleting the system entry entirely let you go back and 'turn on' the system again as easy as adding <code>"scenes": "all"</code>.</p>
-
 	</div>
 
-	</div><div class="row">
-
-	<div class="col-xs-12">
-		<p>Now when you check the game in your browser the red outlines and fps display should be gone, leaving behind your great looking game. You have completed the tutorial, great job!</p>
+	<div class="col-xs-12 col-md-6">
+		<p>Now when you check the game in your browser the black outlines and fps display should be gone, leaving behind your great looking game. You have completed the tutorial, great job!</p>
 		<img src="img/screenshot_015.png" class="image-responsive" alt="Step 15 screenshot" title="" />
 	</div>
 
