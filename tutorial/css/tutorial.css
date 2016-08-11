@@ -6,6 +6,7 @@ html {
 }
 
 body{
+  padding-top: 42px;
 	background: hsla(206, 19%, 93%, 1)
 }
 .container-fluid{
@@ -78,7 +79,7 @@ code em{
 	background: rgba(255,255,255,0.2);
 }
 
-pre{
+pre{0.2
 	padding: 0 !important;
 }
 
@@ -127,4 +128,16 @@ pre{
 	font-size: 32px;
 	margin: 0 10px 10px 0;
 	vertical-align: middle;
+}
+
+.always-at-top{
+  z-index: 1000;
+  width: 100vw;
+	position: fixed;
+	background: #353535;
+	text-align: right;
+	padding: 5px 20px;
+  height: 40px;
+  top: 0px;
+
 }
