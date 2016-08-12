@@ -11,14 +11,15 @@ Splat ECS is a free and Open Source game engine project with the goal of making 
 
 * Contact the author [@alexbezuska](https://twitter.com/alexbezuska) on twitter
 * Submit a github issue
-* submit a pull request
+* Submit a pull request
 
 ### How to contribute
 
-The tutorial is split into many html files located in `tutorial/src/`
-for now use this method to build the finished `tutorial/index.html` file:
+The tutorial is split into many html files located in `tutorial/src/` to make it eisier to find what you are looking for and make quick edits to each section.
+##### To start:
+
 * Fork this project and clone your fork to your local machine
-* Make your edits to an html file in`tutorial/src/`
+* Make  edits to the appropriate html file located in`tutorial/src/`
 
 ##### To test on your local machine:
 * In your terminal navigate to the root of this project
@@ -29,7 +30,9 @@ example:
 
 ```cat src/*.html > index.html```
 
-* Open the resulting `index.html` file in your browser and confirm the changes were made successfully.
+This command simply smashes all of the html files in `tutorial/src/` together into one big file, maintaining the alphabetical other they are in (each file begins with a number).
+
+* Open the resulting `index.html` file in your browser and confirm that your changes were made successfully.
 
 * Submit a pull request and add some notes on the reason for your change.
 
