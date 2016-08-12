@@ -1,148 +1,177 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
 body{
-  padding-top: 42px;
-	background: hsla(206, 19%, 93%, 1)
+  padding-top: 30px;
+  background: hsla(206, 19%, 93%, 1)
 }
+
 .container-fluid{
-	max-width: 1200px !important;
-	box-shadow: 0 0 37px 15px rgba(0, 0, 0, 0.08);
+  max-width: 1200px !important;
+}
+
+.white-shadow{
+  background: white;
+  margin-bottom: 25px;
+  box-shadow: 0 0 37px 15px rgba(0, 0, 0, 0.08);
 }
 
 .image-responsive{
-	max-width: 100% !important;
+  max-width: 100% !important;
 }
 
 header{
-
-	width: 100vw;
+  width: 100vw;
 }
 
 .header-inner{
-	max-width: 1200px;
-	margin: 0 auto !important;
+  max-width: 1200px;
+  margin: 0 auto !important;
+}
+
+.navbar{
+  min-height: auto !important;
+}
+
+.navbar-brand img{
+  max-width: 80px;
+}
+
+.nav-icon{
+  padding: 0px 15px 0px 5px;
+  color: white;
+  margin-top: 17px;
+}
+
+.nav-icon:hover{
+  color: white;
+  background: rgba(255,255,255,0.15);
+  text-decoration: none;
+}
+
+.nav-icon i{
+  color: white;
+  font-size: 25px;
+  margin: 5px;
+  vertical-align: middle;
+}
+
+.navbar-form {
+  padding: 0 5px !important;
+  margin-top: 0 !important;
 }
 
 .logo img{
-	margin: 10px;
-	max-height: 150px;
-}
-
-
-
-.container-fluid{
-	background: white;
-	margin-bottom: 25px;
+  margin: 10px;
+  max-height: 150px;
 }
 
 .terminal{
-	background: #353535;
-	color: white;
-	padding: 10px;
-	border-radius: 5px;
-	margin-bottom: 20px;
+  background: #353535;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
+
 .terminal code{
-	background: transparent !important;
-	color: white !important;
-	margin-left: 15px !important;
+  background: transparent !important;
+  color: white !important;
+  margin-left: 15px !important;
 }
 
 .row{
-	margin: 25px auto;
+  margin: 25px auto;
 }
 
 .btn{
-	margin: 15px;
+  margin: 15px;
 }
 
 .btn-primary{
-	border: 1px solid hsla(175, 100%, 40%, 1) !important;
-	background: hsla(175, 100%, 45%, 1) !important;
+  border: 1px solid hsla(175, 100%, 40%, 1) !important;
+  background: hsla(175, 100%, 45%, 1) !important;
 }
 
 .btn-primary:hover{
-	border: 1px solid hsla(175, 100%, 40%, 1) !important;
-	background: hsla(175, 100%, 50%, 1) !important;
+  border: 1px solid hsla(175, 100%, 40%, 1) !important;
+  background: hsla(175, 100%, 50%, 1) !important;
 }
 
 .btn .fa{
-	margin-right: 5px;
+  margin-right: 5px;
 }
 
 code em{
-	background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.2);
 }
 
-pre{0.2
-	padding: 0 !important;
+pre{
+  padding: 0 !important;#top
 }
-
 
 .socialIcons{
-	margin: 25px 10px;
-	float: right;
+  margin: 25px 10px;
+  float: right;
 }
 
 .socialIcons a{
-	color: white;
-	background: hsla(175, 100%, 40%, 1);
-	border-radius: 40px;
-	width: 45px;
-	height: 45px;
-	padding: 2px;
-	font-size: 28px;
-	text-align: center;
-	display: block;
+  color: white;
+  background: hsla(175, 100%, 40%, 1);
+  border-radius: 40px;
+  width: 45px;
+  height: 45px;
+  padding: 2px;
+  font-size: 28px;
+  text-align: center;
+  display: block;
 }
+
 .socialIcons a:hover{
-	background: white;
-	color:hsla(175, 100%, 40%, 1);
+  background: white;
+  color:hsla(175, 100%, 40%, 1);
 }
-
-
 
 .circle-icon{
-	color: white;
-	background: hsla(175, 100%, 40%, 1);
-	border-radius: 40px;
-	width: 45px;
-	height: 45px;
-	padding: 7px;
-	font-size: 28px !important;
-	text-align: center;
-	vertical-align: top;
+  color: white;
+  background: hsla(175, 100%, 40%, 1);
+  border-radius: 40px;
+  width: 45px;
+  height: 45px;
+  padding: 7px;
+  font-size: 28px !important;
+  text-align: center;
+  vertical-align: top;
 }
 
 .section-title{
-	border-bottom: 5px solid rgb(0, 229, 210);
-
+  border-bottom: 5px solid rgb(0, 229, 210);
 }
 
 .alert i{
-	font-size: 32px;
-	margin: 0 10px 10px 0;
-	vertical-align: middle;
+  font-size: 32px;
+  margin: 0 10px 10px 0;
+  vertical-align: middle;
 }
 
 .always-at-top{
   z-index: 1000;
   width: 100vw;
-	position: fixed;
-	background: #353535;
-	text-align: right;
-	padding: 5px 20px;
+  position: fixed;
+  background: #353535;
+  text-align: right;
+  padding: 5px 20px;
   height: 40px;
   top: 0px;
 }
 
 .page-anchor{
-  margin-bottom: 60px;
+  margin-bottom: 105px;
   display: block;
 }
 

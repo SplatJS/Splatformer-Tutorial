@@ -9,10 +9,6 @@
   <link rel="stylesheet" href="css/tutorial.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" title="Monokai" href="js/highlight/styles/monokai.css">
-
-</head>
-<body>
-<nav class="always-at-top">
   <script>
   function dropdown(mySel) {
   var myWin, myVal;
@@ -27,57 +23,77 @@
   return false;
   }
   </script>
+</head>
+<body>
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#top"><img src="img/logo-sm.png"/></a>
+    </div>
 
-<form method="POST" onSubmit="return dropdown(this.gourl)">
-<select name="gourl">
-  <option value="#overview">Overview</option>
-  <option value="#requirements">Requirements</option>
-  <option value="#tools">Tools</option>
-  <option value="#getting_started">Starter Project</option>
-  <option value="#development_process">Development process</option>
-  <option value="#understanding_ecs">Understanding ECS</option>
-  <option value="#diving_into_code">Diving into code</option>
-  <option value="#adding_images">Adding images</option>
-  <option value="#image">More images</option>
-  <option value="#entity_boxes">Adjusting Entity Boxes</option>
-  <option value="#keep_on_screen">Keep entity on the screen</option>
-  <option value="#background_image">Background image</option>
-  <option value="#gravity">Gravity</option>
-  <option value="#jumping">Jumping</option>
-  <option value="#collision_resolution">Collision resolution</option>
-  <option value="#more_platforms">More platforms</option>
-  <option value="#fix_jumping">Fix jumping</option>
-  <option value="#animation">Animation</option>
-  <option value="#pickups">Pick-ups</option>
-  <option value="#keeping_score">Keeping score</option>
-  <option value="#sound">Sound</option>
-  <option value="#aspect_ratio">Adjusting the aspect ratio</option>
-  <option value="#remove_debug">Remove debug systems</option>
-  <option value="#building_your_game">Building your game</option>
-  <option value="#thank_you">Thank you</option>
-  <option value="#publishing_your_game">Publishing your game</option>
-  <option value="#upcoming_features">Upcoming features</option>
-</select>
+    <a class="navbar-right nav-icon" href="https://github.com/SplatJS/Splatformer-Tutorial/blob/master/README.md#how-to-get-help" target="_blank">
+      <i class="fa fa-question-circle"></i> Help
+    </a>
+    <a class="navbar-right nav-icon" href="https://github.com/SplatJS/" target="_blank">
+      <i class="fa fa-github"></i> Github
+    </a>
 
-<input type="submit" value="Go">
-</form>
+    <form class="navbar-form navbar-right" method="POST" onSubmit="return dropdown(this.gourl)">
+      <select name="gourl">
+        <option value="#overview">Overview</option>
+        <option value="#requirements">Requirements</option>
+        <option value="#tools">Tools</option>
+        <option value="#getting_started">Starter Project</option>
+        <option value="#development_process">Development process</option>
+        <option value="#understanding_ecs">Understanding ECS</option>
+        <option value="#diving_into_code">Diving into code</option>
+        <option value="#adding_images">Adding images</option>
+        <option value="#entity_boxes">Adjusting Entity Boxes</option>
+        <option value="#keep_on_screen">Keep entity on the screen</option>
+        <option value="#background_image">Background image</option>
+        <option value="#gravity">Gravity</option>
+        <option value="#jumping">Jumping</option>
+        <option value="#collision_resolution">Collision resolution</option>
+        <option value="#more_platforms">More platforms</option>
+        <option value="#fix_jumping">Fix jumping</option>
+        <option value="#animation">Animation</option>
+        <option value="#pickups">Pick-ups</option>
+        <option value="#keeping_score">Keeping score</option>
+        <option value="#sound">Sound</option>
+        <option value="#aspect_ratio">Adjusting the aspect ratio</option>
+        <option value="#remove_debug">Remove debug systems</option>
+        <option value="#building_your_game">Building your game</option>
+        <option value="#thank_you">Thank you</option>
+        <option value="#publishing_your_game">Publishing your game</option>
+        <option value="#upcoming_features">Upcoming features</option>
+      </select>
 
+      <button type="submit" type="submit" class="btn btn-primary">GO</button>
+    </form>
+
+  </div><!-- /.container-fluid -->
 </nav>
+
+
+
+
+<a class="page-anchor" name="top"></a>
 <header>
     <div class="header-inner row">
       <div class="col-xs-12 col-md-4">
-        <a href="http://splatjs.com" class="logo"><img src="img/logo.png"/></a>
+        <a href="#top" class="logo"><img src="img/logo.png"/></a>
       </div>
       <div class="col-xs-12 col-md-8">
 
-      <ul class="socialIcons list-inline">
+      <!-- <ul class="socialIcons list-inline">
         <li>Follow the open source project:</li>
         <li><a href="http://www.github.com/splatjs"><i class="fa fa-github"></i></a></li>
-      </ul>
+      </ul> -->
       </div>
     </div>
 
 </header>
 
-  <div class="container-fluid">
+  <div class="container-fluid white-shadow">
