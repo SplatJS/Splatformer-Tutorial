@@ -1,4 +1,4 @@
-<a name="jumping"></a>
+<a class="page-anchor" name="jumping"></a>
 
 <div class="row section-title">
 
@@ -17,7 +17,8 @@
 
   <div class="col-xs-12 col-md-6">
     <p>To add jumping we will first need to add a jump button in the game's list for usable inputs. Splat ECS uses virtual buttons so you can name a button "action" or "jump" or whatever you like and assign as many keyboard keys to it as you like.</p>
-    <h3>Adding a new input</h3>
+
+    <h4 class="heading">Adding a new input</h4>
     <p>To add a new input you will need to edit <strong>src/data/inputs.json</strong> inside the file you will see inputs for the up, down, right, and left buttons. We can add a jump button at the top above "up" by adding this JSON:</p>
   </div>
 
@@ -48,7 +49,7 @@
     <p>Now that we have added a new input we can create a new system for jumping. create a new file in the <strong>src/systems/simulation</strong> folder and name it <strong>jump.js</strong></p>
     <p>Inside of <strong>src/systems/simulation</strong> there will be a file named <strong>sample-simulation-system.js</strong> this is a sample system that acts as a useful template for creating your own systems. Duplicate this file and rename it <strong>jump.js</strong></p>
     <div class="alert alert-info">
-      <strong>Pro tip</strong>
+      <i class="fa fa-star-o"></i><strong>Pro tip</strong>
       <p>Leaving both the <strong>sample-simulation-system.js</strong> and <strong>sample-rendering-system.js</strong> in your project will save you time when you create new systems, they are handy templates!</p>
     </div>
     <p>Inside the <strong>src/systems/simulation/jump.js</strong> file you just created you will notice the word <code>"playerController2d"</code> on line 5, this is letting the ECS know which entities to apply this system to, in this particular case it will apply your code to any entities with a component named <code>"playerController2d"</code>.</p>

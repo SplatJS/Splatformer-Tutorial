@@ -1,4 +1,4 @@
-<a name="diving_into_code"></a>
+<a class="page-anchor" name="diving_into_code"></a>
 
 <div class="row section-title">
 	<div class="col-xs-12">
@@ -12,14 +12,15 @@
 <p>Everything you will ever edit in your game is inside the <strong>src/</strong> folder.</p>
 <p>Let's examine the existing game code for the sample project.</p>
 <p>If you remember there was a black outlined square and keyboard controls, how does that work?</p>
-<h4>Entities and their Components</h4>
+
+
+<h4 class="heading">Entities and their Components</h4>
 <p>Open up the game project in your code editor or choice.</p>
 <p>Open <strong>src/data</strong> and you will notice several <strong>.json</strong> files, these are the core of your game because this is where we will store all of the game's data.</p>
 
 
 <div class="alert alert-info">
-	<i class="fa fa-th"></i>
-	<strong>Data-driven game development</strong>
+	<i class="fa fa-th"></i><strong>Data-driven game development</strong>
 	<p>Much of how the game is set up (players, enemies, items, backgrounds, animations) is stored as data in JSON format.</p>
 </div>
 
@@ -85,14 +86,14 @@
 
 <p>Splat ECS handles rendering of all entities for us, and by default there is a system called <code>draw-rectangles</code> that will outline each entity in a thin black line to let us know where they are. While this system is excellent for debugging, we will want to disable it once we get futher along.</p>
 
-<h4>Systems</h4>
-
+<h4 class="heading">Systems</h4>
 <p>So we have seen entities and components so far, what about systems? Let's open up the <strong>systems</strong> folder and see what is inside. In the <strong>systems</strong> folder you will see two other folders named <strong>renderer</strong>, and <strong>simulation</strong>.</p>
 
 <p>These are the only two types of systems you will need in Splat ECS. <strong>Renderer systems</strong> draw to the screen, and <strong>Simulation systems</strong> do everything else.</p>
 
 <p>Splat ECS uses the <a href="http://www.requirejs.org/docs/commonjs.html" target="_blank">Common JS module format</a> for all system modules you will be creating. Let's open the file <strong>src/systems/simulation/sample-simulation-system.js</strong> Inside this system we will see how we format our code in Splat ECS. Here you will see <code>module.exports</code> on line 3, this is the code to export the module for use by the game project and is vital that you wrap your code in this.</p>
 <div class="alert alert-info">
+	<i class="fa fa-star-o"></i><strong>Pro tip</strong>
 	<p>Don't get intimidated by the code here, the sample systems are there for you to use as templates that you can copy each time to create your own systems.</p>
 </div>
 <p>You will notice the arguments <code>ecs</code> and <code>game</code>. Every chunk of system code in Splat ECS is run through the ECS so it must be included. <code>game</code> is everything in the data folder which becomes a large JavaScript object when the game is built.</p>

@@ -1,4 +1,4 @@
-<a name="remove_debug"></a>
+<a class="page-anchor" name="remove_debug"></a>
 
 <div class="row section-title">
 
@@ -16,9 +16,10 @@
 </div>
 
 	<div class="col-xs-12 col-md-6">
-		<p>Removing the black outlines around entities is as simple as removing the scenes from the  entry for draw-rectangles in <strong>src/data/systems.json</strong> replacing it with an empty array '[]':</p>
+		<p>Removing the black outlines around entities is as simple as removing the scenes from the entry for draw-rectangles in <strong>src/data/systems.json</strong>. Let's replace it with an empty array <code>[]</code>.</p>
 		<div class="alert alert-info">
-			<p>Doing this instead of deleting the system entry entirely let you go back and 'turn on' the system again as easy as adding <code>"scenes": "all"</code>.</p>
+			<i class="fa fa-star-o"></i><strong>Pro tip</strong>
+			<p>Replacing the <code>"all"</code> with an empty array <code>[]</code> instead of deleting the system entry entirely allows you to go back and 'turn on' the system again as easy as adding <code>"scenes": "all"</code>.</p>
 		</div>
 	</div>
 

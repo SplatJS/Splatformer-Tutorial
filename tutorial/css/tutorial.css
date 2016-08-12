@@ -139,5 +139,13 @@ pre{0.2
 	padding: 5px 20px;
   height: 40px;
   top: 0px;
+}
 
+.page-anchor{
+  margin-bottom: 60px;
+  display: block;
+}
+
+h4.heading{
+  margin-top: 30px;
 }

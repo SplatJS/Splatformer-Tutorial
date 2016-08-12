@@ -32,17 +32,15 @@
 <form method="POST" onSubmit="return dropdown(this.gourl)">
 <select name="gourl">
   <option value="#overview">Overview</option>
-  <option value="#tools">Tools</option>
-  <option value="#overview">Overview</option>
   <option value="#requirements">Requirements</option>
   <option value="#tools">Tools</option>
-  <option value="#getting_started">Getting started</option>
+  <option value="#getting_started">Starter Project</option>
   <option value="#development_process">Development process</option>
   <option value="#understanding_ecs">Understanding ECS</option>
   <option value="#diving_into_code">Diving into code</option>
   <option value="#adding_images">Adding images</option>
   <option value="#image">More images</option>
-  <option value="#entity boxes">Resizing Entity Boxes</option>
+  <option value="#entity_boxes">Adjusting Entity Boxes</option>
   <option value="#keep_on_screen">Keep entity on the screen</option>
   <option value="#background_image">Background image</option>
   <option value="#gravity">Gravity</option>
@@ -54,7 +52,7 @@
   <option value="#pickups">Pick-ups</option>
   <option value="#keeping_score">Keeping score</option>
   <option value="#sound">Sound</option>
-  <option value="#aspect_radio">Fixing the aspect ratio</option>
+  <option value="#aspect_ratio">Adjusting the aspect ratio</option>
   <option value="#remove_debug">Remove debug systems</option>
   <option value="#building_your_game">Building your game</option>
   <option value="#thank_you">Thank you</option>
@@ -83,7 +81,7 @@
 </header>
 
   <div class="container-fluid">
-<a name="overview"></a>
+<a class="page-anchor" name="overview"></a>
 <div class="row">
 	<div class="col-xs-12">
 		<h1><i class="fa fa-code circle-icon"></i> Splatformer Tutorial</h1>
@@ -114,7 +112,15 @@
 		<img src="img/js-html5.png" class="image-responsive"/>
 	</div>
 </div>
-<a name="requirements"></a>
+<a class="page-anchor" name="requirements"></a>
+
+<div class="row section-title">
+	<div class="col-xs-12">
+		<h2>Requirements to use Splat-ECS</h2>
+<h4>Your ticket to making games</h4>
+</div>
+</div>
+
 <div class="row">
 	<div class="col-xs-12 col-md-6">
 		<video class="img-responsive" controls poster="img/screenshot_015.png">
@@ -133,44 +139,53 @@
 		</ul>
 	</div>
 </div>
-<a name="tools"></a>
+<a class="page-anchor" name="tools"></a>
+<div class="row section-title">
+	<div class="col-xs-12">
+		<h2>Tools of the trade</h2>
+<h4>The right tool for the right job</h4>
+</div>
+</div>
+
 <div class="row">
 	<div class="col-xs-12">
-
 		<a name="tools-browser"></a>
-		<h4>Browser</h4>
+		<h4 class="heading">Browser</h4>
 		<p>Since Splat-ECS is for making games that run primarily in the browser, you will need  to have a browser open to preview your game while you are working on it. We recomend <a href="http://google.com/chrome" target="_blank"> Google Chrome</a> or <a href="http://firefox.com" target="_blank">Mozilla Firefox</a>.</p>
 
+
 		<a name="tools-texteditor"></a>
-		<h4> Text editor</h4>
+		<h4 class="heading"> Text editor</h4>
 		<p> To write the JavaScript code and JSON data that makes up your game you will need a text editor, if you don't already have a preference, here are some open source recommendations:</p>
 		<ul>
 			<li><a href="https://atom.io/" target="_blank"> Atom</a></li>
 			<li><a href="http://brackets.io/" target="_blank">Brackets</a></li>
 		</ul>
 
+
 		<a name="tools-terminal"></a>
-		<h4>Terminal (Command Line)</h4>
+		<h4 class="heading">Terminal (Command Line)</h4>
 		<p>Splat-ECS uses the Node Package Manager (NPM) to install and update itself, and webpack to let you build and test the game live in your broswer as you code. To use NPM and also the build tool, you will need to use the terminal, sometimes referred to as the Command Line Interface or CLI. If you are unfamiliar with the terminal in your operating system please check out these handy resources:</p>
 		<ul>
 			<li><a href="http://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything" target="_blank"> LifeHacker's - A Command Line Primer for Beginners</a></li>
 			<li>For Windows users you will need to install <a href="http://www.cygwin.com/" target="_blank">Cygwin</a>, which is a free terminal emulator</li>
 		</ul>
 		<div class="alert alert-info">
+			<i class="fa fa-star-o"></i><strong>Pro tip</strong>
 			<p>Check for the ' <i class="fa fa-terminal"></i> ' symbol in this tutorial, that means you need to type or copy a command into the terminal.</p>
 		</div>
 
 		<a name="tools-nodejs"></a>
-		<h4>Node.js</h4>
+		<h4 class="heading">Node.js</h4>
 		<p>It is also required to have Node installed. To check if you have Node installed you can type this command in your terminal <i class="fa fa-terminal"></i> <code>node -v</code> and hit enter, this should return a version number such as <strong>v6.3.1</strong> or let you know that you don't have Node installed.</p>
 		<p>To install node please refer to the instructions for your operating system here: <a href="https://nodejs.org" target="_blank">nodejs.org</a>.</p>
 
 		<a name="tools-engine"></a>
-		<h4> Splat ECS Engine</h4>
+		<h4 class="heading"> Splat ECS Engine</h4>
 		<p> The engine itself will come with the starter project in the next step below</p>
 	</div>
 </div>
-<a name="gatting_started"></a>
+<a class="page-anchor" name="gatting_started"></a>
 <div class="row section-title">
 
 	<div class="col-xs-12">
@@ -209,8 +224,8 @@
 	</div>
 
 </div>
-<a name="development_process"></a>
-<div class="row">
+<a class="page-anchor" name="development_process"></a>
+<div class="row section-title">
 
 	<div class="col-xs-12">
 		<h2>The development process</h2>
@@ -229,6 +244,7 @@
 			<i class="fa fa-terminal"></i><code>npm start</code>
 		</div>
 		<div class="alert alert-info">
+			<i class="fa fa-star-o"></i><strong>Pro tip</strong>
 			<p><strong>Once you have the webpack server running you simply leave this terminal window open while you work on your game.</strong> Making changes to your game's code and saving them will trigger the webpack server to rebuild the game and your browser will refresh automatically. This is the main workflow you will use while developing your game!</p>
 		</div>
 	</div>
@@ -258,12 +274,15 @@
 		</div>
 
 	</div>
-<a name="understanding_ecs"></a>
+<a class="page-anchor" name="understanding_ecs"></a>
+
 <div class="row section-title">
+
 	<div class="col-xs-12">
 		<h2>Understanding ECS</h2>
-<h3>The foundational concepts behind Splat ECS</h3>
-</div>
+		<h4>The foundational concepts behind Splat ECS</h4>
+	</div>
+
 </div><div class="row">
 	<div class="col-xs-12">
 <p>Splat ECS uses an Entity Component system or ECS for short, as the name implies this is a very important part of Splat ECS. ECS is at the core and you will need to understand the ECS mindset while working on your game. But don't worry, you will ease into it and it will begin to become clear to you why ECS was chosen, as it is a very powerful and organized design pattern.</p>
@@ -285,7 +304,7 @@
 
 
 
-<h5>Splat ECS basics</h5>
+<h4 class="heading">Splat ECS basics</h4>
 <ul>
 	<li>All objects in the game that you can interact with should be entities</li>
 	<li>The only way to modify an entity is to edit or delete it's components or add new components</li>
@@ -294,7 +313,7 @@
 </ul>
 </div>
 </div>
-<a name="diving_into_code"></a>
+<a class="page-anchor" name="diving_into_code"></a>
 
 <div class="row section-title">
 	<div class="col-xs-12">
@@ -308,14 +327,15 @@
 <p>Everything you will ever edit in your game is inside the <strong>src/</strong> folder.</p>
 <p>Let's examine the existing game code for the sample project.</p>
 <p>If you remember there was a black outlined square and keyboard controls, how does that work?</p>
-<h4>Entities and their Components</h4>
+
+
+<h4 class="heading">Entities and their Components</h4>
 <p>Open up the game project in your code editor or choice.</p>
 <p>Open <strong>src/data</strong> and you will notice several <strong>.json</strong> files, these are the core of your game because this is where we will store all of the game's data.</p>
 
 
 <div class="alert alert-info">
-	<i class="fa fa-th"></i>
-	<strong>Data-driven game development</strong>
+	<i class="fa fa-th"></i><strong>Data-driven game development</strong>
 	<p>Much of how the game is set up (players, enemies, items, backgrounds, animations) is stored as data in JSON format.</p>
 </div>
 
@@ -381,14 +401,14 @@
 
 <p>Splat ECS handles rendering of all entities for us, and by default there is a system called <code>draw-rectangles</code> that will outline each entity in a thin black line to let us know where they are. While this system is excellent for debugging, we will want to disable it once we get futher along.</p>
 
-<h4>Systems</h4>
-
+<h4 class="heading">Systems</h4>
 <p>So we have seen entities and components so far, what about systems? Let's open up the <strong>systems</strong> folder and see what is inside. In the <strong>systems</strong> folder you will see two other folders named <strong>renderer</strong>, and <strong>simulation</strong>.</p>
 
 <p>These are the only two types of systems you will need in Splat ECS. <strong>Renderer systems</strong> draw to the screen, and <strong>Simulation systems</strong> do everything else.</p>
 
 <p>Splat ECS uses the <a href="http://www.requirejs.org/docs/commonjs.html" target="_blank">Common JS module format</a> for all system modules you will be creating. Let's open the file <strong>src/systems/simulation/sample-simulation-system.js</strong> Inside this system we will see how we format our code in Splat ECS. Here you will see <code>module.exports</code> on line 3, this is the code to export the module for use by the game project and is vital that you wrap your code in this.</p>
 <div class="alert alert-info">
+	<i class="fa fa-star-o"></i><strong>Pro tip</strong>
 	<p>Don't get intimidated by the code here, the sample systems are there for you to use as templates that you can copy each time to create your own systems.</p>
 </div>
 <p>You will notice the arguments <code>ecs</code> and <code>game</code>. Every chunk of system code in Splat ECS is run through the ECS so it must be included. <code>game</code> is everything in the data folder which becomes a large JavaScript object when the game is built.</p>
@@ -452,7 +472,7 @@
 	</div>
 
 </div>
-<a name="adding_images"></a>
+<a class="page-anchor" name="adding_images"></a>
 <div class="row section-title">
 
 	<div class="col-xs-12">
@@ -507,7 +527,7 @@
 	</div>
 
 </div>
-<a name="entity_boxes"></a>
+<a class="page-anchor" name="entity_boxes"></a>
 
 <div class="row section-title">
 
@@ -550,7 +570,7 @@
 		<p><img src="img/screenshot_002.png" class="image-responsive" alt="Step 2 screenshot" title="" /></p>
 	</div>
 </div>
-<a name="keep_on_screen"></a>
+<a class="page-anchor" name="keep_on_screen"></a>
 
 <div class="row section-title">
 	<div class="col-xs-12">
@@ -569,7 +589,7 @@
 	<div class="col-xs-12 col-sm-6">
 		<p>The next thing we will work on is keeping the player within the bounds of the screen. For our simple game we will always want the player to stay inside of a playable area of 800 by 800 pixels. To do this we need to make use of our first additional system. The system we need to add is called <code>constrain-position</code> and it is part of the Splat-ECS engine so you can use it in any project.</p>
 
-		<h3>Adding a new system</h3>
+		<h4 class="heading">Adding a new system</h4>
 
 		<p>To add a new system we need to open the list of systems used by our game, this file is called <strong>/src/data/systems.json</strong>. Getting the system reference in the correct order is the trickiest thing about systems, but we will get into that more later.</p>
 
@@ -652,7 +672,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 				<img src="img/constrain-position.png" class="image-responsive" alt="constrain-position Splat-ECS" title="" />
 			</div>
 		</div>
-<a name="background_image"></a>
+<a class="page-anchor" name="background_image"></a>
 
 <div class="row section-title">
 
@@ -703,7 +723,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 			</div>
 
 </div>
-<a name="gravity"></a>
+<a class="page-anchor" name="gravity"></a>
 
 <div class="row section-title">
 
@@ -722,7 +742,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 
   <div class="col-xs-12 col-md-6">
     <p>Another staple of platformer games is gravity, in Splat-ECS gravity can be simulated simply by creating a force applied downward on entities, to do this we can use the built-in system <strong>apply-acceleration</strong></p>
-    <h3>appy-acceleration</h3> is a system that acts on anything with <strong>"acceleration"</strong> and <strong>"velocity"</strong> components. Our player entity already has <strong>"velocity"</strong> so we only need to add:
+    <strong>apply-acceleration</strong> is a system that acts on anything with <strong>"acceleration"</strong> and <strong>"velocity"</strong> components. Our player entity already has <strong>"velocity"</strong> so we only need to add:
 <pre><code class="json">
   "acceleration": {
     "x": 0,
@@ -808,7 +828,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
   </div>
 
 </div>
-<a name="jumping"></a>
+<a class="page-anchor" name="jumping"></a>
 
 <div class="row section-title">
 
@@ -827,7 +847,8 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
 
   <div class="col-xs-12 col-md-6">
     <p>To add jumping we will first need to add a jump button in the game's list for usable inputs. Splat ECS uses virtual buttons so you can name a button "action" or "jump" or whatever you like and assign as many keyboard keys to it as you like.</p>
-    <h3>Adding a new input</h3>
+
+    <h4 class="heading">Adding a new input</h4>
     <p>To add a new input you will need to edit <strong>src/data/inputs.json</strong> inside the file you will see inputs for the up, down, right, and left buttons. We can add a jump button at the top above "up" by adding this JSON:</p>
   </div>
 
@@ -858,7 +879,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
     <p>Now that we have added a new input we can create a new system for jumping. create a new file in the <strong>src/systems/simulation</strong> folder and name it <strong>jump.js</strong></p>
     <p>Inside of <strong>src/systems/simulation</strong> there will be a file named <strong>sample-simulation-system.js</strong> this is a sample system that acts as a useful template for creating your own systems. Duplicate this file and rename it <strong>jump.js</strong></p>
     <div class="alert alert-info">
-      <strong>Pro tip</strong>
+      <i class="fa fa-star-o"></i><strong>Pro tip</strong>
       <p>Leaving both the <strong>sample-simulation-system.js</strong> and <strong>sample-rendering-system.js</strong> in your project will save you time when you create new systems, they are handy templates!</p>
     </div>
     <p>Inside the <strong>src/systems/simulation/jump.js</strong> file you just created you will notice the word <code>"playerController2d"</code> on line 5, this is letting the ECS know which entities to apply this system to, in this particular case it will apply your code to any entities with a component named <code>"playerController2d"</code>.</p>
@@ -925,13 +946,13 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
   </div>
 
 </div>
-<a name="collision_resolution"></a>
+<a class="page-anchor" name="collision_resolution"></a>
 
 <div class="row section-title">
 
   <div class="col-xs-12">
 
-    <h2>Adding platforms</h2>
+    <h2>Adding platforms (Colision Resolution)</h2>
     <h3>A firm foundation</h3>
   </div>
 
@@ -970,7 +991,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
   <div class="col-xs-12 col-md-6">
     <p>When you check your game in the browser, you will notice that the player falls right through the ground, that's because we do not have any code in place to handle collisions - or more importantly the resolution of collisions.</p>
 
-    <h3>Collision resolution</h3>
+    <h4 class="heading">Collision resolution</h4>
 
     <p>This is code you specify to do something only when two entities are colliding. The collision resolution we want for our game is for the player to be pushed back one pixel if the player enters any of the game's platforms. Pushing the player away by one pixel will keep the player "standing" on top of the platform entity.</p>
     <p>To resolve collisions we need two new systems, <code>track-last-position</code> and <code>resolve-collisions</code>, both of which we will need to add manually to our project.</p>
@@ -978,7 +999,6 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
     <p><code>track-last-position</code> runs each frame on every entity with a position and records it in a component called "lastPosition". This is important for knowing what position to restore the entity to after it intersects another.</p>
   </div>
   <div class="col-xs-12 col-md-6">
-
     <img src="img/collision-resolution.png" class="image-responsive"/>
   </div>
 
@@ -1099,7 +1119,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
     <p><img src="img/screenshot_007.png" class="image-responsive" alt="Step 7 screenshot" title="" /></p>
   </div>
 </div>
-<a name="more_platforms"></a>
+<a class="page-anchor" name="more_platforms"></a>
 
 <div class="row section-title">
 
@@ -1186,7 +1206,7 @@ module.exports = function(game) { // eslint-disable-line no-unused-vars
   </div>
 
 </div>
-<a name="fix_jumping"></a>
+<a class="page-anchor" name="fix_jumping"></a>
 
 <div class="row section-title">
 
@@ -1255,7 +1275,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
   </div>
 
 </div>
-<a name="animation"></a>
+<a class="page-anchor" name="animation"></a>
 
 <div class="row section-title">
   <div class="col-xs-12">
@@ -1411,7 +1431,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
   </div>
 
 </div>
-<a name="pickups"></a>
+<a class="page-anchor" name="pickups"></a>
 
 <div class="row section-title">
 
@@ -1612,7 +1632,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 
       </div>
     </div>
-<a name="keeping_score"></a>
+<a class="page-anchor" name="keeping_score"></a>
 
 <div class="row section-title">
 
@@ -1729,7 +1749,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 		<img src="img/screenshot_012.png" class="image-responsive" alt="Step 12 screenshot" title="" />
 	</div>
 </div>
-<a name="sound"></a>
+<a class="page-anchor" name="sound"></a>
 
 <div class="row section-title">
 
@@ -1818,7 +1838,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	</div>
 
 </div>
-<a name="aspect_ratio"></a>
+<a class="page-anchor" name="aspect_ratio"></a>
 
 <div class="row section-title">
 	<div class="col-xs-12">
@@ -1869,7 +1889,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	</div>
 
 </div>
-<a name="remove_debug"></a>
+<a class="page-anchor" name="remove_debug"></a>
 
 <div class="row section-title">
 
@@ -1887,9 +1907,10 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 </div>
 
 	<div class="col-xs-12 col-md-6">
-		<p>Removing the black outlines around entities is as simple as removing the scenes from the  entry for draw-rectangles in <strong>src/data/systems.json</strong> replacing it with an empty array '[]':</p>
+		<p>Removing the black outlines around entities is as simple as removing the scenes from the entry for draw-rectangles in <strong>src/data/systems.json</strong>. Let's replace it with an empty array <code>[]</code>.</p>
 		<div class="alert alert-info">
-			<p>Doing this instead of deleting the system entry entirely let you go back and 'turn on' the system again as easy as adding <code>"scenes": "all"</code>.</p>
+			<i class="fa fa-star-o"></i><strong>Pro tip</strong>
+			<p>Replacing the <code>"all"</code> with an empty array <code>[]</code> instead of deleting the system entry entirely allows you to go back and 'turn on' the system again as easy as adding <code>"scenes": "all"</code>.</p>
 		</div>
 	</div>
 
@@ -1917,7 +1938,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	</div>
 
 </div>
-<a name="building_your_game"></a>
+<a class="page-anchor" name="building_your_game"></a>
 
 <div class="row section-title">
 	<div class="col-xs-12">
@@ -1959,7 +1980,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	</div>
 
 </div>
-<a name="thank_you"></a>
+<a class="page-anchor" name="thank_you"></a>
 
 <div class="row section-title">
 	<div class="col-xs-12">
@@ -1973,11 +1994,11 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	</div>
 
 </div>
-<a name="publishing your game"></a>
+<a class="page-anchor" name="publishing_your_game"></a>
 
 <div class="row section-title">
 	<div class="col-xs-12">
-		<h2>Sharing Publishing your game</h2>
+		<h2>Sharing and publishing your game</h2>
 
 </div>
 </div>
@@ -1996,7 +2017,7 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 	</div>
 
 	<div class="col-xs-12 col-md-6">
-		<h3>If you are using github</h3>
+		<h4 class="heading">If you are using github</h4>
 		<ul>
 			<li>The one file that is not in <strong>src/</strong> that you will need to edit is the <strong>package.json</strong>. Open package.json in your code editor. Change <code>name</code> to the name of your game (no caps or spaces)</li>
 			<li>edit <code>description</code> to describe your game</li>
@@ -2007,13 +2028,13 @@ module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
 			<li><code>license</code> - Change to 'proprietary' unless you want your game to be free and open source.</li>
 		</ul>
 		<div class="alert alert-info">
-			<strong> A note on licenses</strong>
+			<i class="fa fa-file-text-o"></i><strong> A note on licenses</strong>
 			<p>Splat-ECS itself uses the MIT licence but your can use any license you want or make it proprietary. You can charge money for your Splat-ECS game, it is fully yours and you can do whatever you like with it with no restrictions. More info about the Open Source licenses like the MIT license can be found here: <a href="https://opensource.org/licenses">https://opensource.org/licenses</a></p>
 		</div>
 	</div>
 
 </div>
-<a name="upcoming_features"></a>
+<a class="page-anchor" name="upcoming_features"></a>
 
 <div class="row">
 	<div class="col-xs-12">
