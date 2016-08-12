@@ -6,14 +6,14 @@ Splat ECS is a free and Open Source game engine project with the goal of making 
 
 ## [Click here to view the tutorial](http://splatjs.com/tutorials/splatformer/)
 
-### How to get help
+#How to get help
 ###### If you found a bug or have a question, please feel free to do any of the following:
 
 * Contact the author [@alexbezuska](https://twitter.com/alexbezuska) on twitter
 * Submit a github issue
 * Submit a pull request
 
-### How to contribute
+#How to contribute
 
 The tutorial is split into many html files located in `tutorial/src/` to make it eisier to find what you are looking for and make quick edits to each section.
 ##### To start:
