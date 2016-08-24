@@ -16,12 +16,6 @@
 	</div>
 	<div class="col-xs-12 col-sm-6">
 		<p>The next thing we will work on is keeping the player within the bounds of the screen. For our simple game we will always want the player to stay inside of a playable area of 800 by 800 pixels. To do this we need to make use of our first additional system. The system we need to add is called <code>constrain-position</code> and it is part of the Splat-ECS engine so you can use it in any project.</p>
-
-		<h4 class="heading">Adding a new system</h4>
-
-		<p>To add a new system we need to open the list of systems used by our game, this file is called <strong>/src/data/systems.json</strong>. Getting the system reference in the correct order is the trickiest thing about systems, but we will get into that more later.</p>
-
-		<p>Systems come in two types: <strong>Renderer</strong> and <strong>Simulation</strong>. The list of systems in   <strong>/src/data/systems.json</strong> is seperated into these two categories. Since <code>constrain-position</code> has to do with keeping an entity inside a rectangular area (using it's position and size) it is a <strong>Simulation</strong> system. Inside <strong>/src/data/systems.json</strong> you will see a JSON object with two named arrays inside:</p>
 	</div>
 </div>
 
@@ -29,30 +23,8 @@
 <div class="row">
 
 <div class="col-xs-12">
-<pre><code class="json">
-{
-	"simulation": [...],
-	"renderer": [...]
-}
-</code></pre>
-
-		<p>Systems are regular JavaScript files and the references to them in <strong>/src/data/systems.json</strong> are normal file paths.</p>
-
-		<p>Each system has a couple of parts: <code>"name"</code> is the path to the system JavaScript file. If it is a built-in Splat-ECS system it will begin with <strong>splat-ecs/lib/systems/</strong>, if it's your own system it will be either <strong>./systems/simulation/your-system-here</strong> or <strong>./systems/renderer/your-system-here</strong>. </p>
-
-		<p><code>"scenes"</code> can be either an array '[]' of scene names to include this system in, or the keyword <code>"all"</code> to enable this system on all scenes.</p>
-
-		<p>So let's add the <code>constrain-position</code> system reference after <code>box-collider</code>. Here is what that will look like:</p>
-
-
-<pre><code class="json">
-    {
-      "name": "splat-ecs/lib/systems/constrain-position",
-      "scenes": "all"
-    },
-</code></pre>
-
-		<p>Next we need to add the <code>constrainPosition</code> component to the player entity, but before we do that we need another entity with a position and size so it can act as an invisible boundary to contain the player, for this we will create a new entity in <strong>/src/data/entities.json</strong> after the player entity.</p>
+	
+	<p>Next we need to add the <code>constrainPosition</code> component to the player entity, but before we do that we need another entity with a position and size so it can act as an invisible boundary to contain the player, for this we will create a new entity in <strong>/src/data/entities.json</strong> after the player entity.</p>
 
 <pre><code class="json">
 {
@@ -67,8 +39,6 @@
   }
 }
 </code></pre>
-
-
 
 </div>
 
