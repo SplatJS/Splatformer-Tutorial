@@ -53,7 +53,7 @@
       <p>Leaving both the <strong>sample-simulation-system.js</strong> and <strong>sample-rendering-system.js</strong> in your project will save you time when you create new systems, they are handy templates!</p>
     </div>
     <p>Inside the <strong>src/systems/simulation/jump.js</strong> file you just created you will notice the word <code>"playerController2d"</code> on line 5, this is letting the ECS know which entities to apply this system to, in this particular case it will apply your code to any entities with a component named <code>"playerController2d"</code>.</p>
-    <p>Let's add a variable inside our system to store the player's velocity. To get values out of the entity's components in Splat we use the get method. Since everything in the entity pool has a unique ID, the ID is what we use to tell Splat which entity we are looking for. Since the system is applying the code to each entity with a <code>"playerController2d"</code> component it acts a lot like a loop, the "entity" attribute on line 4 is the id of the current entity it is running on. </p>
+    <p>Let's add a variable inside our system to store the player's velocity. To get values out of the entity's components in Splat we use the <code>game.entities.getComponent()</code> method. Since everything in the entity pool has a unique ID, the ID is what we use to tell Splat which entity we are looking for. Since the system is applying the code to each entity with a <code>"playerController2d"</code> component it acts a lot like a loop, the "entity" attribute on line 4 is the id of the current entity it is running on. </p>
   </div>
 
   <div class="col-xs-12 col-md-6">
