@@ -16,7 +16,7 @@
   </div>
 
   <div class="col-xs-12 col-md-6">
-    <p>To add jumping we will first need to add a jump button in the game's list for usable inputs. Splat ECS uses virtual buttons so you can name a button "action" or "jump" or whatever you like and assign as many keyboard keys to it as you like.</p>
+    <p>To add jumping we will first need to add a jump button in the game's list for usable inputs. Splat uses virtual buttons so you can name a button "action" or "jump" or whatever you like and assign as many keyboard keys to it as you like.</p>
 
     <h4 class="heading">Adding a new input</h4>
     <p>To add a new input you will need to edit <strong>src/data/inputs.json</strong> inside the file you will see inputs for the up, down, right, and left buttons. We can add a jump button at the top above "up" by adding this JSON:</p>
@@ -38,7 +38,7 @@
   <div class="col-xs-12 col-md-6">
     <p>By changing "key" you can map jump to any keyboard key.</p>
     <div class="alert alert-info">
-      <i class="fa fa-gamepad"></i><strong>Splat-ECS supports controllers!</strong>
+      <i class="fa fa-gamepad"></i><strong>Splat supports controllers!</strong>
       <p>Just like <strong>"keyboard"</strong>, you can use <strong>"gamepad"</strong> as a device type in <strong>src/data/inputs.json</strong> you can use <strong>"a"</strong> for the jump button and try it out on your usb controller of choice!</p>
     </div>
   </div>
@@ -53,25 +53,25 @@
       <p>Leaving both the <strong>sample-simulation-system.js</strong> and <strong>sample-rendering-system.js</strong> in your project will save you time when you create new systems, they are handy templates!</p>
     </div>
     <p>Inside the <strong>src/systems/simulation/jump.js</strong> file you just created you will notice the word <code>"playerController2d"</code> on line 5, this is letting the ECS know which entities to apply this system to, in this particular case it will apply your code to any entities with a component named <code>"playerController2d"</code>.</p>
-    <p>Let's add a variable inside our system to store the player's velocity. To get values out of the entity's components in Splat ECS we use the get method. Since everything in the entity pool has a unique ID, the ID is what we use to tell Splat ECS which entity we are looking for. Since the system is applying the code to each entity with a <code>"playerController2d"</code> component it acts a lot like a loop, the "entity" attribute on line 4 is the id of the current entity it is running on. </p>
+    <p>Let's add a variable inside our system to store the player's velocity. To get values out of the entity's components in Splat we use the get method. Since everything in the entity pool has a unique ID, the ID is what we use to tell Splat which entity we are looking for. Since the system is applying the code to each entity with a <code>"playerController2d"</code> component it acts a lot like a loop, the "entity" attribute on line 4 is the id of the current entity it is running on. </p>
   </div>
 
   <div class="col-xs-12 col-md-6">
     <strong>src/systems/simulation/jump.js</strong>
 <pre><code class="javascript">
-  "use strict";
+"use strict";
 
-  module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
-  	ecs.addEach(function jump(entity, elapsed) { // eslint-disable-line no-unused-vars
-  		var velocity = game.entities.get(entity, "velocity");
+module.exports = function(ecs, game) { // eslint-disable-line no-unused-vars
+  ecs.addEach(function jump(entity, elapsed) { // eslint-disable-line no-unused-vars
+    var velocity = game.entities.getComponent(entity, "velocity");
 
-  		if (game.inputs.buttonPressed("jump")) {
-  			velocity.y  = -1.2;
-  		}
+    if (game.inputs.buttonPressed("jump")) {
+      velocity.y  = -7;
+    }
 
-  	}, "playerController2d");
+  }, "playerController2d");
 
-  };
+};
 
 </code></pre>
   </div>
@@ -95,24 +95,24 @@
   <div class="col-xs-12 col-md-6">
     <p>Next we need to register this system in <strong>src/data/systems.json</strong> inside the <code>"simulation": []</code> array because it is a simulation system. We can add it using the following:</p>
 <pre><code class="json">
-{
-  "name": "./systems/simulation/jump",
-  "scenes": "all"
-},
+  {
+    "name": "./systems/simulation/jump",
+    "scenes": "all"
+  },
 </code></pre>
     <p>I recommend adding it before <code>control-player</code>.</p>
     <p>We also need to adjust the vertical friction (to disable it actually). To do this we need to set the player entity's friction y to 1:</p>
 <pre><code class="json">
   "friction": {
     "x": 0.97,
-    "y": 1
+    "y": 0.99
   },
 </code></pre>
     <p>Now when you view your game in the browser your player will be able to jump when space is pressed. You will probably notice that if you continue to jump you can jump in mid-air, we will fix this later. Now for the element that makes this game a platformer more than anything... platforms!</p>
   </div>
 
   <div class="col-xs-12 col-md-6">
-    <img src="img/jumping.png" class="image-responsive" alt="jumping! - Splat-ECS game engine" title="" />
+    <img src="img/jumping.png" class="image-responsive" alt="jumping! - Splat game engine" title="" />
   </div>
 
 </div>
